@@ -6,6 +6,8 @@ import androidx.core.content.res.ResourcesCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +20,8 @@ public class SplashScreen extends AppCompatActivity {
     private TextView textView;
     private ImageView LogoImage;
 
+    private Button Login_Button, Register_Button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,8 @@ public class SplashScreen extends AppCompatActivity {
 
         LogoImage = findViewById(R.id.corona_logo);
         textView = findViewById(R.id.textView);
+        Login_Button = findViewById(R.id.login_button);
+        Register_Button = findViewById(R.id.register_button);
 
         textView.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.exobold));
 
@@ -32,10 +38,28 @@ public class SplashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                /*Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                startActivity(intent);
+                finish();*/
+            }
+        },TIME_OUT);
+
+        Login_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SplashScreen.this, Login.class);
                 startActivity(intent);
                 finish();
             }
-        },TIME_OUT);
+        });
+
+        Register_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SplashScreen.this, Register.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
