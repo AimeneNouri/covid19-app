@@ -34,7 +34,7 @@ public class Register extends AppCompatActivity {
 
     private EditText UserName, UserEmail, UserPassword, ConfirmPassword;
     private Button SignUpButton;
-    private TextView togglePassword, toggleConfirmPassword;
+    private TextView togglePassword, toggleConfirmPassword, AlreadyHaveAccount;
 
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef;
@@ -56,6 +56,7 @@ public class Register extends AppCompatActivity {
         SignUpButton = findViewById(R.id.login_button);
         togglePassword = findViewById(R.id.showHidePassword);
         toggleConfirmPassword = findViewById(R.id.showHideConfirmPassword);
+        AlreadyHaveAccount = findViewById(R.id.alreadyHaveAccount);
 
         UserPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         ConfirmPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -153,6 +154,13 @@ public class Register extends AppCompatActivity {
         });
 
         loadingBar = new ProgressDialog(this);
+        AlreadyHaveAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent homeIntent = new Intent(Register.this, Login.class);
+                startActivity(homeIntent);
+            }
+        });
     }
 
     public void onCheckboxClicked(View view) {
@@ -160,10 +168,13 @@ public class Register extends AppCompatActivity {
 
         switch(view.getId()) {
             case R.id.checkbox:
-                if (checked)
+                if (checked){
                     SignUpButton.setEnabled(true);
-                else
+                }
+                else {
                     SignUpButton.setEnabled(false);
+                }
+
         }
     }
 
@@ -174,29 +185,33 @@ public class Register extends AppCompatActivity {
         final String userName = UserName.getText().toString();
         final String confirmPassword = ConfirmPassword.getText().toString();
 
-        if(TextUtils.isEmpty(email))
-        {
-            Toast.makeText(this, "Please Enter your email!!", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password) && TextUtils.isEmpty(confirmPassword) && TextUtils.isEmpty(userName)){
+            Toast.makeText(this, "Please fill in the blank", Toast.LENGTH_SHORT).show();
+            SignUpButton.setBackgroundResource(R.drawable.login_button);
         }
-        if(TextUtils.isEmpty(password))
-        {
-            Toast.makeText(this, "Please Enter your password!!", Toast.LENGTH_SHORT).show();
-        }
-        if(TextUtils.isEmpty(confirmPassword))
-        {
-            Toast.makeText(this, "Please Confirm your password!!", Toast.LENGTH_SHORT).show();
-        }
-        if(TextUtils.isEmpty(userName))
+        else if(TextUtils.isEmpty(userName))
         {
             Toast.makeText(this, "Please Enter your Name!!", Toast.LENGTH_SHORT).show();
         }
-        if (!password.equals(confirmPassword))
-        {
-            Toast.makeText(this, "password and confirm password are not identical", Toast.LENGTH_SHORT).show();
-        }
-        if (userName.length() > 15)
+        else if (userName.length() > 15)
         {
             Toast.makeText(this, "your name is too big", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(email))
+        {
+            Toast.makeText(this, "Please Enter your email!!", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(password))
+        {
+            Toast.makeText(this, "Please Enter your password!!", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(confirmPassword))
+        {
+            Toast.makeText(this, "Please Confirm your password!!", Toast.LENGTH_SHORT).show();
+        }
+        else if (!password.equals(confirmPassword))
+        {
+            Toast.makeText(this, "password and confirm password are not identical", Toast.LENGTH_SHORT).show();
         }
 
         else {

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".acitivities.SplashScreen">
+    tools:context=".acitivities.SplashScreen"
+    android:background="@color/white">
 
     <RelativeLayout
         android:id="@+id/layoutSplashScreen"
@@ -34,42 +35,5 @@
             android:textSize="24sp"/>
 
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
-            android:stateListAnimator="@anim/button_state_list_animator"
-            android:text="Login"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:textColor="#fff"
-            android:textAllCaps="false"
-            android:fontFamily="@font/exo2semibold"
-            android:background="@drawable/login_button" />
-
-        <Button
-            android:id="@+id/register_button"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:stateListAnimator="@anim/button_state_list_animator"
-            android:text="Create Account"
-            android:textSize="24sp"
-            android:textColor="#C703BE"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:fontFamily="@font/exo2semibold"
-            android:background="@drawable/register_button" />
-
-    </LinearLayout>
 
 </RelativeLayout>

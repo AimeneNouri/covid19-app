@@ -18,8 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".acitivities.Login"></activity>
-        <activity android:name=".acitivities.Register" />
+        <activity android:name=".acitivities.Login"
+            android:theme="@style/AppTheme.Launcher"/>
+        <activity android:name=".acitivities.Register"
+            android:theme="@style/AppTheme.Launcher"/>
         <activity android:name=".MainActivity" />
         <activity
             android:name=".acitivities.SplashScreen"

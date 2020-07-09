@@ -5,8 +5,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".acitivities.Login">
+    tools:context=".acitivities.Login"
+    android:background="@color/white">
 
-    
+    <TextView
+        android:id="@+id/showHidePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/PasswordUser"
+        android:layout_alignEnd="@+id/PasswordUser"
+        android:layout_alignBottom="@+id/PasswordUser"
+        android:text="SHOW"
+        android:layout_marginStart="256dp"
+        android:layout_marginEnd="5dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="15dp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:elevation="1dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/corona_logo"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:background="@drawable/corona_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/corona_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Sign In"
+        android:textColor="#C703BE"
+        android:textStyle="bold"
+        android:textSize="23sp"/>
+
+    <EditText
+        android:id="@+id/UsernameOrEmail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:hint="Username or Email"
+        android:background="@drawable/edittext"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:layout_below="@+id/corona_logo"
+        />
+
+    <EditText
+        android:id="@+id/PasswordUser"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        android:background="@drawable/edittext"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:layout_below="@+id/UsernameOrEmail"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/PasswordUser"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="25dp">
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Sign in"
+            android:textSize="21sp"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:fontFamily="@font/exo2semibold"
+            android:background="@drawable/login_button"
+            android:gravity="center"
+            android:enabled="false"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignStart="@+id/login_button"
+            android:layout_alignEnd="@+id/login_button"
+            android:layout_alignBottom="@+id/login_button"
+            android:layout_marginStart="146dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="14dp"
+            android:indeterminateTint="@android:color/white"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/NewAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/login_button"
+            android:text="Create new account"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/exo2regular"
+            android:textSize="14.5sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
