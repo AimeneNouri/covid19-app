@@ -7,10 +7,202 @@
     android:layout_height="match_parent"
     tools:context=".acitivities.Register">
 
-    <EditText
+
+    <TextView
+        android:id="@+id/showHidePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Full name"
+        android:layout_alignStart="@+id/PasswordUser"
+        android:layout_alignEnd="@+id/PasswordUser"
+        android:layout_alignBottom="@+id/PasswordUser"
+        android:text="SHOW"
+        android:layout_marginStart="256dp"
+        android:layout_marginEnd="5dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="18dp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:elevation="1dp"/>
+
+
+    <TextView
+        android:id="@+id/showHideConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ConfirmPasswordUser"
+        android:layout_alignEnd="@+id/ConfirmPasswordUser"
+        android:layout_alignBottom="@+id/ConfirmPasswordUser"
+        android:text="SHOW"
+        android:layout_marginStart="256dp"
+        android:layout_marginEnd="5dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="18dp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:elevation="1dp"/>
+
+    <ImageView
+        android:id="@+id/corona_logo"
+        android:layout_width="135dp"
+        android:layout_height="120dp"
+        android:background="@drawable/corona_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
         />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/corona_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Create Account"
+        android:textColor="#C703BE"
+        android:textStyle="bold"
+        android:textSize="22sp"/>
+
+    <EditText
+        android:id="@+id/Username"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="60dp"
+        android:hint="Full name"
+        android:background="@drawable/edittext"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:layout_below="@+id/corona_logo"
+        />
+
+    <EditText
+        android:id="@+id/UserEmail"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:hint="Email"
+        android:background="@drawable/edittext"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:layout_below="@+id/Username"
+        />
+
+    <EditText
+        android:id="@+id/PasswordUser"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        android:background="@drawable/edittext"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:layout_below="@+id/UserEmail"
+        />
+
+    <EditText
+        android:id="@+id/ConfirmPasswordUser"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:hint="Confirm Password"
+        android:background="@drawable/edittext"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        android:layout_below="@+id/PasswordUser"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ConfirmPasswordUser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I accept the"
+            android:textColor="#504F4F"
+            android:buttonTint="@color/colorPrimary"
+            android:onClick="onCheckboxClicked"/>
+
+        <TextView
+            android:id="@+id/privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/checkbox"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="5.5dp"
+            android:layout_toEndOf="@+id/checkbox"
+            android:text="Privacy"
+            android:textColor="#C703BE"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/and"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/checkbox"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="6dp"
+            android:layout_toEndOf="@+id/privacy"
+            android:text="and"
+            android:textColor="#504F4F"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/Terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/checkbox"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="5.5dp"
+            android:layout_toEndOf="@+id/and"
+            android:text="Terms"
+            android:textColor="#C703BE"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp">
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:stateListAnimator="@anim/button_state_list_animator"
+            android:text="Create Account"
+            android:textSize="21sp"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:fontFamily="@font/exo2semibold"
+            android:background="@drawable/login_button"
+            android:gravity="center"
+            android:enabled="false"/>
+
+
+        <TextView
+            android:id="@+id/alreadyHaveAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/login_button"
+            android:text="Already have account?"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/exo2regular"
+            android:textSize="16.5sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
