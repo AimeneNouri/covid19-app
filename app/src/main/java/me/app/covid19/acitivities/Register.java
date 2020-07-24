@@ -10,7 +10,6 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -26,7 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 
-import me.app.covid19.MainActivity;
+import java.util.regex.Pattern;
+
 import me.app.covid19.R;
 import me.app.covid19.models.Users;
 
@@ -40,6 +40,7 @@ public class Register extends AppCompatActivity {
     private DatabaseReference RootRef;
 
     private ProgressDialog loadingBar;
+    private String email, userName, password, confirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,36 +181,32 @@ public class Register extends AppCompatActivity {
 
 
     public void createNewAccount(){
-        final String email = UserEmail.getText().toString();
-        final String password = UserPassword.getText().toString();
-        final String userName = UserName.getText().toString();
-        final String confirmPassword = ConfirmPassword.getText().toString();
+        email = UserEmail.getText().toString();
+        password = UserPassword.getText().toString();
+        userName = UserName.getText().toString();
+        confirmPassword = ConfirmPassword.getText().toString();
 
-        if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password) && TextUtils.isEmpty(confirmPassword) && TextUtils.isEmpty(userName)){
-            Toast.makeText(this, "Please fill in the blank", Toast.LENGTH_SHORT).show();
-            SignUpButton.setBackgroundResource(R.drawable.login_button);
-        }
-        else if(TextUtils.isEmpty(userName))
+        if(TextUtils.isEmpty(userName))
         {
             Toast.makeText(this, "Please Enter your Name!!", Toast.LENGTH_SHORT).show();
         }
-        else if (userName.length() > 15)
+        if (userName.length() > 15)
         {
             Toast.makeText(this, "your name is too big", Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty(email))
+        if(TextUtils.isEmpty(email))
         {
             Toast.makeText(this, "Please Enter your email!!", Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty(password))
+        if(TextUtils.isEmpty(password))
         {
             Toast.makeText(this, "Please Enter your password!!", Toast.LENGTH_SHORT).show();
         }
-        else if(TextUtils.isEmpty(confirmPassword))
+        if(TextUtils.isEmpty(confirmPassword))
         {
             Toast.makeText(this, "Please Confirm your password!!", Toast.LENGTH_SHORT).show();
         }
-        else if (!password.equals(confirmPassword))
+        if (!password.equals(confirmPassword))
         {
             Toast.makeText(this, "password and confirm password are not identical", Toast.LENGTH_SHORT).show();
         }
@@ -256,5 +253,20 @@ public class Register extends AppCompatActivity {
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);
         finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    //Check if email or not
+    public static boolean isEmail(String text)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (text == null)
+            return false;
+        return pat.matcher(text).matches();
     }
 }

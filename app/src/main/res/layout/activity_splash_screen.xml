@@ -32,7 +32,18 @@
             android:layout_marginTop="10dp"
             android:text="Corona Virus"
             android:textColor="#C703BE"
-            android:textSize="24sp"/>
+            android:textSize="28sp"/>
+
+        <TextView
+            android:id="@+id/and"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="5dp"
+            android:text="Caring for the future"
+            android:layout_centerHorizontal="true"
+            android:textColor="#504F4F"
+            android:textSize="13sp" />
 
     </RelativeLayout>
 

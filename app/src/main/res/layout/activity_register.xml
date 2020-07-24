@@ -19,7 +19,7 @@
         android:text="SHOW"
         android:layout_marginStart="256dp"
         android:layout_marginEnd="5dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#7777FF"
         android:layout_marginBottom="15dp"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -37,7 +37,7 @@
         android:text="SHOW"
         android:layout_marginStart="256dp"
         android:layout_marginEnd="5dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#7777FF"
         android:layout_marginBottom="15dp"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -48,69 +48,90 @@
         android:id="@+id/corona_logo"
         android:layout_width="120dp"
         android:layout_height="100dp"
-        android:background="@drawable/corona_logo"
+        android:background="@drawable/corona_logo2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
         />
 
-    <TextView
-        android:id="@+id/textView"
+    <RelativeLayout
+        android:id="@+id/layoutText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/corona_logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:text="Create Account"
-        android:textColor="#C703BE"
-        android:textStyle="bold"
-        android:textSize="23sp"/>
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Corona "
+            android:textColor="#7777FF"
+            android:textStyle="bold"
+            android:textSize="23sp"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/textView"
+            android:text="Virus"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="23sp"/>
+
+
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/Username"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="60dp"
-        android:hint="Full name"
+        android:hint="Username"
         android:background="@drawable/edittext"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_below="@+id/corona_logo"
+        android:singleLine="true"
         />
 
     <EditText
         android:id="@+id/UserEmail"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Email"
         android:background="@drawable/edittext"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_below="@+id/Username"
+        android:singleLine="true"
         />
 
     <EditText
         android:id="@+id/PasswordUser"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Password"
         android:background="@drawable/edittext"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_below="@+id/UserEmail"
+        android:singleLine="true"
         />
 
     <EditText
         android:id="@+id/ConfirmPasswordUser"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Confirm Password"
         android:background="@drawable/edittext"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_below="@+id/PasswordUser"
+        android:singleLine="true"
         />
 
     <RelativeLayout
@@ -128,7 +149,7 @@
             android:layout_height="wrap_content"
             android:text="I accept the"
             android:textColor="#504F4F"
-            android:buttonTint="@color/colorPrimary"
+            android:buttonTint="#7777FF"
             android:onClick="onCheckboxClicked"/>
 
         <TextView
@@ -140,7 +161,7 @@
             android:layout_marginBottom="5.5dp"
             android:layout_toEndOf="@+id/checkbox"
             android:text="Privacy"
-            android:textColor="#C703BE"
+            android:textColor="#7777FF"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -165,7 +186,7 @@
             android:layout_marginBottom="5.5dp"
             android:layout_toEndOf="@+id/and"
             android:text="Terms"
-            android:textColor="#C703BE"
+            android:textColor="#7777FF"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -182,7 +203,7 @@
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="180dp"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:text="Create Account"
             android:textSize="21sp"
@@ -190,22 +211,40 @@
             android:textColor="#fff"
             android:textAllCaps="false"
             android:fontFamily="@font/exo2semibold"
-            android:background="@drawable/login_button_disabled"
+            android:background="@drawable/button_login_click"
+            android:layout_marginTop="15dp"
             android:gravity="center"
             android:enabled="false"/>
 
-
-        <TextView
-            android:id="@+id/alreadyHaveAccount"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
             android:layout_below="@+id/login_button"
-            android:text="Already have account?"
-            android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/exo2regular"
-            android:textSize="14.5sp" />
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/NewAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already have account? "
+                android:fontFamily="@font/exo2regular"
+                android:textSize="15.5sp" />
+
+            <TextView
+                android:id="@+id/alreadyHaveAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:fontFamily="@font/exo2regular"
+                android:layout_toEndOf="@+id/NewAccount"
+                android:layout_marginTop="1dp"
+                android:textColor="#7777FF"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

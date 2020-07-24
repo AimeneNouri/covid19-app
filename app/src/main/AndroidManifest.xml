@@ -17,12 +17,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".acitivities.Login"
-            android:theme="@style/AppTheme.Launcher"/>
-        <activity android:name=".acitivities.Register"
-            android:theme="@style/AppTheme.Launcher"/>
-        <activity android:name=".MainActivity" />
+        android:theme="@style/AppTheme.Launcher">
+        <activity android:name=".acitivities.UserInfo"></activity>
+        <activity android:name=".acitivities.onboard.stayHome" />
+        <activity android:name=".acitivities.onboard.onboardFaceMask" />
+        <activity android:name=".acitivities.onboard.onboardCleanHand" />
+        <activity android:name=".acitivities.onboard.onboardCloseContact" />
+        <activity
+            android:name=".acitivities.MainActivity"
+            android:theme="@style/AppTheme.Main" />
+        <activity
+            android:name=".acitivities.Login"
+            android:theme="@style/AppTheme.Launcher" />
+        <activity
+            android:name=".acitivities.Register"
+            android:theme="@style/AppTheme.Launcher" />
         <activity
             android:name=".acitivities.SplashScreen"
             android:theme="@style/AppTheme.Launcher">

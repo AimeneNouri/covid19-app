@@ -29,7 +29,6 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.regex.Pattern;
 
-import me.app.covid19.MainActivity;
 import me.app.covid19.R;
 
 public class Login extends AppCompatActivity {
@@ -134,6 +133,12 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
     private void SignIn() {
         String nameOrEmail = UserNameOrEmail.getText().toString();
         String password = UserPassword.getText().toString();
@@ -183,6 +188,7 @@ public class Login extends AppCompatActivity {
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);
         finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     //Check if email or not

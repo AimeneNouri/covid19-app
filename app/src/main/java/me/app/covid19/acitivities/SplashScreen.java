@@ -6,17 +6,15 @@ import androidx.core.content.res.ResourcesCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import me.app.covid19.MainActivity;
 import me.app.covid19.R;
+import me.app.covid19.acitivities.onboard.onboardCloseContact;
 
 public class SplashScreen extends AppCompatActivity {
 
-    public static int TIME_OUT = 4000;
+    public static int TIME_OUT = 3000;
     private TextView textView;
     private ImageView LogoImage;
 
@@ -34,9 +32,10 @@ public class SplashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, Login.class);
+                Intent intent = new Intent(SplashScreen.this, onboardCloseContact.class);
                 startActivity(intent);
                 finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         },TIME_OUT);
 

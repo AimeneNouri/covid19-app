@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".acitivities.UserInfo">
+
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/ic_close_black_24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        />
+
+    <EditText
+        android:id="@+id/UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_alignParentTop="true"
+        android:hint="Name"
+        android:background="@drawable/edittext"
+        android:padding="15dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:singleLine="true"
+        android:elevation="2dp"
+        />
+
+    <EditText
+        android:id="@+id/UserEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Email"
+        android:background="@drawable/edittext"
+        android:padding="15dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_below="@+id/UserName"
+        android:singleLine="true"
+        android:elevation="2dp"
+        />
+
+    <EditText
+        android:id="@+id/UserCIN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="CIN"
+        android:background="@drawable/edittext"
+        android:padding="15dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_below="@+id/UserEmail"
+        android:singleLine="true"
+        android:elevation="2dp"
+        />
+
+    <EditText
+        android:id="@+id/UserBirth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Date of Birth"
+        android:background="@drawable/edittext"
+        android:padding="15dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_below="@+id/UserCIN"
+        android:singleLine="true"
+        android:clickable="true"
+        android:editable="false"
+        android:elevation="2dp"
+        android:focusable="false"
+        />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Gender : "
+        android:textSize="18dp"
+        android:layout_alignParentLeft="true"
+        android:fontFamily="@font/exo2semibold"
+        android:textColor="#7777FF"
+        android:layout_marginStart="20dp"
+        android:layout_below="@+id/UserBirth"
+        />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edittext"
+            android:elevation="2dp">
+
+            <CheckBox
+                android:id="@+id/checkboxMen"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:text="Men"
+                android:textColor="#504F4F"
+                android:buttonTint="#7777FF"
+                android:onClick="onCheckboxClicked"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext"
+            android:elevation="2dp">
+
+            <CheckBox
+                android:id="@+id/checkboxWomen"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:text="Women"
+                android:textColor="#504F4F"
+                android:buttonTint="#7777FF"
+                android:onClick="onCheckboxClicked"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Save"
+        android:textSize="21sp"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:background="@drawable/button1"
+        android:layout_below="@id/linear"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:elevation="2dp"/>
+
+</RelativeLayout>
