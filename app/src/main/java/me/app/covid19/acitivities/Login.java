@@ -162,7 +162,7 @@ public class Login extends AppCompatActivity {
                         String currentUserId = mAuth.getCurrentUser().getUid();
                         String deviceToken = FirebaseInstanceId.getInstance().getToken();
 
-                        RootRef.child("Users").child("device_token").setValue(deviceToken).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        RootRef.child("Users").child(currentUserId).child("device_token").setValue(deviceToken).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
@@ -177,6 +177,7 @@ public class Login extends AppCompatActivity {
                         String message = task.getException().toString();
                         Toast.makeText(Login.this, "Error: " + message, Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
+                        SignInButton.setEnabled(true);
                     }
                 }
             });

@@ -35,24 +35,14 @@
         android:layout_marginTop="30dp">
 
         <TextView
-            android:id="@+id/text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Stay at "
-            android:textColor="#000"
-            android:textSize="20dp"/>
-
-        <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/text2"
             android:gravity="center"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="#7777FF"
-            android:text="home " />
+            android:text="@string/StayAtHome" />
 
     </RelativeLayout>
 
@@ -64,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Staying at home will help control the spread of the virus to friends, the wider community." />
+        android:text="@string/staying" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -79,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="40dp"
-            android:text="Skip"
+            android:text="@string/skip"
             android:textColor="#504F4F"
             android:textSize="18dp" />
 
@@ -89,7 +79,7 @@
             android:layout_height="40dp"
             android:background="@drawable/button_next"
             android:fontFamily="@font/exo2semibold"
-            android:text="Next"
+            android:text="@string/next"
             android:layout_alignParentRight="true"
             android:layout_marginRight="30dp"
             android:textAllCaps="false"

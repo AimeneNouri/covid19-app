@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".acitivities.UserInfo"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:id="@+id/layoutSettings"
+    android:descendantFocusability="beforeDescendants">
 
 
     <ImageView
@@ -18,65 +20,96 @@
         android:layout_marginEnd="15dp"
         />
 
+    <ImageView
+        android:id="@+id/logoutButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_exit_to_app_black_24dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        />
+
     <EditText
         android:id="@+id/UserName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="70dp"
         android:layout_alignParentTop="true"
-        android:hint="Name"
+        android:hint="@string/name"
         android:background="@drawable/edittext"
-        android:padding="15dp"
+        android:padding="10dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:singleLine="true"
+        android:focusableInTouchMode="true"
         android:elevation="2dp"
         />
 
     <EditText
         android:id="@+id/UserEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="15dp"
-        android:hint="Email"
+        android:hint="@string/email"
         android:background="@drawable/edittext"
-        android:padding="15dp"
+        android:padding="10dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:layout_below="@+id/UserName"
         android:singleLine="true"
+        android:focusableInTouchMode="true"
         android:elevation="2dp"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/UserPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/phone"
+        android:background="@drawable/edittext"
+        android:padding="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_below="@+id/UserEmail"
+        android:singleLine="true"
+        android:focusableInTouchMode="true"
+        android:elevation="2dp"
+        android:inputType="phone"
         />
 
     <EditText
         android:id="@+id/UserCIN"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="15dp"
-        android:hint="CIN"
+        android:hint="@string/cin"
         android:background="@drawable/edittext"
-        android:padding="15dp"
+        android:padding="10dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
-        android:layout_below="@+id/UserEmail"
+        android:layout_below="@+id/UserPhoneNumber"
         android:singleLine="true"
+        android:focusableInTouchMode="true"
         android:elevation="2dp"
         />
 
     <EditText
         android:id="@+id/UserBirth"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="15dp"
-        android:hint="Date of Birth"
+        android:hint="@string/birth"
         android:background="@drawable/edittext"
-        android:padding="15dp"
+        android:padding="10dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:layout_below="@+id/UserCIN"
         android:singleLine="true"
         android:clickable="true"
         android:editable="false"
+        android:focusableInTouchMode="true"
         android:elevation="2dp"
         android:focusable="false"
         />
@@ -86,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Gender : "
+        android:text="@string/gender"
         android:textSize="18dp"
         android:layout_alignParentLeft="true"
         android:fontFamily="@font/exo2semibold"
@@ -106,7 +139,7 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/edittext">
 
@@ -114,40 +147,115 @@
                 android:id="@+id/checkboxMen"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:text="Men"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:text="@string/male"
+                android:padding="8dp"
                 android:textColor="#504F4F"
-                android:buttonTint="#7777FF"
-                android:onClick="onCheckboxClicked"/>
+                android:buttonTint="#7777FF" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@drawable/edittext">
 
             <CheckBox
                 android:id="@+id/checkboxWomen"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:text="Women"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="8dp"
+                android:text="@string/female"
                 android:textColor="#504F4F"
-                android:buttonTint="#7777FF"
-                android:onClick="onCheckboxClicked"/>
+                android:buttonTint="#7777FF" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
+    <!--<TextView
+    android:id="@+id/text2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:text="@string/language"
+    android:textSize="18dp"
+    android:layout_alignParentLeft="true"
+    android:fontFamily="@font/exo2semibold"
+    android:textColor="#7777FF"
+    android:layout_marginStart="25dp"
+    android:layout_below="@+id/linear"
+    />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_below="@+id/text2"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/edittext">
+
+                <RadioButton
+                    android:id="@+id/radioEnglish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="@string/english"
+                    android:textColor="#504F4F"
+                    android:layout_marginStart="20dp"
+                    android:padding="8dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edittext"
+                    android:buttonTint="#7777FF"
+                     />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/edittext">
+
+                <RadioButton
+                    android:id="@+id/radioArab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="@string/arabic"
+                    android:padding="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="#504F4F"
+                    android:background="@drawable/edittext"
+                    android:buttonTint="#7777FF" />
+
+            </RelativeLayout>
+
+        </RadioGroup>
+
+    </RelativeLayout>-->
 
     <Button
         android:id="@+id/save_button"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="Save"
@@ -156,10 +264,9 @@
         android:textColor="#fff"
         android:textAllCaps="false"
         android:background="@drawable/button1"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:elevation="2dp"
-        android:enabled="false"/>
+        android:elevation="2dp" />
 
 </RelativeLayout>

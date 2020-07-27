@@ -1,8 +1,71 @@
 <resources>
-    <string name="app_name">COVID</string>
+    <string name="app_name">COVID-19</string>
     <string name="Register"><u>Register</u>.</string>
     <string name="home">Home</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone Number</string>
+    <string name="cin">CIN</string>
+    <string name="birth">Date of Birth</string>
+    <string name="gender">Gender :</string>
+    <string name="language">Language :</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--home fragment-->
+    <string name="worldCases">Worldwide Cases </string>
+    <string name="death">DEATH </string>
+    <string name="activeCase">ACTIVE CASES</string>
+    <string name="closeCase">CLOSED CASES</string>
+    <string name="mild">Mild Condition</string>
+    <string name="critical">Critical</string>
+    <string name="lastUpdate">July 26, 2020, 12:27 GMT</string>
+
+
+    <!--bottomNavigation item-->
+    <string name="news">News</string>
+    <string name="info">Info</string>
+
+
+    <!--login and register-->
+    <string name="corona">Corona</string>
+    <string name="virus">Virus</string>
+    <string name="slogan">Caring for the future </string>
+    <string name="password">Password</string>
+    <string name="signIn">Sign in</string>
+    <string name="dontHave">Don\'t have account? </string>
+    <string name="username">UserName</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="accept">I accept the</string>
+    <string name="privacy">Privacy</string>
+    <string name="and">and</string>
+    <string name="Terms">Terms</string>
+    <string name="CreateAccount">Create Account</string>
+    <string name="already">Already have account? </string>
+
+
+    <!--onBoard activity-->
+    <string name="avoidCloseContact"> Avoid Close Contact</string>
+    <string name="skip">Skip</string>
+    <string name="cleanYourHands">Clean Your Hands Often</string>
+    <string name="wash">Wash your hands with soap and water, scrub your hands for at least 20 seconds.</string>
+    <string name="Wearfacemask">Wear a facemask if you are sick</string>
+    <string name="consider"> Consider wearing a face mask when you are sick with a cough or sneezing</string>
+    <string name="StayAtHome">Stay at Home</string>
+    <string name="sloganAvoidCloseContact">"Keep your distance from others to protect them from getting sick too "</string>
+    <string name="next">Next</string>
+    <string name="staying">Staying at home will help control the spread of the virus to friends, the wider community.</string>
+    <string name="coronaVirus">Corona Virus</string>
+
+
+
+
+    <string name="confirmLogout">Confirm Logout </string>
+    <string name="areYouSure">Are you sure you want to logout</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+
 </resources>

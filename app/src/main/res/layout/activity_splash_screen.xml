@@ -30,7 +30,7 @@
             android:layout_below="@+id/corona_logo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Corona Virus"
+            android:text="@string/coronaVirus"
             android:textColor="#C703BE"
             android:textSize="28sp"/>
 
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
             android:layout_marginTop="5dp"
-            android:text="Caring for the future"
+            android:text="@string/slogan"
             android:layout_centerHorizontal="true"
             android:textColor="#504F4F"
             android:textSize="13sp" />

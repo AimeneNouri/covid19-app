@@ -1,41 +1,73 @@
 package me.app.covid19.acitivities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Objects;
 
 import me.app.covid19.R;
 
 public class UserInfo extends AppCompatActivity {
 
-    EditText userName, userEmail, userCIN, userBirth;
+    EditText userName, userEmail, userCIN, userBirth, userPhone;
     Calendar myCalendar = Calendar.getInstance();
-    ImageView backButton;
+    ImageView backButton, logout;
     Button Save;
+    CheckBox men, women;
+
+    private String currentUserId;
+    private FirebaseAuth mAuth;
+    private DatabaseReference RootRef;
+    private FirebaseUser user;
+
+    private RelativeLayout relativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
-
-        userName = findViewById(R.id.UserName);
-        userEmail = findViewById(R.id.UserEmail);
-        userCIN = findViewById(R.id.UserCIN);
-        userBirth = findViewById(R.id.UserBirth);
-        backButton = findViewById(R.id.backButton);
-        Save = findViewById(R.id.save_button);
+        Initialisation();
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -47,10 +79,10 @@ public class UserInfo extends AppCompatActivity {
             }
         };
 
-        userBirth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        userBirth.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                new DatePickerDialog(UserInfo.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            public void onClick(View v) {
+                new DatePickerDialog(UserInfo.this,R.style.AlertDialogTheme, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
 
@@ -60,16 +92,125 @@ public class UserInfo extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        relativeLayout = findViewById(R.id.layoutSettings);
+
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View view = UserInfo.this.getCurrentFocus();
+                if (view != null)
+                {
+                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    userName.clearFocus();
+                    userEmail.clearFocus();
+                    userCIN.clearFocus();
+                    userPhone.clearFocus();
+                }
+            }
+        });
+
+        Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveInfo();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(UserInfo.this, R.style.AlertDialogTheme);
+                builder.setTitle(getResources().getString(R.string.confirmLogout));
+                builder.setIcon(R.drawable.ic_exit_to_app_black_24dp);
+                builder.setMessage(getResources().getString(R.string.areYouSure));
+                builder.setCancelable(false);
+
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mAuth.signOut();
+                        sendUserToLoginActivity();
+                    }
+                });
+
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                builder.show();
+            }
+        });
+
+        RetrieveUserInfo();
     }
 
-    private void updateLabel() {
-        String myFormat = "MM/dd/yy";
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-        userBirth.setText(sdf.format(myCalendar.getTime()));
+    private void setAppLocate(String localeCode){
+        Resources res = getResources();
+        DisplayMetrics displayMetrics = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+            conf.setLocale(new Locale(localeCode.toLowerCase()));
+        }
+        else {
+            conf.locale = new Locale(localeCode.toLowerCase());
+        }
+        res.updateConfiguration(conf, displayMetrics);
     }
 
-    public void onCheckboxClicked(View view) {
+    private void Initialisation() {
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        currentUserId = mAuth.getCurrentUser().getUid();
+        RootRef = FirebaseDatabase.getInstance().getReference();
+
+        userName = findViewById(R.id.UserName);
+        userEmail = findViewById(R.id.UserEmail);
+        userCIN = findViewById(R.id.UserCIN);
+        userBirth = findViewById(R.id.UserBirth);
+        backButton = findViewById(R.id.backButton);
+        Save = findViewById(R.id.save_button);
+        logout = findViewById(R.id.logoutButton);
+        userPhone = findViewById(R.id.UserPhoneNumber);
+        men = findViewById(R.id.checkboxMen);
+        women = findViewById(R.id.checkboxWomen);
+    }
+
+    /*public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioEnglish:
+                if (checked)
+                    // English language
+                    setAppLocate("en");
+                break;
+            case R.id.radioArab:
+                if (checked)
+                    // Arabic language
+                    setAppLocate("ar");
+                break;
+        }
+    }*/
+
+    private void sendUserToLoginActivity() {
+        Intent loginIntent = new Intent(UserInfo.this, Login.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
+        finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+
+
+    /*public void onCheckboxClicked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
 
         switch(view.getId()) {
@@ -88,5 +229,131 @@ public class UserInfo extends AppCompatActivity {
                     Save.setEnabled(false);
                 }
         }
+    }*/
+
+    private void saveInfo() {
+        String setUserName = userName.getText().toString();
+        String setUserEmail = userEmail.getText().toString();
+        String setUserCIN = userCIN.getText().toString();
+        String setUserPhone = userPhone.getText().toString();
+        String setUserBirth = userBirth.getText().toString();
+        String genderMale = "";
+        String genderFemale = "";
+
+        if (TextUtils.isEmpty(setUserName))
+        {
+            Toast.makeText(this, "Please Write your Name", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(setUserEmail))
+        {
+            Toast.makeText(this, "Please Write your Email", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(setUserCIN))
+        {
+            Toast.makeText(this, "Please Write your CIN", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(setUserPhone))
+        {
+            Toast.makeText(this, "Please Write your Phone", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(setUserBirth))
+        {
+            Toast.makeText(this, "Please Write your birth day", Toast.LENGTH_SHORT).show();
+        }
+        if (men.isChecked()){
+            genderMale = men.getText().toString();
+        }
+        if (women.isChecked()){
+            genderFemale = women.getText().toString();
+        }
+
+        else {
+            HashMap<String, Object> profileMap = new HashMap<>();
+            profileMap.put("uid", currentUserId);
+            profileMap.put("userName", setUserName);
+            profileMap.put("email", setUserEmail);
+            profileMap.put("cin", setUserCIN);
+            profileMap.put("phone", setUserPhone);
+            profileMap.put("birth", setUserBirth);
+            if (men.isChecked()){
+                profileMap.put("gender", genderMale);
+            }
+            else if (women.isChecked()){
+                profileMap.put("gender", genderFemale);
+            }
+
+            RootRef.child("Users")
+                    .child(currentUserId)
+                    .updateChildren(profileMap)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                Toast.makeText(UserInfo.this, "Profile updated Successfully", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                String message = task.getException().toString();
+                                Toast.makeText(UserInfo.this, "Error : "+ message, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+    }
+
+    private void updateLabel() {
+        String myFormat = "MM/dd/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        userBirth.setText(sdf.format(myCalendar.getTime()));
+    }
+
+
+
+    private void RetrieveUserInfo() {
+        RootRef.child("Users").child(currentUserId)
+                .addValueEventListener(new ValueEventListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if((dataSnapshot.exists()) && (dataSnapshot.hasChild("cin")) && (dataSnapshot.hasChild("phone")) && (dataSnapshot.hasChild("birth")) && (dataSnapshot.hasChild("userName")) && (dataSnapshot.hasChild("gender")))
+                        {
+                            String retrieveUserName = dataSnapshot.child("userName").getValue().toString();
+                            String retrieveEmail = dataSnapshot.child("email").getValue().toString();
+                            String retrieveCIN= dataSnapshot.child("cin").getValue().toString();
+                            String retrievePhone= dataSnapshot.child("phone").getValue().toString();
+                            String retrieveBirth= dataSnapshot.child("birth").getValue().toString();
+                            String retrieveGender= dataSnapshot.child("gender").getValue().toString();
+
+                            userName.setText(retrieveUserName);
+                            userEmail.setText(retrieveEmail);
+                            userCIN.setText(retrieveCIN);
+                            userPhone.setText(retrievePhone);
+                            userBirth.setText(retrieveBirth);
+                            if (retrieveGender.equals("Men")){
+                                men.setChecked(true);
+                            }
+                            else{
+                                women.setChecked(true);
+                            }
+                        }
+                        else if ((dataSnapshot.exists()) && (dataSnapshot.hasChild("userName")))
+                        {
+                            String retrieveUserName = Objects.requireNonNull(dataSnapshot.child("userName").getValue()).toString();
+                            String retrieveEmail = Objects.requireNonNull(dataSnapshot.child("email").getValue()).toString();
+
+                            userName.setText(retrieveUserName);
+                            userEmail.setText(retrieveEmail);
+                        }
+                        else
+                        {
+                            Toast.makeText(UserInfo.this, "Please set & update your profile information", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
     }
 }
