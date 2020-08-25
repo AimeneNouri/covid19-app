@@ -55,7 +55,7 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="15dp"/>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/settingsButton"
             android:layout_width="25dp"
             android:layout_height="25dp"

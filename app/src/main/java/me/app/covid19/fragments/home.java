@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
 import me.app.covid19.acitivities.UserInfo;
 
@@ -18,7 +19,8 @@ import me.app.covid19.acitivities.UserInfo;
  */
 public class home extends Fragment {
 
-    private ImageView settingsButton, searchButton;
+    private ImageView searchButton;
+    private CircleImageView settingsButton;
     private View HomeView;
 
     public home() {/* Required empty public constructor*/}

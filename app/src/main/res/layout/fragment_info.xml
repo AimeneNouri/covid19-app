@@ -99,7 +99,7 @@
         android:layout_below="@+id/background"
         android:fontFamily="@font/exo2semibold"
         android:textSize="14sp"
-        android:alpha=".5"/>
+        android:alpha=".4"/>
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
@@ -120,8 +120,8 @@
 
                 <RelativeLayout
                     android:id="@+id/imagebackground1"
-                    android:layout_width="120dp"
-                    android:layout_height="110dp"
+                    android:layout_width="110dp"
+                    android:layout_height="105dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="50dp"
                     android:background="@drawable/background4">
@@ -130,12 +130,12 @@
                         android:id="@+id/feverText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="73dp"
+                        android:layout_marginTop="72dp"
                         android:fontFamily="@font/exo2regular"
                         android:text="High Fever"
                         android:layout_centerHorizontal="true"
                         android:textColor="#fff"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                 </RelativeLayout>
 
@@ -143,7 +143,7 @@
                     android:id="@+id/fever"
                     android:layout_width="90dp"
                     android:layout_height="110dp"
-                    android:layout_marginStart="35dp"
+                    android:layout_marginStart="29.5dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/fever"/>
 
@@ -155,8 +155,8 @@
 
                 <RelativeLayout
                     android:id="@+id/imagebackground2"
-                    android:layout_width="120dp"
-                    android:layout_height="110dp"
+                    android:layout_width="110dp"
+                    android:layout_height="105dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="50dp"
                     android:background="@drawable/background4">
@@ -165,22 +165,57 @@
                         android:id="@+id/coughText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="73dp"
+                        android:layout_marginTop="72dp"
                         android:fontFamily="@font/exo2regular"
                         android:text="Cough"
                         android:layout_centerHorizontal="true"
                         android:textColor="#fff"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                 </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/cough"
-                    android:layout_width="100dp"
+                    android:layout_width="90dp"
                     android:layout_height="110dp"
-                    android:layout_marginStart="35dp"
+                    android:layout_marginStart="29.5dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/cough"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/imagebackground3"
+                    android:layout_width="110dp"
+                    android:layout_height="105dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/background4">
+
+                    <TextView
+                        android:id="@+id/soreText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="72dp"
+                        android:fontFamily="@font/exo2regular"
+                        android:text="Sore Troath"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#fff"
+                        android:textSize="17sp" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/sore"
+                    android:layout_width="90dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="29.5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/sore_troath"/>
 
             </RelativeLayout>
 
@@ -190,33 +225,33 @@
                 android:layout_marginEnd="20dp">
 
                 <RelativeLayout
-                    android:id="@+id/imagebackground3"
-                    android:layout_width="120dp"
-                    android:layout_height="110dp"
+                    android:id="@+id/imagebackground4"
+                    android:layout_width="110dp"
+                    android:layout_height="105dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="50dp"
                     android:background="@drawable/background4">
 
                     <TextView
-                        android:id="@+id/soreText"
+                        android:id="@+id/nauseaText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="73dp"
+                        android:layout_marginTop="72dp"
                         android:fontFamily="@font/exo2regular"
-                        android:text="Sore Troath"
+                        android:text=" Nausea "
                         android:layout_centerHorizontal="true"
                         android:textColor="#fff"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                 </RelativeLayout>
 
                 <ImageView
-                    android:id="@+id/sore"
+                    android:id="@+id/nausia"
                     android:layout_width="90dp"
                     android:layout_height="110dp"
-                    android:layout_marginStart="35dp"
+                    android:layout_marginStart="29.5dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/sore_troath"/>
+                    android:background="@drawable/nausea"/>
 
             </RelativeLayout>
 

@@ -1,17 +1,20 @@
 package me.app.covid19.acitivities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -30,6 +33,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,13 +43,25 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
 
 public class UserInfo extends AppCompatActivity {
@@ -54,6 +71,7 @@ public class UserInfo extends AppCompatActivity {
     ImageView backButton, logout;
     Button Save;
     CheckBox men, women;
+    CircleImageView userImage;
 
     private String currentUserId;
     private FirebaseAuth mAuth;
@@ -61,6 +79,8 @@ public class UserInfo extends AppCompatActivity {
     private FirebaseUser user;
 
     private RelativeLayout relativeLayout;
+    private ProgressDialog loadingBar;
+    private StorageTask uploadTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +168,15 @@ public class UserInfo extends AppCompatActivity {
         });
 
         RetrieveUserInfo();
+        userImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CropImage.activity()
+                        .setGuidelines(CropImageView.Guidelines.ON)
+                        .setAspectRatio(1, 1)
+                        .start(UserInfo.this);
+            }
+        });
     }
 
     private void setAppLocate(String localeCode){
@@ -179,6 +208,8 @@ public class UserInfo extends AppCompatActivity {
         userPhone = findViewById(R.id.UserPhoneNumber);
         men = findViewById(R.id.checkboxMen);
         women = findViewById(R.id.checkboxWomen);
+        userImage = findViewById(R.id.userPicture);
+        loadingBar = new ProgressDialog(this);
     }
 
     /*public void onRadioButtonClicked(View view) {
@@ -355,5 +386,75 @@ public class UserInfo extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK){
+                loadingBar.setTitle("Updating User Profile");
+                loadingBar.setMessage("Please wait, while your picture is updating... ");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
+
+                Uri resultUri = result.getUri();
+
+                FirebaseStorage storage = FirebaseStorage.getInstance();
+                StorageReference storageRef = storage.getReference();
+
+                final StorageReference UserImageRef = storageRef.child("Covid19" + "/PROFILES/" + "/PICTURES/" + resultUri.toString().split("/")[resultUri.toString().split("/").length - 1]);
+
+                InputStream stream = null;
+                try {
+                    stream = new FileInputStream(new File(resultUri.getPath()));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                uploadTask = UserImageRef.putStream(stream);
+
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(UserInfo.this, "Failed", Toast.LENGTH_SHORT).show();
+                        String message = e.toString();
+                        Toast.makeText(UserInfo.this, "ERROR: " + message, Toast.LENGTH_SHORT).show();
+                        loadingBar.dismiss();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        Toast.makeText(UserInfo.this, "Uploaded", Toast.LENGTH_SHORT).show();
+
+                        UserImageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                final String link = uri.toString();
+                                Picasso.get().load(link).into(userImage);
+
+                                RootRef.child("Users").child(currentUserId).child("UserPicture")
+                                        .setValue(link).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful())
+                                        {
+                                            loadingBar.dismiss();
+                                            Toast.makeText(UserInfo.this, "Photo updated Successfully", Toast.LENGTH_SHORT).show();
+                                        }
+                                        else {
+                                            loadingBar.dismiss();
+                                            Toast.makeText(UserInfo.this, "Error Uploading", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        }
     }
 }
