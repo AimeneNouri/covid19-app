@@ -8,7 +8,8 @@
     tools:context=".acitivities.UserInfo"
     android:background="@color/white"
     android:id="@+id/layoutSettings"
-    android:descendantFocusability="beforeDescendants">
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
 
     <ImageView
         android:id="@+id/backButton"
@@ -29,25 +30,25 @@
         />
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
-        android:layout_below="@+id/backButton"
-        android:layout_marginTop="40dp">
+        android:layout_below="@+id/backButton">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="40dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/userPicture"
-                android:layout_width="80dp"
-                android:layout_height="75dp"
-                android:src="@drawable/me"
+                android:layout_width="70dp"
+                android:layout_height="65dp"
                 android:layout_toEndOf="@+id/view"
-                android:layout_marginStart="8dp"
-                android:elevation="2dp"
+                android:src="@drawable/person"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 />
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -55,11 +56,10 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="63dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="40dp"
                 android:layout_toEndOf="@+id/view"
-                android:src="@drawable/add2"
-                android:elevation="12dp"/>
+                android:src="@drawable/add_icon1" />
 
             <View
                 android:id="@+id/view"
@@ -69,9 +69,11 @@
                 android:layout_alignParentStart="true"
                 android:background="#7777FF"/>
             <View
-                android:layout_width="295dp"
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="37dp"
+                android:layout_toEndOf="@+id/userPicture"
                 android:layout_alignParentEnd="true"
                 android:background="#7777FF"/>
 
@@ -87,7 +89,6 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
                 android:singleLine="true"
-                android:focusableInTouchMode="true"
                 android:elevation="2dp"
                 />
 
@@ -120,7 +121,6 @@
                 android:layout_marginEnd="25dp"
                 android:layout_below="@+id/UserEmail"
                 android:singleLine="true"
-                android:focusableInTouchMode="true"
                 android:elevation="2dp"
                 android:inputType="phone"
                 />
@@ -155,7 +155,6 @@
                 android:singleLine="true"
                 android:clickable="true"
                 android:editable="false"
-                android:focusableInTouchMode="true"
                 android:elevation="2dp"
                 android:focusable="false"
                 />
@@ -299,25 +298,27 @@
             </RelativeLayout>-->
 
 
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Save"
+                android:textSize="21sp"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:background="@drawable/button1"
+                android:layout_marginBottom="70dp"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/linear"
+                android:elevation="2dp" />
 
         </RelativeLayout>
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/save_button"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="Save"
-        android:textSize="21sp"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textAllCaps="false"
-        android:background="@drawable/button1"
-        android:layout_marginBottom="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:elevation="2dp" />
+
 </RelativeLayout>

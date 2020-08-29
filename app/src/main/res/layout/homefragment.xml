@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/exo2regular"
-            android:text="@string/lastUpdate"
+            android:text=""
             android:layout_below="@id/worldCases"
             android:layout_alignParentEnd="true"
             android:textAlignment="center"
@@ -101,8 +101,9 @@
             android:textAlignment="center"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
             android:textColor="#fff"
-            android:textSize="30sp" />
+            android:textSize="36sp" />
 
     </RelativeLayout>
 
@@ -135,7 +136,7 @@
                     android:fontFamily="@font/exobold"
                     android:text="@string/death"
                     android:textColor="#7777FF"
-                    android:textSize="15dp" />
+                    android:textSize="18dp" />
 
 
                 <TextView
@@ -143,105 +144,25 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerVertical="true"
                     android:fontFamily="@font/exo2semibold"
                     android:text="649,156"
                     android:layout_below="@+id/textDeath"
                     android:textAlignment="center"
                     android:textColor="#000"
-                    android:textSize="28sp" />
+                    android:textSize="30sp" />
 
                 <ImageView
                     android:id="@+id/graph"
                     android:layout_width="140dp"
                     android:layout_height="30dp"
-                    android:layout_below="@+id/DeathCases"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/textDeath"
+                    android:layout_toEndOf="@id/DeathCases"
                     android:background="@drawable/path5"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="7dp"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/DeathCases"
-                    android:id="@+id/mildCondition">
-
-                    <ImageView
-                        android:id="@+id/sahmGreen"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/ic_arrow_downward_black_24dp" />
-
-                    <TextView
-                        android:id="@+id/textMild"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/exo2regular"
-                        android:text="6%"
-                        android:layout_toEndOf="@+id/sahmGreen"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:layout_marginTop="10dp"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo2semibold"
-                        android:text="@string/mild"
-                        android:layout_below="@+id/textMild"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="15dp"
-                        android:textAlignment="center"
-                        android:textColor="#504F4F"
-                        android:textSize="16sp"
-                        android:alpha=".5"/>
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/DeathCases"
-                    android:layout_below="@+id/mildCondition"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/sahmRed"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginStart="60dp"
-                        android:background="@drawable/ic_arrow_upward_black_24dp" />
-
-                    <TextView
-                        android:id="@+id/textCritical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/exo2regular"
-                        android:text="1%"
-                        android:layout_toEndOf="@+id/sahmRed"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo2semibold"
-                        android:text="@string/critical"
-                        android:layout_below="@+id/textCritical"
-                        android:layout_toEndOf="@id/sahmRed"
-                        android:textAlignment="center"
-                        android:textColor="#504F4F"
-                        android:textSize="16sp"
-                        android:alpha=".5"/>
-
-                </RelativeLayout>
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"/>
 
             </RelativeLayout>
 
@@ -262,7 +183,7 @@
                     android:fontFamily="@font/exobold"
                     android:text="@string/activeCase"
                     android:textColor="#7777FF"
-                    android:textSize="15dp" />
+                    android:textSize="18dp" />
 
 
                 <TextView
@@ -270,105 +191,23 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/exo2semibold"
                     android:text="5,651,587"
                     android:layout_below="@+id/textCaseActive"
                     android:textAlignment="center"
                     android:textColor="#000"
-                    android:textSize="28sp" />
+                    android:textSize="30sp" />
 
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="30dp"
-                    android:layout_below="@+id/ActiveCase"
+                    android:layout_below="@+id/textCaseActive"
                     android:background="@drawable/path6"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="7dp"/>
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:layout_toEndOf="@id/ActiveCase"
-                    android:id="@+id/Condition">
-
-                    <ImageView
-                        android:id="@+id/Green"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/ic_arrow_downward_black_24dp" />
-
-                    <TextView
-                        android:id="@+id/Mild"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/exo2regular"
-                        android:text="99%"
-                        android:layout_marginTop="10dp"
-                        android:layout_toEndOf="@+id/Green"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo2semibold"
-                        android:text="@string/mild"
-                        android:layout_below="@+id/Mild"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="15dp"
-                        android:textAlignment="center"
-                        android:textColor="#504F4F"
-                        android:textSize="16sp"
-                        android:alpha=".5"/>
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/ActiveCase"
-                    android:layout_below="@+id/Condition"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/Red"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginStart="60dp"
-                        android:background="@drawable/ic_arrow_upward_black_24dp" />
-
-                    <TextView
-                        android:id="@+id/critic"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/exo2regular"
-                        android:text="1%"
-                        android:layout_toEndOf="@+id/Red"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo2semibold"
-                        android:text="@string/critical"
-                        android:layout_below="@+id/critic"
-                        android:layout_toEndOf="@+id/Red"
-                        android:textAlignment="center"
-                        android:textColor="#504F4F"
-                        android:textSize="16sp"
-                        android:alpha=".5"/>
-
-                </RelativeLayout>
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"/>
 
             </RelativeLayout>
 
@@ -389,7 +228,7 @@
                     android:fontFamily="@font/exobold"
                     android:text="@string/closeCase"
                     android:textColor="#7777FF"
-                    android:textSize="15dp" />
+                    android:textSize="18dp" />
 
 
                 <TextView
@@ -397,113 +236,165 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/exo2semibold"
                     android:text="10,584,340"
                     android:layout_below="@+id/textCaseClosed"
                     android:textAlignment="center"
                     android:textColor="#000"
-                    android:textSize="28sp" />
+                    android:textSize="30sp" />
 
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="30dp"
-                    android:layout_below="@+id/CaseClosed"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/textCaseClosed"
                     android:background="@drawable/path7"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="7dp"/>
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/CaseClosed"
-                    android:id="@+id/Mild_Condition">
-
-                    <ImageView
-                        android:id="@+id/downGreen"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/ic_arrow_downward_black_24dp" />
-
-                    <TextView
-                        android:id="@+id/MildText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/exo2regular"
-                        android:text="94%"
-                        android:layout_marginTop="10dp"
-                        android:layout_toEndOf="@+id/downGreen"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo2semibold"
-                        android:text="@string/mild"
-                        android:layout_below="@+id/MildText"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="15dp"
-                        android:textAlignment="center"
-                        android:textColor="#504F4F"
-                        android:textSize="16sp"
-                        android:alpha=".5"/>
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/CaseClosed"
-                    android:layout_below="@+id/Mild_Condition"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/UpRed"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginStart="60dp"
-                        android:background="@drawable/ic_arrow_upward_black_24dp" />
-
-                    <TextView
-                        android:id="@+id/critical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/exo2regular"
-                        android:text="1%"
-                        android:layout_toEndOf="@+id/UpRed"
-                        android:textAlignment="center"
-                        android:textColor="#000"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo2semibold"
-                        android:text="@string/critical"
-                        android:layout_below="@+id/critical"
-                        android:layout_toEndOf="@+id/UpRed"
-                        android:textAlignment="center"
-                        android:textColor="#504F4F"
-                        android:textSize="16sp"
-                        android:alpha=".5"/>
-
-                </RelativeLayout>
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"/>
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/form4"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="125dp"
                 android:layout_below="@+id/form3"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/form1">
+
+                <TextView
+                    android:id="@+id/TodayCasesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/exobold"
+                    android:text="TODAY CASES"
+                    android:textColor="#7777FF"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/TodayCases"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/exo2semibold"
+                    android:text="10,584,340"
+                    android:layout_below="@+id/TodayCasesText"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="30sp" />
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/TodayCasesText"
+                    android:background="@drawable/path7"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/TodayCases"
+                    android:layout_marginTop="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/form5"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_below="@+id/form4"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/form1">
+
+                <TextView
+                    android:id="@+id/TodayDeathsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/exobold"
+                    android:text="TODAY DEATHS"
+                    android:textColor="#7777FF"
+                    android:textSize="18dp" />
+
+
+                <TextView
+                    android:id="@+id/TodayDeaths"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/exo2semibold"
+                    android:text="10,584,340"
+                    android:layout_below="@+id/TodayDeathsText"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="30sp" />
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/TodayDeathsText"
+                    android:background="@drawable/path7"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/TodayDeaths"
+                    android:layout_marginTop="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/form6"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_below="@+id/form5"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/form1">
+
+                <TextView
+                    android:id="@+id/TodayRecoveredText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/exobold"
+                    android:text="TODAY RECOVERED"
+                    android:textColor="#7777FF"
+                    android:textSize="18dp" />
+
+
+                <TextView
+                    android:id="@+id/TodayRecovered"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/exo2semibold"
+                    android:text="10,584,340"
+                    android:layout_below="@+id/TodayRecoveredText"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    android:textSize="30sp" />
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/TodayRecoveredText"
+                    android:background="@drawable/path7"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/TodayRecovered"
+                    android:layout_marginTop="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/form7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_below="@+id/form6"
                 android:layout_marginTop="10dp" />
 
         </RelativeLayout>

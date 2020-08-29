@@ -346,7 +346,7 @@ public class UserInfo extends AppCompatActivity {
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if((dataSnapshot.exists()) && (dataSnapshot.hasChild("cin")) && (dataSnapshot.hasChild("phone")) && (dataSnapshot.hasChild("birth")) && (dataSnapshot.hasChild("userName")) && (dataSnapshot.hasChild("gender")))
+                        if((dataSnapshot.exists()) && (dataSnapshot.hasChild("cin")) && (dataSnapshot.hasChild("phone")) && (dataSnapshot.hasChild("birth")) && (dataSnapshot.hasChild("userName")) && (dataSnapshot.hasChild("gender")) && (dataSnapshot.hasChild("UserPicture")))
                         {
                             String retrieveUserName = dataSnapshot.child("userName").getValue().toString();
                             String retrieveEmail = dataSnapshot.child("email").getValue().toString();
@@ -354,12 +354,14 @@ public class UserInfo extends AppCompatActivity {
                             String retrievePhone= dataSnapshot.child("phone").getValue().toString();
                             String retrieveBirth= dataSnapshot.child("birth").getValue().toString();
                             String retrieveGender= dataSnapshot.child("gender").getValue().toString();
+                            String retrieveUserPicture= dataSnapshot.child("UserPicture").getValue().toString();
 
                             userName.setText(retrieveUserName);
                             userEmail.setText(retrieveEmail);
                             userCIN.setText(retrieveCIN);
                             userPhone.setText(retrievePhone);
                             userBirth.setText(retrieveBirth);
+                            Picasso.get().load(retrieveUserPicture).placeholder(R.drawable.person).into(userImage);
                             if (retrieveGender.equals("Men")){
                                 men.setChecked(true);
                             }

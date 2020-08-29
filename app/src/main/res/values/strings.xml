@@ -16,9 +16,9 @@
 
     <!--home fragment-->
     <string name="worldCases">Worldwide Cases </string>
-    <string name="death">DEATH </string>
+    <string name="death">TOTAL DEATHS </string>
     <string name="activeCase">ACTIVE CASES</string>
-    <string name="closeCase">CLOSED CASES</string>
+    <string name="closeCase">RECOVERED CASES</string>
     <string name="mild">Mild Condition</string>
     <string name="critical">Critical</string>
     <string name="lastUpdate">July 26, 2020, 12:27 GMT</string>
@@ -58,8 +58,6 @@
     <string name="next">Next</string>
     <string name="staying">Staying at home will help control the spread of the virus to friends, the wider community.</string>
     <string name="coronaVirus">Corona Virus</string>
-
-
 
 
     <string name="confirmLogout">Confirm Logout </string>

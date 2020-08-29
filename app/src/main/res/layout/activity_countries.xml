@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".acitivities.Countries"
+    android:background="#F8F8FF"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true" >
+
+    <EditText
+        android:id="@+id/search_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="12dp"
+        android:hint="Search Here "
+        android:layout_toStartOf="@+id/search_button"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/exo2regular"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp"
+        android:elevation="5dp"
+        android:textColorHint="@color/colorPrimary"
+        android:background="@drawable/search_layout"
+        android:singleLine="true"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/search_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/search_icon"
+        android:layout_marginTop="14dp"
+        android:layout_alignParentEnd="true"
+        android:elevation="0.5dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/search_field"
+        android:id="@+id/country_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
