@@ -42,9 +42,10 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         //animation item
-        holder.relativeLayout.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition));
+        //holder.relativeLayout.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition));
 
         holder.country_name.setText(countryList.get(position).getCountry());
+        holder.country_total_cases.setText(countryList.get(position).getCases());
         Picasso.get().load(countryList.get(position).getFlag()).into(holder.country_flag);
     }
 
@@ -56,7 +57,7 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView country_flag;
-        TextView country_name;
+        TextView country_name, country_total_cases;
         RelativeLayout relativeLayout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -65,6 +66,7 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
             country_name = itemView.findViewById(R.id.country_name);
             country_flag = itemView.findViewById(R.id.country_flag);
             relativeLayout = itemView.findViewById(R.id.item_country_layout);
+            country_total_cases = itemView.findViewById(R.id.country_total_cases);
         }
     }
 }

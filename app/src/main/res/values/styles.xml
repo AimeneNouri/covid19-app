@@ -14,17 +14,19 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowActivityTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
     </style>
 
     <style name="AppTheme.Main" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimaryDark">#5E81FF</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowActivityTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
     </style>
 
-    <style name="AppTheme.Countries" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme_Countries" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">#F8F8FF</item>
         <item name="android:windowDisablePreview">true</item>
         <item name="android:windowIsTranslucent">true</item>

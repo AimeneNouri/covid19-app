@@ -10,27 +10,101 @@
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true" >
 
-    <EditText
-        android:id="@+id/search_field"
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="34.5dp"
+        android:layout_height="34.5dp"
+        android:background="@drawable/close"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_below="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="12dp"
-        android:hint="Search Here "
-        android:layout_toStartOf="@+id/search_button"
-        android:textSize="19sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="10dp"
-        android:fontFamily="@font/exo2regular"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
-        android:elevation="5dp"
-        android:textColorHint="@color/colorPrimary"
+        android:layout_marginEnd="15dp"
+        android:elevation="3dp"
         android:background="@drawable/search_layout"
-        android:singleLine="true"/>
+        android:layout_marginStart="15dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+        <EditText
+            android:id="@+id/search_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:hint="Search"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/exo2regular"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/search_layout"
+            android:drawableEnd="@drawable/search_icon_xml"
+            android:drawablePadding="5dp"
+            android:textAllCaps="false"
+            android:singleLine="true"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="57dp"
+            android:layout_marginTop="15dp"
+            android:background="#7777FF" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/layout"
+        android:id="@+id/country_totalCases"
+        android:layout_width="match_parent"
+        android:background="@drawable/form5"
+        android:elevation="3dp"
+        android:padding="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Country"
+            android:textSize="17sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/country_flag"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/exo2semibold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Cases"
+            android:textSize="16sp"
+            android:layout_toEndOf="@+id/country_flag"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/exo2semibold"/>
+
+    </RelativeLayout>
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/search_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -38,11 +112,12 @@
         android:src="@drawable/search_icon"
         android:layout_marginTop="14dp"
         android:layout_alignParentEnd="true"
+        android:transitionName="transition"
         android:elevation="0.5dp"
-        />
+        />-->
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/search_field"
+        android:layout_below="@+id/country_totalCases"
         android:id="@+id/country_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

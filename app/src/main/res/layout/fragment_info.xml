@@ -3,29 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.infoFragment"
-    android:background="#FFFFFF">
+    android:background="#F8F8FF">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
-                android:id="@+id/background"
+                android:id="@+id/test_covid"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:padding="5dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/edittext"
+                android:background="@drawable/test_covid"
                 android:elevation="5dp">
 
-                <RelativeLayout
+                <!--<RelativeLayout
                     android:id="@+id/corona"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
@@ -40,42 +42,59 @@
                         android:layout_centerVertical="true"
                         android:background="@drawable/corona"/>
 
-                </RelativeLayout>
+                </RelativeLayout>-->
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/corona"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    app:lottie_rawRes="@raw/medical_cross"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    />
 
                 <TextView
                     android:id="@+id/coronaVirusTest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="17dp"
-                    android:text="Coronavirus Test Request "
+                    android:text="Take the Self CHeckup!"
+                    android:layout_marginTop="5dp"
                     android:textSize="18dp"
+                    android:textStyle="bold"
                     android:fontFamily="@font/exo2semibold"
                     android:layout_toEndOf="@+id/corona"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:layout_marginStart="5dp"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lorem Ipsum Dolor Sit Amet, "
-                    android:textSize="15dp"
+                    android:text="Contains several checklist question to check your physical condition"
+                    android:textSize="11dp"
                     android:fontFamily="@font/exo2semibold"
                     android:layout_toEndOf="@+id/corona"
                     android:layout_below="@+id/coronaVirusTest"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:layout_marginStart="5dp"
-                    android:alpha=".3"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:alpha=".8"
                     />
 
-                <ImageView
+                <!--<ImageView
                     android:layout_width="40dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="14dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/ic_chevron_right_black_24dp"
-                    android:layout_toEndOf="@+id/coronaVirusTest"/>
+                    android:layout_toEndOf="@+id/coronaVirusTest"/>-->
 
             </RelativeLayout>
 
@@ -84,17 +103,31 @@
                 android:id="@+id/symptoms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:text="Symptoms "
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/exo2semibold"
-                android:layout_below="@+id/background"
-                android:textColor="#7777FF"
+                android:layout_below="@+id/test_covid"
+                android:textColor="#000"
                 android:layout_marginStart="25dp"
                 />
 
+            <TextView
+                android:id="@+id/more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentEnd="true"
+                android:text="more >"
+                android:textSize="17dp"
+                android:layout_marginEnd="25dp"
+                android:textColor="#000000"
+                android:alpha=".4"
+                android:layout_below="@id/test_covid"/>
+
             <HorizontalScrollView
+                android:id="@+id/scroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
@@ -102,155 +135,571 @@
                 android:fillViewport="true"
                 android:measureAllChildren="false">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content">
 
                     <RelativeLayout
+                        android:id="@+id/sym1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="14dp">
 
                         <RelativeLayout
                             android:id="@+id/imagebackground1"
-                            android:layout_width="110dp"
-                            android:layout_height="105dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="50dp"
-                            android:background="@drawable/background4">
+                            android:layout_width="100dp"
+                            android:layout_height="95dp"
+                            android:layout_marginTop="35dp"
+                            android:background="@drawable/background4"
+                            android:elevation="5dp"
+                            android:layout_marginBottom="5dp">
 
                             <TextView
                                 android:id="@+id/feverText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="72dp"
+                                android:layout_marginTop="67dp"
                                 android:fontFamily="@font/exo2regular"
                                 android:text="High Fever"
                                 android:layout_centerHorizontal="true"
                                 android:textColor="#fff"
-                                android:textSize="17sp" />
+                                android:textSize="15.5sp" />
 
                         </RelativeLayout>
 
                         <ImageView
                             android:id="@+id/fever"
-                            android:layout_width="90dp"
-                            android:layout_height="110dp"
-                            android:layout_marginStart="29.5dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_width="80dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="9.5dp"
+                            android:elevation="5dp"
                             android:background="@drawable/fever"/>
 
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/sym2"
+                        android:layout_toEndOf="@+id/sym1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="13dp">
 
                         <RelativeLayout
                             android:id="@+id/imagebackground2"
-                            android:layout_width="110dp"
-                            android:layout_height="105dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="50dp"
-                            android:background="@drawable/background4">
+                            android:layout_width="100dp"
+                            android:layout_height="95dp"
+                            android:layout_marginTop="35dp"
+                            android:background="@drawable/background4"
+                            android:elevation="5dp"
+                            android:layout_marginBottom="5dp">
 
                             <TextView
                                 android:id="@+id/coughText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="72dp"
+                                android:layout_marginTop="67dp"
                                 android:fontFamily="@font/exo2regular"
                                 android:text="Cough"
                                 android:layout_centerHorizontal="true"
                                 android:textColor="#fff"
-                                android:textSize="17sp" />
+                                android:textSize="15.5sp" />
 
                         </RelativeLayout>
 
                         <ImageView
                             android:id="@+id/cough"
-                            android:layout_width="90dp"
-                            android:layout_height="110dp"
-                            android:layout_marginStart="29.5dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_width="80dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="9.5dp"
+                            android:elevation="5dp"
                             android:background="@drawable/cough"/>
 
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/sym3"
+                        android:layout_toEndOf="@+id/sym2"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="13dp">
 
                         <RelativeLayout
                             android:id="@+id/imagebackground3"
-                            android:layout_width="110dp"
-                            android:layout_height="105dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="50dp"
-                            android:background="@drawable/background4">
+                            android:layout_width="100dp"
+                            android:layout_height="95dp"
+                            android:layout_marginTop="35dp"
+                            android:background="@drawable/background4"
+                            android:layout_marginBottom="5dp"
+                            android:elevation="5dp">
 
                             <TextView
                                 android:id="@+id/soreText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="72dp"
+                                android:layout_marginTop="67dp"
                                 android:fontFamily="@font/exo2regular"
                                 android:text="Sore Troath"
                                 android:layout_centerHorizontal="true"
                                 android:textColor="#fff"
-                                android:textSize="17sp" />
+                                android:textSize="15.5sp" />
 
                         </RelativeLayout>
 
                         <ImageView
                             android:id="@+id/sore"
-                            android:layout_width="90dp"
-                            android:layout_height="110dp"
-                            android:layout_marginStart="29.5dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_width="80dp"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="9.5dp"
+                            android:elevation="5dp"
                             android:background="@drawable/sore_troath"/>
 
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/sym4"
+                        android:layout_toEndOf="@+id/sym3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp">
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="13dp">
 
                         <RelativeLayout
                             android:id="@+id/imagebackground4"
-                            android:layout_width="110dp"
-                            android:layout_height="105dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="50dp"
+                            android:layout_width="100dp"
+                            android:layout_height="95dp"
+                            android:layout_marginTop="35dp"
+                            android:elevation="5dp"
+                            android:layout_marginBottom="5dp"
                             android:background="@drawable/background4">
 
                             <TextView
                                 android:id="@+id/nauseaText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="72dp"
+                                android:layout_marginTop="67dp"
                                 android:fontFamily="@font/exo2regular"
                                 android:text=" Nausea "
                                 android:layout_centerHorizontal="true"
                                 android:textColor="#fff"
-                                android:textSize="17sp" />
+                                android:textSize="15.5sp" />
 
                         </RelativeLayout>
 
                         <ImageView
                             android:id="@+id/nausia"
-                            android:layout_width="90dp"
-                            android:layout_height="110dp"
-                            android:layout_marginStart="29.5dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_width="80dp"
+                            android:layout_height="100dp"
+                            android:elevation="5dp"
+                            android:layout_marginStart="9.5dp"
                             android:background="@drawable/nausea"/>
 
                     </RelativeLayout>
 
-                </LinearLayout>
+                </RelativeLayout>
 
             </HorizontalScrollView>
+
+
+            <TextView
+                android:id="@+id/prevention"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Prevention "
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/exo2semibold"
+                android:layout_below="@+id/scroll"
+                android:textColor="#000"
+                android:layout_marginStart="25dp"
+                />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/prevention"
+                android:layout_marginTop="20dp">
+
+                <RelativeLayout
+                    android:id="@+id/layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:elevation="5dp">
+
+                    <TextView
+                        android:id="@+id/wear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17dp"
+                        android:textStyle="normal"
+                        android:layout_toEndOf="@+id/wearMask"
+                        android:fontFamily="@font/exo2semibold"
+                        android:text="Wear face mask"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:textStyle="normal"
+                        android:layout_below="@+id/wear"
+                        android:layout_toEndOf="@+id/wearMask"
+                        android:fontFamily="@font/exo2regular"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="Since the start of the coronavirus outbreak some places have fully embraced wearing face masks, and anyone caught without one risks becoming a social pariah." />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/wearMask"
+                        android:layout_width="130sp"
+                        android:layout_height="150dp"
+                        app:lottie_rawRes="@raw/wear_mask"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/intersection"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/layout2"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_below="@+id/layout1"
+                    android:elevation="5dp">
+
+                    <TextView
+                        android:id="@+id/washHand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17dp"
+                        android:textStyle="normal"
+                        android:layout_toEndOf="@+id/image2"
+                        android:fontFamily="@font/exo2semibold"
+                        android:text="Wash your hands"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:textStyle="normal"
+                        android:layout_below="@+id/washHand"
+                        android:layout_toEndOf="@+id/image2"
+                        android:fontFamily="@font/exo2regular"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="These diseases include gastrointestinal infections, such as Salmonella, and respiratory infections, such as influenza." />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/image2"
+                        android:layout_width="130dp"
+                        android:layout_height="150dp"
+                        app:lottie_rawRes="@raw/washhands"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/intersection"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout3"
+                    android:layout_below="@+id/layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="5dp">
+
+                    <TextView
+                        android:id="@+id/NoHandShake"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17dp"
+                        android:textStyle="normal"
+                        android:layout_toEndOf="@+id/image3"
+                        android:fontFamily="@font/exo2semibold"
+                        android:text="Don't touch your face"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:textStyle="normal"
+                        android:layout_below="@+id/NoHandShake"
+                        android:layout_toEndOf="@+id/image3"
+                        android:fontFamily="@font/exo2regular"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="To help prevent infections, keep your hands away from your eyes, nose, and mouth. Why? Touching the mucous membranes on your face with your dirty hands allows germs that cause respiratory infections to enter the body" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/image3"
+                        android:layout_width="130dp"
+                        android:layout_height="150dp"
+                        app:lottie_rawRes="@raw/dont_touch_face"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/intersection"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout4"
+                    android:layout_below="@+id/layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="5dp">
+
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17dp"
+                        android:textStyle="normal"
+                        android:layout_toEndOf="@+id/image4"
+                        android:fontFamily="@font/exo2semibold"
+                        android:text="No Smoke"
+                        android:layout_marginTop="25dp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:textStyle="normal"
+                        android:layout_below="@+id/text1"
+                        android:layout_toEndOf="@+id/image4"
+                        android:fontFamily="@font/exo2regular"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="Smoking makes COVID worse if you get it and smoking -- and vaping -- increase the risk of being infected and developing COVID-19" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/image4"
+                        android:layout_width="130dp"
+                        android:layout_height="150dp"
+                        app:lottie_rawRes="@raw/no_smoke"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/intersection"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout5"
+                    android:layout_below="@+id/layout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="5dp">
+
+                    <TextView
+                        android:id="@+id/textview2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17dp"
+                        android:textStyle="normal"
+                        android:layout_toEndOf="@+id/image5"
+                        android:fontFamily="@font/exo2semibold"
+                        android:text="@string/avoidCloseContact"
+                        android:layout_marginTop="25dp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:textStyle="normal"
+                        android:layout_below="@+id/textview2"
+                        android:layout_toEndOf="@+id/image5"
+                        android:fontFamily="@font/exo2regular"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/sloganAvoidCloseContact" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/image5"
+                        android:layout_width="130dp"
+                        android:layout_height="150dp"
+                        app:lottie_rawRes="@raw/social_distance"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/intersection"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout6"
+                    android:layout_below="@+id/layout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="5dp">
+
+                    <TextView
+                        android:id="@+id/textview1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17dp"
+                        android:textStyle="normal"
+                        android:layout_toEndOf="@+id/image6"
+                        android:fontFamily="@font/exo2semibold"
+                        android:text="@string/StayAtHome"
+                        android:layout_marginTop="25dp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:textStyle="normal"
+                        android:layout_below="@+id/textview1"
+                        android:layout_toEndOf="@+id/image6"
+                        android:fontFamily="@font/exo2regular"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/staying" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/image6"
+                        android:layout_width="130dp"
+                        android:layout_height="150dp"
+                        app:lottie_rawRes="@raw/stay_home"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/intersection"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/HelplineNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Helpline Number "
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/exo2semibold"
+                android:layout_below="@+id/relativeLayout"
+                android:textColor="#000"
+                android:layout_marginStart="25dp"
+                />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/HelplineNumber"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="5dp"
+                android:text="Allo SAMU "
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/AlloSamu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:padding="5dp"
+                android:text="141"
+                android:layout_toEndOf="@+id/text"
+                android:textSize="16dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_below="@id/HelplineNumber"/>
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="15dp"
+                android:text="Allo Yakada"
+                android:textSize="16dp"
+                android:layout_below="@id/text"/>
+
+            <TextView
+                android:id="@+id/AlloYakkada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:text="080 100 47 47"
+                android:layout_toEndOf="@+id/text2"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@id/text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_toEndOf="@+id/AlloSamu"
+                android:text="(Morocco)"
+                android:textSize="14dp"
+                android:layout_below="@id/HelplineNumber"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/AlloYakkada"
+                android:text="(Morocco)"
+                android:textSize="14dp"
+                android:layout_below="@id/text"
+                android:layout_marginBottom="40dp"/>
 
         </RelativeLayout>
 

@@ -12,7 +12,7 @@
         app:labelVisibilityMode="labeled"
         android:id="@+id/main_tabs"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/nav_bottom"
         app:menu="@menu/bottom_nav_item"

@@ -16,9 +16,9 @@
 
     <!--home fragment-->
     <string name="worldCases">Worldwide Cases </string>
-    <string name="death">TOTAL DEATHS </string>
-    <string name="activeCase">ACTIVE CASES</string>
-    <string name="closeCase">RECOVERED CASES</string>
+    <string name="death">DEATHS </string>
+    <string name="activeCase">ACTIVE</string>
+    <string name="closeCase">RECOVERED</string>
     <string name="mild">Mild Condition</string>
     <string name="critical">Critical</string>
     <string name="lastUpdate">July 26, 2020, 12:27 GMT</string>

@@ -5,10 +5,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,6 +24,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.Query;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -41,6 +47,8 @@ public class Countries extends AppCompatActivity {
     AdapterCountries adapterCountries;
     List<Country> countryList;
 
+    ImageView backButton;
+    RelativeLayout relativeLayout, layout;
     EditText search_field;
     CircleImageView search_button;
 
@@ -56,13 +64,28 @@ public class Countries extends AppCompatActivity {
         countryList = new ArrayList<>();
 
         search_field = findViewById(R.id.search_field);
-        search_button = findViewById(R.id.search_button);
+        backButton = findViewById(R.id.backButton);
+        relativeLayout = findViewById(R.id.layout);
+        layout = findViewById(R.id.country_totalCases);
+        //search_button = findViewById(R.id.search_button);
 
-        search_button.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
-        search_field.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
+        //search_button.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
+        relativeLayout.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
+        backButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
+        CountryView.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_transition));
+        layout.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_transition));
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         fetchData();
+
     }
+
 
     private void fetchData() {
         RequestQueue queue = Volley.newRequestQueue(this);
