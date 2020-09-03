@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".acitivities.Settings"
+    android:background="#F8F8FF">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="34.5dp"
+                android:layout_height="34.5dp"
+                android:background="@drawable/close"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="7dp"
+                android:elevation="1dp"
+                />
+
+            <RelativeLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="9dp"
+                android:layout_below="@+id/backButton"
+                android:layout_marginTop="30dp"
+                android:elevation="5dp"
+                android:background="@drawable/half">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userPicture"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/person"
+                    android:layout_marginStart="10dp"
+                    android:elevation="1dp"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:src="@color/white"
+                    android:layout_marginStart="7.8dp"
+                    />
+
+                <TextView
+                    android:id="@+id/UserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aimene Nouri"
+                    android:textSize="26dp"
+                    android:fontFamily="@font/exo2semibold"
+                    android:layout_toEndOf="@+id/userPicture"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="aimene.ucd@gmail.com"
+                    android:textSize="15dp"
+                    android:layout_below="@+id/UserName"
+                    android:layout_toEndOf="@+id/userPicture"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="11dp"
+                    android:alpha=".8"
+                    />
+
+            </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_1"
+                    android:layout_marginTop="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout1">
+
+                <RelativeLayout
+                    android:id="@+id/layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form7">
+
+                    <View
+                        android:id="@id/view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.8dp"
+                        android:alpha=".5"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                    <RelativeLayout
+                        android:layout_below="@+id/view"
+                        android:id="@+id/edit_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:background="@drawable/form7">
+
+                        <ImageView
+                            android:id="@+id/icon1"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/edit"
+                            android:layout_centerVertical="true"
+                            android:elevation="2dp"/>
+
+                        <ImageView
+                            android:id="@+id/icon_chevron1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="15dp"
+                            android:alpha=".8"
+                            android:background="@drawable/ic_chevron_right_black_24dp"/>
+
+                        <TextView
+                            android:id="@+id/text1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Edit Profile"
+                            android:textSize="16dp"
+                            android:padding="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/icon1"
+                            android:textColor="#000"
+                            />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/view_1"
+                        android:layout_below="@+id/edit_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="0.8dp"
+                        android:alpha=".5"
+                        android:layout_marginEnd="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                    <RelativeLayout
+                        android:id="@+id/change_password"
+                        android:layout_below="@+id/view_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:background="@drawable/form7">
+
+                        <ImageView
+                            android:id="@+id/icon2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_centerVertical="true"
+                            android:elevation="2dp"
+                            android:background="@drawable/ic_lock_outline_black_24dp"/>
+
+                        <ImageView
+                            android:id="@+id/icon_chevron2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/ic_chevron_right_black_24dp"/>
+
+                        <TextView
+                            android:id="@+id/text2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Change Password"
+                            android:textSize="16dp"
+                            android:padding="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/icon2"
+                            android:textColor="#000"
+                            />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/view_2"
+                        android:layout_below="@+id/change_password"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="0.8dp"
+                        android:layout_marginEnd="20dp"
+                        android:alpha=".5"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                    <RelativeLayout
+                        android:id="@+id/change_location"
+                        android:layout_below="@+id/view_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:background="@drawable/form7">
+
+                        <ImageView
+                            android:id="@+id/icon3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_centerVertical="true"
+                            android:elevation="2dp"
+                            android:background="@drawable/user_location_icon"/>
+
+                        <ImageView
+                            android:id="@+id/icon_chevron3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/ic_chevron_right_black_24dp"/>
+
+                        <TextView
+                            android:id="@+id/text3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Change Location"
+                            android:textSize="16dp"
+                            android:padding="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/icon3"
+                            android:layout_marginStart="9dp"
+                            android:textColor="#000"
+                            />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@id/view1"
+                        android:layout_below="@id/change_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.8dp"
+                        android:alpha=".5"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/form7"
+                    android:layout_below="@+id/layout">
+
+                    <View
+                        android:id="@id/view2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.8dp"
+                        android:alpha=".5"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                    <RelativeLayout
+                        android:id="@+id/feedback"
+                        android:layout_below="@id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:background="@drawable/form7">
+
+                        <ImageView
+                            android:id="@+id/icon_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/ic_feedback_black_24dp"
+                            android:layout_centerVertical="true"
+                            android:elevation="2dp"/>
+
+
+                        <TextView
+                            android:id="@+id/text4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Give Feedback"
+                            android:textSize="16dp"
+                            android:padding="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/icon_1"
+                            android:textColor="#000"
+                            />
+
+                        <ImageView
+                            android:id="@+id/icon_chevron_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="15dp"
+                            android:alpha=".8"
+                            android:background="@drawable/ic_chevron_right_black_24dp"/>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/view_3"
+                        android:layout_below="@+id/feedback"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="0.8dp"
+                        android:alpha=".5"
+                        android:layout_marginEnd="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                    <RelativeLayout
+                        android:id="@+id/share_app"
+                        android:layout_below="@+id/view_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:background="@drawable/form7">
+
+                        <ImageView
+                            android:id="@+id/icon_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic_share_black_24dp"/>
+
+                        <TextView
+                            android:id="@+id/text5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Share This App"
+                            android:textSize="16dp"
+                            android:padding="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/icon_2"
+                            android:textColor="#000"
+                            />
+
+                        <ImageView
+                            android:id="@+id/icon_chevron_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="15dp"
+                            android:alpha=".8"
+                            android:background="@drawable/ic_chevron_right_black_24dp"/>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/view_4"
+                        android:layout_below="@+id/share_app"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_height="0.8dp"
+                        android:layout_marginEnd="20dp"
+                        android:alpha=".5"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                    <RelativeLayout
+                        android:id="@+id/rate_app"
+                        android:layout_below="@+id/view_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:background="@drawable/form7">
+
+                        <ImageView
+                            android:id="@+id/icon_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_centerVertical="true"
+                            android:elevation="2dp"
+                            android:background="@drawable/ic_star_border_black_24dp"/>
+
+                        <TextView
+                            android:id="@+id/text6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rate This App"
+                            android:textSize="16dp"
+                            android:padding="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/icon_3"
+                            android:layout_marginStart="9dp"
+                            android:textColor="#000"
+                            />
+
+                        <ImageView
+                            android:id="@+id/icon_chevron_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="15dp"
+                            android:alpha=".8"
+                            android:background="@drawable/ic_chevron_right_black_24dp"/>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@id/view3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.8dp"
+                        android:alpha=".5"
+                        android:layout_below="@+id/rate_app"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout3"
+                    android:layout_below="@+id/relativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@id/view2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.8dp"
+                        android:alpha=".5"
+                        android:layout_centerHorizontal="true"
+                        android:background="#B3B3B3"/>
+
+                    <RelativeLayout
+                        android:id="@+id/exit"
+                        android:layout_below="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:clickable="true"
+                        android:background="@drawable/form7">
+
+                        <ImageView
+                            android:id="@+id/icon_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_centerVertical="true"
+                            android:elevation="2dp"
+                            android:background="@drawable/ic_exit_to_app_black_24dp"/>
+
+                        <TextView
+                            android:id="@+id/text9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Exit"
+                            android:textSize="16dp"
+                            android:padding="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/icon_6"
+                            android:layout_marginStart="9dp"
+                            android:textColor="#000"
+                            />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@id/view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dp"
+                    android:alpha=".5"
+                    android:layout_below="@+id/relativeLayout3"
+                    android:layout_centerHorizontal="true"
+                    android:background="#B3B3B3"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/about"
+                    android:layout_below="@+id/view3"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:padding="15dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/icon_love"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:background="@drawable/heart_icon"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/by"
+                        android:elevation="2dp"/>
+
+                    <TextView
+                        android:id="@+id/made"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Made with"
+                        android:textSize="17dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/icon_love"
+                        android:textColor="#000"
+                        android:alpha=".7"
+                        android:fontFamily="@font/exo2semibold"/>
+
+                    <TextView
+                        android:id="@+id/by"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="By"
+                        android:textSize="17dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="#000"
+                        android:alpha=".7"
+                        android:fontFamily="@font/exo2semibold"/>
+
+                    <TextView
+                        android:id="@+id/AimeneNouri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aimene Nouri"
+                        android:layout_centerVertical="true"
+                        android:textSize="17dp"
+                        android:layout_toEndOf="@+id/by"
+                        android:textColor="@color/colorPrimary"
+                        android:alpha=".9"
+                        android:fontFamily="@font/exo2semibold"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

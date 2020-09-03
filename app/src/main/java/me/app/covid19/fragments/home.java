@@ -45,6 +45,7 @@ import java.util.Locale;
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
 import me.app.covid19.acitivities.Countries;
+import me.app.covid19.acitivities.Settings;
 import me.app.covid19.acitivities.UserInfo;
 
 /**
@@ -95,7 +96,7 @@ public class home extends Fragment {
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent infoIntent = new Intent(getContext(), UserInfo.class);
+                Intent infoIntent = new Intent(getContext(), Settings.class);
                 Bundle bundle = ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_left, R.anim.slide_out_left).toBundle();
                 startActivity(infoIntent, bundle);
 
@@ -105,7 +106,7 @@ public class home extends Fragment {
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent infoIntent = new Intent(getContext(), UserInfo.class);
+                Intent infoIntent = new Intent(getContext(), Settings.class);
                 Bundle bundle = ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_left, R.anim.slide_out_left).toBundle();
                 startActivity(infoIntent, bundle);
 

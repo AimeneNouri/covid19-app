@@ -8,11 +8,21 @@
     android:background="#F8F8FF"
     tools:context=".acitivities.MainActivity">
 
+
+    <View
+        android:id="@id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="0.8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/main_tabs"
+        android:alpha=".4"
+        android:background="#B3B3B3"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         app:labelVisibilityMode="labeled"
         android:id="@+id/main_tabs"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/nav_bottom"
         app:menu="@menu/bottom_nav_item"
@@ -25,7 +35,7 @@
         android:id="@+id/main_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/main_tabs"
+        android:layout_above="@+id/view"
         android:layout_alignParentStart="true">
     </FrameLayout>
 

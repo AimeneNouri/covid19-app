@@ -72,8 +72,8 @@ public class Countries extends AppCompatActivity {
         //search_button.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         relativeLayout.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         backButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
-        CountryView.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_transition));
-        layout.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_transition));
+        CountryView.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_droit));
+        layout.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_droit));
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
