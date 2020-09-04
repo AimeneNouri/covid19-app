@@ -46,6 +46,7 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
 
         holder.country_name.setText(countryList.get(position).getCountry());
         holder.country_total_cases.setText(countryList.get(position).getCases());
+        holder.country_today_cases.setText("+" + countryList.get(position).getTodayCases());
         Picasso.get().load(countryList.get(position).getFlag()).into(holder.country_flag);
     }
 
@@ -57,7 +58,7 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView country_flag;
-        TextView country_name, country_total_cases;
+        TextView country_name, country_total_cases, country_today_cases;
         RelativeLayout relativeLayout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -67,6 +68,7 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
             country_flag = itemView.findViewById(R.id.country_flag);
             relativeLayout = itemView.findViewById(R.id.item_country_layout);
             country_total_cases = itemView.findViewById(R.id.country_total_cases);
+            country_today_cases = itemView.findViewById(R.id.country_today_cases);
         }
     }
 }

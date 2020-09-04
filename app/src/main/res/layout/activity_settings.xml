@@ -30,7 +30,7 @@
             <RelativeLayout
                 android:id="@+id/layout1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="90dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:padding="9dp"
@@ -41,8 +41,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/userPicture"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_centerVertical="true"
                     android:src="@drawable/person"
                     android:layout_marginStart="10dp"
@@ -51,8 +51,8 @@
                     />
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:src="@color/white"
                     android:layout_marginStart="7.8dp"
@@ -64,6 +64,7 @@
                     android:layout_height="wrap_content"
                     android:text="Aimene Nouri"
                     android:textSize="26dp"
+                    android:layout_marginTop="2dp"
                     android:fontFamily="@font/exo2semibold"
                     android:layout_toEndOf="@+id/userPicture"
                     android:textColor="@color/white"
@@ -111,7 +112,7 @@
                         android:id="@+id/edit_profile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="3dp"
+                        android:padding="5dp"
                         android:clickable="true"
                         android:background="@drawable/form7">
 
@@ -158,7 +159,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_height="0.8dp"
                         android:alpha=".5"
-                        android:layout_marginEnd="20dp"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerHorizontal="true"
                         android:background="#B3B3B3"/>
 
@@ -210,9 +211,9 @@
                         android:id="@+id/view_2"
                         android:layout_below="@+id/change_password"
                         android:layout_width="wrap_content"
-                        android:layout_marginStart="20dp"
                         android:layout_height="0.8dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_alignParentEnd="true"
                         android:alpha=".5"
                         android:layout_centerHorizontal="true"
                         android:background="#B3B3B3"/>
@@ -295,7 +296,7 @@
                         android:layout_below="@id/view2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="3dp"
+                        android:padding="5dp"
                         android:clickable="true"
                         android:background="@drawable/form7">
 
@@ -343,7 +344,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_height="0.8dp"
                         android:alpha=".5"
-                        android:layout_marginEnd="20dp"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerHorizontal="true"
                         android:background="#B3B3B3"/>
 
@@ -352,7 +353,7 @@
                         android:layout_below="@+id/view_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="3dp"
+                        android:padding="5dp"
                         android:clickable="true"
                         android:background="@drawable/form7">
 
@@ -397,7 +398,7 @@
                         android:layout_width="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_height="0.8dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_alignParentEnd="true"
                         android:alpha=".5"
                         android:layout_centerHorizontal="true"
                         android:background="#B3B3B3"/>
@@ -407,7 +408,7 @@
                         android:layout_below="@+id/view_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="3dp"
+                        android:padding="5dp"
                         android:clickable="true"
                         android:background="@drawable/form7">
 
@@ -479,7 +480,7 @@
                         android:layout_below="@+id/view2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="3dp"
+                        android:padding="5dp"
                         android:clickable="true"
                         android:background="@drawable/form7">
 
@@ -523,9 +524,9 @@
                 <RelativeLayout
                     android:id="@+id/about"
                     android:layout_below="@+id/view3"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
-                    android:padding="15dp"
+                    android:padding="20dp"
                     android:layout_height="wrap_content">
 
                     <ImageView

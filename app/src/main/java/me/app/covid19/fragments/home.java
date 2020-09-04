@@ -7,8 +7,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -18,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,22 +35,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
 import me.app.covid19.acitivities.Countries;
 import me.app.covid19.acitivities.Settings;
-import me.app.covid19.acitivities.UserInfo;
+import me.app.covid19.acitivities.User_location_cases;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class home extends Fragment {
 
-    private ImageView searchButton;
+    private ImageView searchButton, UserCountry;
     private CircleImageView settingsButton;
     private View HomeView;
 
@@ -90,6 +84,7 @@ public class home extends Fragment {
         searchButton = HomeView.findViewById(R.id.searchButton);
         lastUpdate = HomeView.findViewById(R.id.lastUpdateCases);
         relativeLayout = HomeView.findViewById(R.id.relativeLayout1);
+        UserCountry = HomeView.findViewById(R.id.location_current_user);
 
         retrieveUserImage();
 
@@ -118,6 +113,14 @@ public class home extends Fragment {
             public void onClick(View v) {
                 Intent CountriesIntent = new Intent(getContext(), Countries.class);
                 startActivity(CountriesIntent);
+            }
+        });
+
+        UserCountry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent UserCountryIntent = new Intent(getContext(), User_location_cases.class);
+                startActivity(UserCountryIntent);
             }
         });
 

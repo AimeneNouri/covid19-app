@@ -23,7 +23,10 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme.Launcher"
         tools:replace="android:supportsRtl">
-        <activity android:name=".acitivities.SettingsItems.EditProfile"></activity>
+        <activity android:name=".acitivities.User_location_cases"
+            android:theme="@style/AppTheme_Countries"></activity>
+        <activity android:name=".acitivities.SettingsItems.EditProfile"
+            android:theme="@style/AppTheme_Countries"/>
         <activity
             android:name=".acitivities.SettingsItems.Change_password"
             android:theme="@style/AppTheme_Countries" />

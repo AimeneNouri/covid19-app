@@ -210,7 +210,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:textSize="22dp"/>
+                android:textSize="22dp"
+                android:elevation="2dp"/>
 
 
             <HorizontalScrollView
@@ -230,6 +231,7 @@
                         android:layout_width="150dp"
                         android:layout_height="180dp"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
                         android:elevation="3dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/form1">
@@ -279,6 +281,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
                         android:elevation="3dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/form1" >
 
                         <ImageView
@@ -324,6 +327,7 @@
                         android:layout_toEndOf="@+id/form2"
                         android:layout_marginEnd="20dp"
                         android:elevation="3dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/form1">
 
                         <ImageView
@@ -376,7 +380,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="10dp"
-                android:textSize="22dp"/>
+                android:textSize="22dp"
+                android:elevation="2dp"/>
 
             <HorizontalScrollView
                 android:id="@+id/layout2"
@@ -397,6 +402,7 @@
                         android:layout_marginStart="20dp"
                         android:elevation="3dp"
                         android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/form1">
 
                         <ImageView
@@ -440,6 +446,7 @@
                         android:layout_toEndOf="@+id/form4"
                         android:layout_marginEnd="20dp"
                         android:elevation="3dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/form1">
 
                         <ImageView
@@ -485,6 +492,7 @@
                         android:layout_toEndOf="@+id/form5"
                         android:layout_marginEnd="20dp"
                         android:elevation="3dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/form1">
 
                         <ImageView

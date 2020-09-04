@@ -69,6 +69,12 @@
     <string name="reset_password">Reset Password</string>
     <string name="reset_successfully">Your password has been reset successfully</string>
     <string name="password_reset">Password Reset</string>
+    <string name="ok">Ok</string>
+    <string name="enable">Enable</string>
+    <string name="cancel">Cancel</string>
+    <string name="enable_gps">Enable GPS...</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="city">City</string>
 
 
 </resources>

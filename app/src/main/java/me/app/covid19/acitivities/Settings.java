@@ -33,6 +33,7 @@ import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
 import me.app.covid19.acitivities.SettingsItems.Change_password;
+import me.app.covid19.acitivities.SettingsItems.EditProfile;
 
 public class Settings extends AppCompatActivity {
 
@@ -111,6 +112,16 @@ public class Settings extends AppCompatActivity {
         layout1.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         backButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
 
+        //edit_profile activity
+        edit_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this, EditProfile.class);
+                startActivity(intent);
+            }
+        });
+
+        //change_password activity
         change_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
