@@ -7,5 +7,6 @@
     <color name="nav_item_color">#7777FF</color>
     <color name="white">#ffffff</color>
     <color name="alertColor">#7777FF</color>
+    <color name="black">#000</color>
     <color name="transparent">@android:color/transparent</color>
 </resources>

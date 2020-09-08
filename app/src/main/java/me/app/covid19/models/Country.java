@@ -1,12 +1,21 @@
 package me.app.covid19.models;
 
 public class Country{
-    private String flag, country, cases, todayCases, deaths, todayDeaths, recovered, todayRecovered, active;
+    private String flag;
+    private String country;
+    private String cases;
+    private String todayCases;
+    private String deaths;
+    private String todayDeaths;
+    private String recovered;
+    private String todayRecovered;
+    private String active;
+    private long lastUpdate;
 
     public Country() {
     }
 
-    public Country(String flag, String country, String cases, String todayCases, String deaths, String todayDeaths, String recovered, String todayRecovered, String active) {
+    public Country(String flag, String country, String cases, String todayCases, String deaths, String todayDeaths, String recovered, String todayRecovered, String active, long lastUpdate) {
         this.flag = flag;
         this.country = country;
         this.cases = cases;
@@ -16,6 +25,7 @@ public class Country{
         this.recovered = recovered;
         this.todayRecovered = todayRecovered;
         this.active = active;
+        this.lastUpdate = lastUpdate;
     }
 
     public String getFlag() {
@@ -88,5 +98,13 @@ public class Country{
 
     public void setActive(String active) {
         this.active = active;
+    }
+
+    public long getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(long lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 }

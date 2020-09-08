@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".acitivities.User_location_cases">
+    tools:context=".activities.User_location_cases">
 
 
     <TextView

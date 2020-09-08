@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8FF"
+    tools:context=".activities.DetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:elevation="3dp"
+        android:layout_height="210dp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:text="Covid-19 Tracker"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="25dp" />
+
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text1"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:id="@+id/country_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24dp"
+                android:text="xccxcxcxc"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/country_flag" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/country_flag"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:text="Last updated on Sept 06, 2020"
+            android:alpha=".8"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginTop="9dp"
+            android:layout_below="@+id/layout"
+            android:layout_marginStart="25dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:layout_marginTop="130sp">
+
+        <RelativeLayout
+            android:id="@+id/Confirmed"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:padding="10sp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/case_form">
+
+            <TextView
+                android:id="@+id/total_cases_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/total_cases"
+                android:fontFamily="@font/exobold"
+                android:gravity="center"
+                android:text="@string/confirmed"
+                android:elevation="2dp"
+                android:layout_alignStart="@+id/total_cases"
+                android:textAllCaps="true"
+                android:alpha=".89"
+                android:layout_marginBottom="5dp"
+                android:textColor="#32354E"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/total_cases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/exo2semibold"
+                android:text="1,649,156"
+                android:elevation="2dp"
+                android:textAlignment="center"
+                android:textColor="#FF8748"
+                android:layout_marginTop="10sp"
+                android:layout_below="@+id/layout3"
+                android:textSize="28dp" />
+
+            <RelativeLayout
+                android:id="@+id/layout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:padding="5dp"
+                android:elevation="1dp"
+                android:background="@drawable/cases_background">
+
+                <ImageView
+                    android:id="@+id/icon_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1.5dp"
+                    android:layout_marginEnd="1dp"
+                    android:src="@drawable/upward_cases"/>
+
+                <TextView
+                    android:id="@+id/today_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/exo2semibold"
+                    android:text="200"
+                    android:textSize="11sp"
+                    android:layout_toEndOf="@+id/icon_cases"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:textColor="#FF8748"
+                    android:textAlignment="center"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Recovered"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/recovered_form">
+
+            <TextView
+                android:id="@+id/total_recovered_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/total_recovered"
+                android:fontFamily="@font/exobold"
+                android:gravity="center"
+                android:text="@string/recovered"
+                android:elevation="2dp"
+                android:alpha=".89"
+                android:layout_marginBottom="5dp"
+                android:textColor="#32354E"
+                android:layout_alignStart="@+id/total_recovered"
+                android:textAllCaps="true"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/total_recovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/exo2semibold"
+                android:text="1,649,156"
+                android:elevation="2dp"
+                android:textAlignment="center"
+                android:textColor="#0E9508"
+                android:layout_marginTop="10sp"
+                android:layout_below="@+id/layout2"
+                android:textSize="28dp" />
+
+            <RelativeLayout
+                android:id="@+id/layout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:elevation="1dp"
+                android:padding="5dp"
+                android:background="@drawable/recovered_background">
+
+                <ImageView
+                    android:id="@+id/icon_recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1.5dp"
+                    android:layout_marginEnd="1dp"
+                    android:src="@drawable/upward_recovered" >
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/today_recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/exo2semibold"
+                    android:text="200"
+                    android:layout_toEndOf="@+id/icon_recovered"
+                    android:textSize="11sp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:textColor="#0E9508"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear">
+
+        <RelativeLayout
+            android:id="@+id/Death"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/death_form">
+
+            <TextView
+                android:id="@+id/total_deaths_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/total_deaths"
+                android:fontFamily="@font/exobold"
+                android:gravity="center"
+                android:text="@string/death"
+                android:elevation="2dp"
+                android:layout_alignStart="@+id/total_deaths"
+                android:textAllCaps="true"
+                android:alpha=".89"
+                android:layout_marginBottom="5dp"
+                android:textColor="#32354E"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/total_deaths"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/exo2semibold"
+                android:text="1,649,156"
+                android:elevation="2dp"
+                android:textAlignment="center"
+                android:textColor="#FF0000"
+                android:layout_marginTop="10sp"
+                android:layout_below="@+id/layout4"
+                android:textSize="28dp" />
+
+            <RelativeLayout
+                android:id="@+id/layout4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:padding="5dp"
+                android:elevation="1dp"
+                android:background="@drawable/death_background">
+
+                <ImageView
+                    android:id="@+id/icon_death"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1.5dp"
+                    android:layout_marginEnd="1dp"
+                    android:src="@drawable/upward_death"/>
+
+                <TextView
+                    android:id="@+id/today_deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/exo2semibold"
+                    android:text="200"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:textColor="#FF0000"
+                    android:layout_centerVertical="true"
+                    android:textAlignment="center"
+                    android:layout_toEndOf="@+id/icon_death"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ActiveCase"
+            android:layout_width="150dp"
+            android:padding="10sp"
+            android:layout_height="153dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/active_form">
+
+            <TextView
+                android:id="@+id/total_active_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/exobold"
+                android:gravity="center"
+                android:text="@string/activeCase"
+                android:elevation="2dp"
+                android:alpha=".89"
+                android:layout_marginBottom="5dp"
+                android:textColor="#32354E"
+                android:layout_alignStart="@+id/total_active"
+                android:textAllCaps="true"
+                android:layout_alignParentBottom="true"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/total_active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/exo2semibold"
+                android:text="1,649,156"
+                android:elevation="2dp"
+                android:layout_above="@+id/total_active_text"
+                android:textAlignment="center"
+                android:textColor="#2196F3"
+                android:layout_marginTop="10sp"
+                android:textSize="28dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

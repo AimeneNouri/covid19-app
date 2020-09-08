@@ -9,7 +9,7 @@
     android:background="#F8F8FF"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
-    tools:context=".acitivities.SettingsItems.EditProfile">
+    tools:context=".activities.SettingsItems.EditProfile">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -78,14 +78,6 @@
                     android:layout_centerHorizontal="true"
                     />
 
-                <!--<de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@color/colorPrimary"
-                    android:layout_marginTop="37.5dp"
-                    />-->
-
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/updatePicture"
                     android:layout_width="24dp"
@@ -94,6 +86,26 @@
                     android:layout_marginStart="-18dp"
                     android:layout_toEndOf="@+id/userPicture"
                     android:src="@drawable/icon_cam1" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/userPicture"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/view_form"/>
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/userPicture"
+                    android:layout_marginEnd="5dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/view_form1"/>
 
             </RelativeLayout>
 
@@ -109,11 +121,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="@string/name"
-                    android:background="@drawable/custom_input"
+                    android:background="@drawable/edittext"
                     android:padding="10dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
                     android:singleLine="true"
+                    android:elevation="2dp"
                     />
 
                 <EditText
@@ -122,7 +135,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="@string/email"
-                    android:background="@drawable/custom_input"
+                    android:background="@drawable/edittext"
+                    android:elevation="2dp"
                     android:padding="10dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
@@ -136,12 +150,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="@string/phone"
-                    android:background="@drawable/custom_input"
+                    android:background="@drawable/edittext"
                     android:padding="10dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
                     android:singleLine="true"
                     android:layout_below="@+id/UserEmail"
+                    android:elevation="2dp"
                     />
 
                 <EditText
@@ -150,12 +165,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:hint="@string/cin"
-                    android:background="@drawable/custom_input"
+                    android:background="@drawable/edittext"
                     android:padding="10dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
                     android:singleLine="true"
                     android:layout_below="@+id/UserPhoneNumber"
+                    android:elevation="2dp"
                     />
 
                 <EditText
@@ -164,7 +180,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:hint="@string/birth"
-                    android:background="@drawable/custom_input"
+                    android:background="@drawable/edittext"
                     android:padding="10dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
@@ -174,7 +190,27 @@
                     android:drawableEnd="@drawable/ic_date_range_black_24dp"
                     android:editable="false"
                     android:focusable="false"
+                    android:elevation="2dp"
                     />
+
+                <EditText
+                    android:id="@+id/UserCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/country"
+                    android:background="@drawable/edittext"
+                    android:padding="10dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_below="@+id/UserBirth"
+                    android:singleLine="true"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:elevation="2dp"
+                    />
+
 
                 <TextView
                     android:id="@+id/text"
@@ -189,7 +225,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginBottom="5dp"
                     android:alpha=".89"
-                    android:layout_below="@+id/UserBirth"
+                    android:layout_below="@+id/UserCountry"
                     />
 
                 <RelativeLayout
@@ -221,7 +257,10 @@
                             android:padding="10dp"
                             android:layout_marginEnd="20dp"
                             android:buttonTint="#7777FF"
-                            android:background="@drawable/custom_input"
+                            android:background="@drawable/edittext"
+                            android:elevation="2dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
                             />
 
 
@@ -236,7 +275,9 @@
                             android:layout_marginEnd="20dp"
                             android:textColor="#504F4F"
                             android:buttonTint="#7777FF"
-                            android:background="@drawable/custom_input"/>
+                            android:layout_marginTop="5dp"
+                            android:elevation="2dp"
+                            android:background="@drawable/edittext"/>
 
                     </RadioGroup>
 

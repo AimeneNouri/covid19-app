@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".acitivities.UserInfo"
+    tools:context=".activities.UserInfo"
     android:background="#F8F8FF"
     android:id="@+id/layoutSettings"
     android:descendantFocusability="beforeDescendants"

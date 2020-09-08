@@ -75,6 +75,16 @@
     <string name="enable_gps">Enable GPS...</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="city">City</string>
-
+    <string name="change_location">Change Location</string>
+    <string name="country">Country</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="statistic">Statistics</string>
+    <string name="recovered">Recovered</string>
+    <string name="infected">Infected</string>
+    <string name="Location">Location</string>
+    <string name="readMore">Read More</string>
+    <string name="cured">Cured</string>
+    <string name="last_news">Last News</string>
+    <string name="Read_more"><![CDATA[Read More >]]></string>
 
 </resources>

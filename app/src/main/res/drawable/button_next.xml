@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <solid android:color="#7777FF"/>
+    <item android:state_pressed="true" android:drawable="@drawable/button_next_pressed"/>
 
-    <corners android:radius="23dp"/>
+    <item android:drawable="@drawable/button_next_before"/>
 
-</shape>
+
+</selector>

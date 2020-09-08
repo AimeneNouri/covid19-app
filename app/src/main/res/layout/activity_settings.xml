@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".acitivities.Settings"
+    tools:context=".activities.Settings"
     android:background="#F8F8FF">
 
     <ScrollView
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:text="Aimene Nouri"
                     android:textSize="26dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/exo2semibold"
                     android:layout_toEndOf="@+id/userPicture"
                     android:textColor="@color/white"
@@ -207,7 +207,7 @@
 
                     </RelativeLayout>
 
-                    <View
+                    <!--<View
                         android:id="@+id/view_2"
                         android:layout_below="@+id/change_password"
                         android:layout_width="wrap_content"
@@ -260,11 +260,11 @@
                             android:textColor="#000"
                             />
 
-                    </RelativeLayout>
+                    </RelativeLayout>-->
 
                     <View
                         android:id="@id/view1"
-                        android:layout_below="@id/change_location"
+                        android:layout_below="@id/change_password"
                         android:layout_width="wrap_content"
                         android:layout_height="0.8dp"
                         android:alpha=".5"

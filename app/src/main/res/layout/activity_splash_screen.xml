@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".acitivities.SplashScreen"
+    tools:context=".activities.SplashScreen"
     android:background="@color/white">
 
     <RelativeLayout
@@ -44,6 +44,64 @@
             android:layout_centerHorizontal="true"
             android:textColor="#504F4F"
             android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/about"
+        android:layout_below="@+id/view3"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="10sp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon_love"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/heart_icon"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/made"
+            android:elevation="2dp"/>
+
+        <TextView
+            android:id="@+id/made"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Made with"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:textColor="#000"
+            android:layout_marginEnd="2dp"
+            android:alpha=".7"
+            android:fontFamily="@font/exo2semibold"/>
+
+        <TextView
+            android:id="@+id/by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="By"
+            android:textSize="14sp"
+            android:layout_toEndOf="@+id/icon_love"
+            android:layout_centerVertical="true"
+            android:textColor="#000"
+            android:alpha=".7"
+            android:fontFamily="@font/exo2semibold"/>
+
+        <TextView
+            android:id="@+id/AimeneNouri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aimene Nouri"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:layout_toEndOf="@+id/by"
+            android:textColor="@color/colorPrimary"
+            android:alpha=".9"
+            android:fontFamily="@font/exo2semibold"/>
 
     </RelativeLayout>
 

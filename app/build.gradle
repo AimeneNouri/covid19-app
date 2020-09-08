@@ -63,4 +63,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.jcminarro:RoundKornerLayouts:0.2.0'
     implementation 'com.airbnb.android:lottie:3.4.0'
+
+    //Times Formater
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
 }

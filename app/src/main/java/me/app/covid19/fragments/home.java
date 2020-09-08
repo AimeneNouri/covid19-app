@@ -35,19 +35,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
-import me.app.covid19.acitivities.Countries;
-import me.app.covid19.acitivities.Settings;
-import me.app.covid19.acitivities.User_location_cases;
+import me.app.covid19.activities.Countries;
+import me.app.covid19.activities.Settings;
+import me.app.covid19.activities.User_country;
+import me.app.covid19.activities.User_location_cases;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class home extends Fragment {
 
-    private ImageView searchButton, UserCountry;
+    private ImageView searchButton;
     private CircleImageView settingsButton;
     private View HomeView;
 
@@ -84,7 +87,6 @@ public class home extends Fragment {
         searchButton = HomeView.findViewById(R.id.searchButton);
         lastUpdate = HomeView.findViewById(R.id.lastUpdateCases);
         relativeLayout = HomeView.findViewById(R.id.relativeLayout1);
-        UserCountry = HomeView.findViewById(R.id.location_current_user);
 
         retrieveUserImage();
 
@@ -116,18 +118,10 @@ public class home extends Fragment {
             }
         });
 
-        UserCountry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent UserCountryIntent = new Intent(getContext(), User_location_cases.class);
-                startActivity(UserCountryIntent);
-            }
-        });
-
         //fetchData
         fetchData();
 
-        fetchDataLastUpdate();
+        //fetchDataLastUpdate();
 
         return HomeView;
     }
@@ -154,7 +148,7 @@ public class home extends Fragment {
         });
     }
 
-    private void fetchDataLastUpdate() {
+    /*private void fetchDataLastUpdate() {
         String url = "https://api.covid19api.com/summary";
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -181,6 +175,14 @@ public class home extends Fragment {
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(request);
+    }*/
+
+    private String getDate(long milliSecond){
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, dd MMM yyyy hh:mm:ss aaa");
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSecond);
+        return formatter.format(calendar.getTime());
     }
 
     private void fetchData() {
@@ -208,6 +210,7 @@ public class home extends Fragment {
                     TodayCases.setText(formatter.format(Double.parseDouble(todayCase)));
                     TodayDeaths.setText(formatter.format(Double.parseDouble(todayDeath)));
                     TodayRecovered.setText(formatter.format(Double.parseDouble(todayRecovered)));
+                    lastUpdate.setText(getDate(jsonObject.getLong("updated")));
 
 
                 } catch (JSONException e) {

@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             android:elevation="5dp"
             android:layout_marginTop="29dp"
             android:background="@drawable/dr_corona" />
@@ -39,16 +39,6 @@
             android:elevation="7dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"/>
-
-        <ImageView
-            android:id="@+id/location_current_user"
-            android:layout_width="27dp"
-            android:layout_height="27dp"
-            android:background="@drawable/icon_location"
-            android:layout_alignParentEnd="true"
-            android:elevation="7dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="62dp"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/settingsButton"
@@ -149,7 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/exo2regular"
-            android:text="2020-08-30T19:20:24Z"
+            android:text="Sun, 06 Sept 2020 19:20:24 pm"
             android:layout_below="@id/worldCases"
             android:layout_alignParentEnd="true"
             android:textAlignment="center"
@@ -157,7 +147,7 @@
             android:layout_marginBottom="5dp"
             android:textColor="#fff"
             android:elevation="5dp"
-            android:textSize="14dp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/allcases"
@@ -167,6 +157,7 @@
             android:fontFamily="@font/exobold"
             android:layout_below="@+id/lastUpdateCases"
             android:text="16,235,989"
+            android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
@@ -180,7 +171,7 @@
             android:layout_marginStart="25dp"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="30dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="5dp"
             android:layout_below="@+id/allcases"
             android:background="@drawable/corona_4" />
 
@@ -229,14 +220,16 @@
                     <RelativeLayout
                         android:id="@+id/form1"
                         android:layout_width="150dp"
-                        android:layout_height="180dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
                         android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@+id/form2"
                         android:elevation="3dp"
                         android:layout_marginBottom="10dp"
-                        android:background="@drawable/form1">
+                        android:background="@drawable/death_form">
 
                         <ImageView
+                            android:id="@+id/icon2"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:background="@drawable/death_symbol"
@@ -248,15 +241,17 @@
                             android:id="@+id/textDeath"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="15dp"
+                            android:layout_marginBottom="10sp"
+                            android:layout_marginTop="20dp"
                             android:fontFamily="@font/exobold"
                             android:gravity="center"
                             android:text="@string/death"
                             android:elevation="2dp"
-                            android:textColor="#FF0000"
-                            android:textSize="18dp" />
+                            android:alpha=".89"
+                            android:layout_below="@+id/DeathCases"
+                            android:textColor="#32354E"
+                            android:textSize="15sp" />
 
                         <TextView
                             android:id="@+id/DeathCases"
@@ -266,6 +261,8 @@
                             android:layout_centerVertical="true"
                             android:fontFamily="@font/exo2semibold"
                             android:text="649,156"
+                            android:layout_below="@+id/icon2"
+                            android:layout_marginTop="20dp"
                             android:elevation="2dp"
                             android:textAlignment="center"
                             android:textColor="#FF0000"
@@ -276,15 +273,15 @@
                     <RelativeLayout
                         android:id="@+id/form2"
                         android:layout_width="150dp"
-                        android:layout_height="180dp"
-                        android:layout_toEndOf="@+id/form1"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
                         android:elevation="3dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/form1" >
+                        android:background="@drawable/case_form" >
 
                         <ImageView
+                            android:id="@+id/icon1"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:background="@drawable/infected_symbol"
@@ -297,13 +294,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="20dp"
                             android:fontFamily="@font/exobold"
                             android:text="@string/activeCase"
-                            android:textColor="#FF8748"
-                            android:layout_marginBottom="15dp"
-                            android:textSize="18dp" />
+                            android:textColor="#32354E"
+                            android:layout_below="@+id/ActiveCase"
+                            android:alpha=".89"
+                            android:layout_marginBottom="10sp"
+                            android:textSize="15sp" />
 
 
                         <TextView
@@ -312,8 +310,10 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/exo2semibold"
                             android:text="5,651,587"
+                            android:layout_below="@+id/icon1"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
+                            android:layout_marginTop="20dp"
                             android:textAlignment="center"
                             android:textColor="#FF8748"
                             android:textSize="24dp" />
@@ -323,14 +323,15 @@
                     <RelativeLayout
                         android:id="@+id/form3"
                         android:layout_width="150dp"
-                        android:layout_height="180dp"
-                        android:layout_toEndOf="@+id/form2"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/form1"
                         android:layout_marginEnd="20dp"
                         android:elevation="3dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/form1">
+                        android:background="@drawable/recovered_form">
 
                         <ImageView
+                            android:id="@+id/icon3"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:background="@drawable/recovered_symbol"
@@ -343,12 +344,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/CaseClosed"
+                            android:layout_marginTop="20dp"
                             android:fontFamily="@font/exobold"
                             android:text="@string/closeCase"
-                            android:textColor="#0E9508"
-                            android:layout_marginBottom="15dp"
-                            android:textSize="18dp" />
+                            android:textColor="#32354E"
+                            android:alpha=".89"
+                            android:layout_marginBottom="10sp"
+                            android:textSize="15sp" />
 
 
                         <TextView
@@ -360,6 +363,8 @@
                             android:layout_centerHorizontal="true"
                             android:text="584,340"
                             android:textAlignment="center"
+                            android:layout_below="@+id/icon3"
+                            android:layout_marginTop="20dp"
                             android:textColor="#0E9508"
                             android:textSize="24dp" />
 
@@ -378,7 +383,7 @@
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:textSize="22dp"
                 android:elevation="2dp"/>
@@ -397,15 +402,16 @@
                     <RelativeLayout
                         android:id="@+id/form4"
                         android:layout_width="150dp"
-                        android:layout_height="180dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
                         android:layout_marginStart="20dp"
                         android:elevation="3dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/form1">
+                        android:background="@drawable/case_form">
 
                         <ImageView
+                            android:id="@+id/icon4"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:background="@drawable/infected_symbol"
@@ -418,12 +424,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/TodayCases"
                             android:fontFamily="@font/exobold"
-                            android:layout_marginBottom="15dp"
-                            android:text="CONFIRMED"
-                            android:textColor="#FF8748"
-                            android:textSize="18dp" />
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/infected"
+                            android:textAllCaps="true"
+                            android:textColor="#32354E"
+                            android:alpha=".89"
+                            android:textSize="15sp" />
 
                         <TextView
                             android:id="@+id/TodayCases"
@@ -431,6 +440,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/exo2semibold"
                             android:text="84,340"
+                            android:layout_below="@+id/icon4"
+                            android:layout_marginTop="20dp"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
                             android:textAlignment="center"
@@ -442,14 +453,15 @@
                     <RelativeLayout
                         android:id="@+id/form5"
                         android:layout_width="150dp"
-                        android:layout_height="180dp"
+                        android:layout_height="wrap_content"
                         android:layout_toEndOf="@+id/form4"
                         android:layout_marginEnd="20dp"
                         android:elevation="3dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/form1">
+                        android:background="@drawable/death_form">
 
                         <ImageView
+                            android:id="@+id/icon5"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:background="@drawable/death_symbol"
@@ -462,12 +474,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="15dp"
+                            android:layout_below="@+id/TodayDeaths"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="20dp"
                             android:fontFamily="@font/exobold"
                             android:text="DEATHS"
-                            android:textColor="#FF0000"
-                            android:textSize="18dp" />
+                            android:textColor="#32354E"
+                            android:alpha=".89"
+                            android:textSize="15sp" />
 
 
                         <TextView
@@ -476,6 +490,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/exo2semibold"
                             android:text="4,340"
+                            android:layout_below="@+id/icon5"
+                            android:layout_marginTop="20dp"
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
                             android:textAlignment="center"
@@ -488,14 +504,15 @@
                     <RelativeLayout
                         android:id="@+id/form6"
                         android:layout_width="150dp"
-                        android:layout_height="180dp"
+                        android:layout_height="wrap_content"
                         android:layout_toEndOf="@+id/form5"
                         android:layout_marginEnd="20dp"
                         android:elevation="3dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/form1">
+                        android:background="@drawable/recovered_form">
 
                         <ImageView
+                            android:id="@+id/icon6"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:background="@drawable/recovered_symbol"
@@ -507,13 +524,15 @@
                             android:id="@+id/TodayRecoveredText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/TodayRecovered"
+                            android:layout_marginTop="20dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="15dp"
+                            android:layout_marginBottom="10dp"
                             android:fontFamily="@font/exobold"
                             android:text="RECOVERED"
-                            android:textColor="#0E9508"
-                            android:textSize="18dp" />
+                            android:textColor="#32354E"
+                            android:alpha=".89"
+                            android:textSize="15sp" />
 
 
                         <TextView
@@ -525,6 +544,7 @@
                             android:fontFamily="@font/exo2semibold"
                             android:text="84,340"
                             android:gravity="center"
+                            android:layout_below="@+id/icon6"
                             android:layout_centerVertical="true"
                             android:layout_centerHorizontal="true"
                             android:textAlignment="center"
