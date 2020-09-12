@@ -7,11 +7,11 @@
         android:title="@string/home" />
 
     <item android:id="@+id/statistic"
-        android:icon="@drawable/user_location_icon"
-        android:title="@string/Location" />
+        android:icon="@drawable/statistic_icon"
+        android:title="@string/statistic" />
 
     <item android:id="@+id/news"
-        android:icon="@drawable/globe_icon"
+        android:icon="@drawable/news_icon"
         android:title="@string/news" />
 
     <item android:id="@+id/info"

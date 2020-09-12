@@ -2,11 +2,9 @@ package me.app.covid19.fragments;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -43,14 +41,13 @@ import me.app.covid19.R;
 import me.app.covid19.activities.Countries;
 import me.app.covid19.activities.Settings;
 import me.app.covid19.activities.User_country;
-import me.app.covid19.activities.User_location_cases;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class home extends Fragment {
 
-    private ImageView searchButton;
+    private ImageView searchButton, UserCountryCases;
     private CircleImageView settingsButton;
     private View HomeView;
 
@@ -85,6 +82,7 @@ public class home extends Fragment {
         TodayCases = HomeView.findViewById(R.id.TodayCases);
         settingsButton = HomeView.findViewById(R.id.settingsButton);
         searchButton = HomeView.findViewById(R.id.searchButton);
+        UserCountryCases = HomeView.findViewById(R.id.UserCountryCases);
         lastUpdate = HomeView.findViewById(R.id.lastUpdateCases);
         relativeLayout = HomeView.findViewById(R.id.relativeLayout1);
 
@@ -114,7 +112,16 @@ public class home extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent CountriesIntent = new Intent(getContext(), Countries.class);
-                startActivity(CountriesIntent);
+                Bundle bundle = ActivityOptions.makeCustomAnimation(getActivity(), R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
+                startActivity(CountriesIntent, bundle);
+            }
+        });
+
+        UserCountryCases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent UserCountryIntent = new Intent(getContext(), User_country.class);
+                startActivity(UserCountryIntent);
             }
         });
 

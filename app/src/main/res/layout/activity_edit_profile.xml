@@ -193,7 +193,7 @@
                     android:elevation="2dp"
                     />
 
-                <EditText
+                <!--<EditText
                     android:id="@+id/UserCountry"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -209,7 +209,7 @@
                     android:editable="false"
                     android:focusable="false"
                     android:elevation="2dp"
-                    />
+                    />-->
 
 
                 <TextView
@@ -225,7 +225,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginBottom="5dp"
                     android:alpha=".89"
-                    android:layout_below="@+id/UserCountry"
+                    android:layout_below="@+id/UserBirth"
                     />
 
                 <RelativeLayout

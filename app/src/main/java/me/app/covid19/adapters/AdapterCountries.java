@@ -1,7 +1,9 @@
 package me.app.covid19.adapters;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,8 +59,8 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
 
         DecimalFormat formatter = new DecimalFormat("###,###,##0");
         holder.country_name.setText(countryListFiltered.get(position).getCountry());
-        holder.country_total_cases.setText(formatter.format(Double.parseDouble(countryListFiltered.get(position).getCases())));
-        holder.country_today_cases.setText("+" +formatter.format(Double.parseDouble(countryListFiltered.get(position).getTodayCases())));
+        //holder.country_total_cases.setText(formatter.format(Double.parseDouble(countryListFiltered.get(position).getCases())));
+        //holder.country_today_cases.setText("+" +formatter.format(Double.parseDouble(countryListFiltered.get(position).getTodayCases())));
         Picasso.get().load(countryListFiltered.get(position).getFlag()).into(holder.country_flag);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

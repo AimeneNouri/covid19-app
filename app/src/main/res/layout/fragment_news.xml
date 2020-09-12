@@ -1,37 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F8F8FF"
     tools:context=".fragments.newsFragment">
 
-    <TextView
-        android:id="@+id/related_news"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/last_news"
-        android:textColor="#000"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/exo2semibold"
-        android:textSize="21dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_news"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_below="@+id/related_news"
-        android:layout_height="wrap_content"/>
+        android:layout_height="300dp"
+        android:elevation="3dp"
+        android:background="@drawable/half1">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_centerVertical="true"
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="45sp"
+            android:text="@string/corona_last_news"
+            android:textSize="25sp"
+            android:fontFamily="@font/exo2semibold"
+            android:textColor="@color/white"
+            android:alpha=".87" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/tablayout_background"
+        app:tabMode="auto"
+        app:tabGravity="fill"
+        android:layout_gravity="center"
+        app:tabBackground="@drawable/tab_selector"
         android:layout_centerHorizontal="true"
-        style="?android:attr/progressBarStyle"
-        android:indeterminateTint="@color/colorPrimary"
-        android:visibility="gone"/>
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabIndicatorHeight="0dp"
+        app:tabPaddingStart="20dp"
+        app:tabPaddingEnd="20dp"
+        app:tabMinWidth="120dp"
+        android:layout_marginBottom="40dp"
+        android:elevation="3dp"
+        app:tabRippleColor="@null"
+        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_marginStart="10sp"
+        android:layout_marginEnd="10sp"
+        android:elevation="3dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabs"/>
 
 </RelativeLayout>

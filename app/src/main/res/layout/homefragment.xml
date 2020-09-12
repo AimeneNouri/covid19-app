@@ -29,6 +29,15 @@
             android:layout_marginTop="29dp"
             android:background="@drawable/dr_corona" />
 
+        <ImageView
+            android:id="@+id/UserCountryCases"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/icon_location"
+            android:layout_toStartOf="@+id/searchButton"
+            android:elevation="7dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"/>
 
         <ImageView
             android:id="@+id/searchButton"

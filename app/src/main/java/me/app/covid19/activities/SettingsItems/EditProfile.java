@@ -173,7 +173,8 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
             profileMap.put("cin", setUserCIN);
             profileMap.put("phone", setUserPhone);
             profileMap.put("birth", setUserBirth);
-            profileMap.put("User_Country", setUserCountry);
+            //profileMap.put("User_Country", setUserCountry);
+
             if (male.isChecked()){
                 profileMap.put("gender", genderMale);
             }
@@ -217,14 +218,14 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                             String retrieveBirth= dataSnapshot.child("birth").getValue().toString();
                             String retrieveGender= dataSnapshot.child("gender").getValue().toString();
                             String retrieveUserPicture= dataSnapshot.child("UserPicture").getValue().toString();
-                            String retrieveUserCountry= dataSnapshot.child("User_Country").getValue().toString();
+                            //String retrieveUserCountry= dataSnapshot.child("User_Country").getValue().toString();
 
                             userName.setText(retrieveUserName);
                             userEmail.setText(retrieveEmail);
                             userCIN.setText(retrieveCIN);
                             userPhone.setText(retrievePhone);
                             userBirth.setText(retrieveBirth);
-                            userCountry.setText(retrieveUserCountry);
+                            //userCountry.setText(retrieveUserCountry);
                             Picasso.get().load(retrieveUserPicture).placeholder(R.drawable.person).into(userImage);
                             if (retrieveGender.equals("Male")){
                                 male.setChecked(true);
@@ -233,23 +234,19 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                                 female.setChecked(true);
                             }
                         }
-                        else if((dataSnapshot.exists()) && (dataSnapshot.hasChild("phone")) && (dataSnapshot.hasChild("birth")) && (dataSnapshot.hasChild("userName")) && (dataSnapshot.hasChild("gender")) && (dataSnapshot.hasChild("UserPicture")) && (dataSnapshot.hasChild("User_Country")))
+                        else if((dataSnapshot.exists()) && (dataSnapshot.hasChild("phone")) && (dataSnapshot.hasChild("birth")) && (dataSnapshot.hasChild("userName")) && (dataSnapshot.hasChild("gender")) && (dataSnapshot.hasChild("UserPicture")))
                         {
                             String retrieveUserName = dataSnapshot.child("userName").getValue().toString();
                             String retrieveEmail = dataSnapshot.child("email").getValue().toString();
-                            String retrieveCIN= dataSnapshot.child("cin").getValue().toString();
                             String retrievePhone= dataSnapshot.child("phone").getValue().toString();
                             String retrieveBirth= dataSnapshot.child("birth").getValue().toString();
                             String retrieveGender= dataSnapshot.child("gender").getValue().toString();
                             String retrieveUserPicture= dataSnapshot.child("UserPicture").getValue().toString();
-                            String retrieveUserCountry= dataSnapshot.child("User_Country").getValue().toString();
 
                             userName.setText(retrieveUserName);
                             userEmail.setText(retrieveEmail);
-                            userCIN.setText(retrieveCIN);
                             userPhone.setText(retrievePhone);
                             userBirth.setText(retrieveBirth);
-                            userCountry.setText(retrieveUserCountry);
                             Picasso.get().load(retrieveUserPicture).placeholder(R.drawable.person).into(userImage);
                             if (retrieveGender.equals("Male")){
                                 male.setChecked(true);
@@ -292,7 +289,7 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
         userPhone = findViewById(R.id.UserPhoneNumber);
         userEmail = findViewById(R.id.UserEmail);
         userBirth = findViewById(R.id.UserBirth);
-        userCountry = findViewById(R.id.UserCountry);
+        //userCountry = findViewById(R.id.UserCountry);
         male = findViewById(R.id.radioMale);
         female = findViewById(R.id.radioFemale);
 

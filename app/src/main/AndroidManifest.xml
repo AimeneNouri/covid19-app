@@ -22,47 +22,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme.Launcher"
+        android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
         <activity android:name=".activities.DetailActivity"
-            android:theme="@style/AppTheme_Countries"></activity>
+            android:theme="@style/AppTheme.Countries"></activity>
         <activity
             android:name=".activities.User_country"
-            android:theme="@style/AppTheme_Countries" />
-        <activity
-            android:name=".activities.User_location_cases"
-            android:theme="@style/AppTheme_Countries" />
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.SettingsItems.EditProfile"
-            android:theme="@style/AppTheme_Countries" />
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.SettingsItems.Change_password"
-            android:theme="@style/AppTheme_Countries" />
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.Settings"
-            android:theme="@style/AppTheme_Countries" />
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.Countries"
-            android:theme="@style/AppTheme_Countries" />
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.UserInfo"
             android:theme="@style/AppTheme.Launcher" />
-        <activity android:name=".activities.onboard.stayHome" />
-        <activity android:name=".activities.onboard.onboardFaceMask" />
-        <activity android:name=".activities.onboard.onboardCleanHand" />
-        <activity android:name=".activities.onboard.onboardCloseContact" />
+        <activity android:name=".activities.onboard.stayHome"
+            android:theme="@style/AppTheme.Splash"/>
+        <activity android:name=".activities.onboard.onboardFaceMask"
+            android:theme="@style/AppTheme.Splash"/>
+        <activity android:name=".activities.onboard.onboardCleanHand"
+            android:theme="@style/AppTheme.Splash"/>
+        <activity android:name=".activities.onboard.onboardCloseContact"
+            android:theme="@style/AppTheme.Splash"/>
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.Main" />
         <activity
             android:name=".activities.Login"
-            android:theme="@style/AppTheme.Launcher" />
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.Register"
-            android:theme="@style/AppTheme.Launcher" />
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.SplashScreen"
-            android:theme="@style/AppTheme.Launcher">
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

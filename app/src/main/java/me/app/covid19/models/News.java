@@ -2,12 +2,12 @@ package me.app.covid19.models;
 
 public class News {
 
-    private String author, title, description, url, image, publishDate, content;
+    private String author, title, description, url, image, publishDate, content, sourceName;
 
     public News() {
     }
 
-    public News( String author, String title, String description, String url, String image, String publishDate, String content) {
+    public News( String author, String title, String description, String url, String image, String publishDate, String content, String sourceName) {
         this.author = author;
         this.title = title;
         this.description = description;
@@ -15,6 +15,7 @@ public class News {
         this.image = image;
         this.publishDate = publishDate;
         this.content = content;
+        this.sourceName = sourceName;
     }
 
     public String getAuthor() {
@@ -71,5 +72,13 @@ public class News {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public void setSourceName(String sourceName) {
+        this.sourceName = sourceName;
     }
 }

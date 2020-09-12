@@ -50,12 +50,15 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
     @Override
     public void onBindViewHolder(@NonNull final NewsViewHolder holder, int position) {
 
-        holder.time.setText(Utils.DateToTimeFormat(newsList.get(position).getPublishDate()));
-        holder.news_title.setText(newsList.get(position).getTitle());
+        final News newsItem = newsList.get(position);
+
+        holder.time.setText(Utils.DateToTimeFormat(newsItem.getPublishDate()));
+        holder.news_title.setText(newsItem.getTitle());
+        holder.news_source.setText(newsItem.getSourceName());
         //holder.news_description.setText(newsList.get(position).getDescription());
-        holder.publishedAt.setText(Utils.DateFormat(newsList.get(position).getPublishDate()));
+        holder.publishedAt.setText(Utils.DateFormat(newsItem.getPublishDate()));
         Glide.with(context)
-                .load(newsList.get(position).getImage())
+                .load(newsItem.getImage())
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -71,14 +74,6 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
                 })
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(holder.news_picture);
-
-        holder.read_more.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
     }
 
     @Override
@@ -89,9 +84,8 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
     public static class NewsViewHolder extends RecyclerView.ViewHolder{
 
         ImageView news_picture;
-        TextView news_title, news_description, publishedAt, time;
+        TextView news_title, news_description, publishedAt, time, news_source;
         ProgressBar progressBar;
-        Button read_more;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,9 +93,9 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
             news_title = itemView.findViewById(R.id.news_title);
             news_description = itemView.findViewById(R.id.news_description);
             publishedAt = itemView.findViewById(R.id.publishedAt);
-            read_more = itemView.findViewById(R.id.read_more);
             progressBar = itemView.findViewById(R.id.progressBar);
             time = itemView.findViewById(R.id.time);
+            news_source = itemView.findViewById(R.id.news_source);
         }
     }
 }

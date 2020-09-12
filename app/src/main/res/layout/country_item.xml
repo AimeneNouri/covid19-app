@@ -6,7 +6,6 @@
 
      <RelativeLayout
          android:id="@+id/item_country_layout"
-         android:elevation="5dp"
          android:padding="6dp"
          android:background="@drawable/form7"
          android:layout_width="match_parent"
@@ -51,7 +50,8 @@
               android:layout_alignParentEnd="true"
               android:textColor="#FF0000"
               android:textStyle="bold"
-              android:fontFamily="@font/exo2semibold"/>
+              android:fontFamily="@font/exo2semibold"
+              android:visibility="gone"/>
 
           <ImageView
               android:id="@+id/icon_cases"
@@ -60,7 +60,8 @@
               android:layout_below="@+id/country_total_cases"
               android:layout_toStartOf="@+id/country_today_cases"
               android:layout_marginTop="11.7sp"
-              android:src="@drawable/ic_arrow_upward_black_24dp"/>
+              android:src="@drawable/ic_arrow_upward_black_24dp"
+              android:visibility="gone"/>
 
           <TextView
               android:id="@+id/country_today_cases"
@@ -75,7 +76,8 @@
               android:alpha=".6"
               android:layout_marginTop="10dp"
               android:textStyle="bold"
-              android:fontFamily="@font/exo2semibold"/>
+              android:fontFamily="@font/exo2semibold"
+              android:visibility="gone"/>
 
      </RelativeLayout>
 
@@ -84,8 +86,8 @@
          android:layout_below="@+id/item_country_layout"
          android:layout_width="wrap_content"
          android:layout_height="0.8dp"
-         android:alpha=".2"
-         android:layout_centerHorizontal="true"
+         android:layout_marginStart="11dp"
+         android:alpha=".8"
          android:background="#CDCDCD"/>
 
 </RelativeLayout>

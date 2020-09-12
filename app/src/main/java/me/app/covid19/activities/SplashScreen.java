@@ -14,8 +14,7 @@ import me.app.covid19.activities.onboard.onboardCloseContact;
 
 public class SplashScreen extends AppCompatActivity {
 
-    public static int TIME_OUT = 3000;
-    private TextView textView;
+    public static int TIME_OUT = 3100;
     private ImageView LogoImage;
 
     @Override
@@ -24,9 +23,6 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         LogoImage = findViewById(R.id.corona_logo);
-        textView = findViewById(R.id.textView);
-
-        textView.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.exobold));
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

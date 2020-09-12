@@ -51,8 +51,6 @@ public class Countries extends AppCompatActivity{
     RelativeLayout relativeLayout, layout, layout1;
     EditText search_field;
 
-    private static String Api_url = "https://disease.sh/v3/covid-19/countries/";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,7 +140,9 @@ public class Countries extends AppCompatActivity{
 
     private void fetchData() {
         RequestQueue queue = Volley.newRequestQueue(this);
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, Api_url, null,
+
+        String api_url = "https://disease.sh/v3/covid-19/countries/";
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, api_url, null,
             new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
@@ -159,6 +159,7 @@ public class Countries extends AppCompatActivity{
                             country.setDeaths(CountryObject.getString("deaths").toString());
                             country.setRecovered(CountryObject.getString("recovered").toString());
                             country.setActive(CountryObject.getString("active").toString());
+                            country.setCritical(CountryObject.getString("critical").toString());
                             country.setLastUpdate(CountryObject.getLong("updated"));
 
                             JSONObject object = CountryObject.getJSONObject("countryInfo");
