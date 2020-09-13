@@ -48,7 +48,7 @@
         android:id="@+id/corona_logo"
         android:layout_width="120dp"
         android:layout_height="100dp"
-        android:background="@drawable/corona_logo2"
+        android:background="@drawable/corona_logo1"
         android:layout_centerHorizontal="true"
         />
 
@@ -82,16 +82,26 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutText2"
+        android:layout_centerHorizontal="true"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="@string/slogan" />
+
     <EditText
         android:id="@+id/Username"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:hint="@string/username"
-        android:background="@drawable/edittext"
+        android:background="@drawable/input_background"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
-        android:layout_below="@+id/corona_logo"
+        android:layout_below="@+id/text"
         android:singleLine="true"
         />
 
@@ -101,7 +111,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:hint="@string/email"
-        android:background="@drawable/edittext"
+        android:background="@drawable/input_background"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_below="@+id/Username"
@@ -114,7 +124,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:hint="@string/password"
-        android:background="@drawable/edittext"
+        android:background="@drawable/input_background"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_below="@+id/UserEmail"
@@ -127,7 +137,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:hint="@string/confirm"
-        android:background="@drawable/edittext"
+        android:background="@drawable/input_background"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         android:layout_below="@+id/PasswordUser"
@@ -140,55 +150,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ConfirmPasswordUser"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="8dp">
 
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/accept"
+            android:text="@string/acceptPrivacyAndTerms"
             android:textColor="#504F4F"
             android:buttonTint="#7777FF"
+            android:alpha=".89"
+            android:textSize="14sp"
             android:onClick="onCheckboxClicked"/>
-
-        <TextView
-            android:id="@+id/privacy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/checkbox"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="5.5dp"
-            android:layout_toEndOf="@+id/checkbox"
-            android:text="@string/privacy"
-            android:textColor="#7777FF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/and"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/checkbox"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="6dp"
-            android:layout_toEndOf="@+id/privacy"
-            android:text="@string/and"
-            android:textColor="#504F4F"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/Terms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/checkbox"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="5.5dp"
-            android:layout_toEndOf="@+id/and"
-            android:text="@string/Terms"
-            android:textColor="#7777FF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -197,9 +171,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/layout"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="18dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="40dp">
 
         <Button
             android:id="@+id/login_button"

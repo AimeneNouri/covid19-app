@@ -4,36 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#F8F8FF"
-    tools:context=".fragments.newsFragment">
+    android:background="#F8F8FF">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:layout_marginStart="10sp"
-        android:layout_below="@+id/category"
-        android:layout_marginTop="10sp"
-        android:text="@string/recent_news"
-        android:textSize="24sp"
-        android:textColor="#32354E"
-        android:alpha=".87" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_news"
-        android:layout_below="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        style="?android:attr/progressBarStyle"
-        android:indeterminateTint="@color/colorPrimary"
-        android:visibility="gone"/>
 
 </RelativeLayout>

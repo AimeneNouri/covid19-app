@@ -12,6 +12,14 @@ import java.util.Locale;
 
 public class Utils {
 
+    public static String getDate(long milliSecond){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MMM, yyyy");
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSecond);
+        return formatter.format(calendar.getTime());
+    }
+
     public static String DateToTimeFormat(String oldstringDate){
         PrettyTime p = new PrettyTime(new Locale(getCountry()));
         String isTime = null;

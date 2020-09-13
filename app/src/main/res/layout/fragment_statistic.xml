@@ -5,268 +5,490 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F8FF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.statisticFragment">
 
-    <TextView
-        android:id="@+id/all_total_cases"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Top Countries"
-        android:textStyle="bold"
-        android:textColor="#32354E"
-        android:layout_marginStart="20dp"
-        android:fontFamily="sans-serif"
-        android:alpha=".86"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="14dp"
-        android:textSize="22dp"
-        android:elevation="2dp"/>
-
-    <HorizontalScrollView
-        android:layout_below="@+id/all_total_cases"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:scrollbars="none">
 
         <RelativeLayout
-            android:id="@+id/layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:id="@+id/form1"
-                android:layout_width="130dp"
+            <TextView
+                android:id="@+id/all_total_cases"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Top Countries"
+                android:textStyle="bold"
+                android:textColor="#32354E"
                 android:layout_marginStart="20dp"
-                android:elevation="2dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/form_usa" >
+                android:fontFamily="sans-serif"
+                android:alpha=".86"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="10dp"
+                android:textSize="22dp"
+                android:elevation="2dp"/>
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScroll"
+                android:layout_below="@+id/all_total_cases"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
 
                 <RelativeLayout
-                    android:id="@+id/layout1"
+                    android:id="@+id/layout"
                     android:layout_width="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/country_flag1"
-                        android:layout_width="30dp"
-                        android:layout_height="20dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="7dp" />
-
-                    <TextView
-                        android:id="@+id/country_name1"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/form1"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/exobold"
-                        android:layout_centerVertical="true"
-                        android:text=""
-                        android:textColor="@color/white"
-                        android:layout_marginStart="5dp"
-                        android:textAllCaps="true"
-                        android:layout_toEndOf="@+id/country_flag1"
-                        android:alpha=".89"
-                        android:textSize="17sp" />
+                        android:layout_marginStart="20dp"
+                        android:elevation="2dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/form_usa" >
+
+                        <RelativeLayout
+                            android:id="@+id/layout1"
+                            android:layout_width="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card1"
+                                android:layout_width="30dp"
+                                android:layout_height="25dp"
+                                app:cardCornerRadius="10sp"
+                                android:layout_centerVertical="true"
+                                app:cardElevation="0dp">
+
+                                <ImageView
+                                    android:id="@+id/country_flag1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    tools:ignore="UnusedAttribute" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/country_name1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/exobold"
+                                android:layout_centerVertical="true"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:layout_marginStart="5dp"
+                                android:textAllCaps="true"
+                                android:layout_toEndOf="@+id/card1"
+                                android:alpha=".89"
+                                android:textSize="17sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/layout1"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/statistic_form1">
+
+                            <TextView
+                                android:id="@+id/textDeath1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/exo2semibold"
+                                android:text="@string/confirmed"
+                                android:layout_marginBottom="3dp"
+                                android:textColor="#32354E"
+                                android:textAllCaps="true"
+                                android:layout_below="@+id/total_casesUsa"
+                                android:layout_centerHorizontal="true"
+                                android:elevation="2dp"
+                                android:textSize="19dp" />
+
+                            <TextView
+                                android:id="@+id/total_casesUsa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/exobold"
+                                android:text="5,651,587"
+                                android:layout_centerHorizontal="true"
+                                android:textAlignment="center"
+                                android:textStyle="bold"
+                                android:elevation="2dp"
+                                android:textColor="#32354E"
+                                android:layout_marginTop="10dp"
+                                android:textSize="19sp" />
+
+                    </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/form2"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:elevation="2dp"
+                        android:layout_toEndOf="@+id/form1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/form_india" >
+
+                        <RelativeLayout
+                            android:id="@+id/layout2"
+                            android:layout_width="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card2"
+                                android:layout_width="30dp"
+                                android:layout_height="25dp"
+                                app:cardCornerRadius="10sp"
+                                android:layout_centerVertical="true"
+                                app:cardElevation="0dp">
+
+                                <ImageView
+                                    android:id="@+id/country_flag2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    tools:ignore="UnusedAttribute" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/country_name2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/exobold"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:layout_marginStart="5dp"
+                                android:layout_centerVertical="true"
+                                android:textAllCaps="true"
+                                android:layout_toEndOf="@+id/card2"
+                                android:alpha=".89"
+                                android:textSize="17sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/layout2"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/statistic_form2">
+
+                            <TextView
+                                android:id="@+id/textDeath2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/exo2semibold"
+                                android:text="@string/confirmed"
+                                android:textColor="#32354E"
+                                android:layout_marginBottom="3dp"
+                                android:textAllCaps="true"
+                                android:elevation="2dp"
+                                android:layout_below="@+id/total_casesINDIA"
+                                android:layout_centerHorizontal="true"
+                                android:textSize="19dp" />
+
+                            <TextView
+                                android:id="@+id/total_casesINDIA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/exobold"
+                                android:text="5,651,587"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:textAlignment="center"
+                                android:textColor="#32354E"
+                                android:textSize="19sp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/form3"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:elevation="2dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_toEndOf="@+id/form2"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/form_brazil" >
+
+                        <RelativeLayout
+                            android:id="@+id/layout3"
+                            android:layout_width="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content">
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card3"
+                                android:layout_width="30dp"
+                                android:layout_height="25dp"
+                                app:cardCornerRadius="10sp"
+                                android:layout_centerVertical="true"
+                                app:cardElevation="0dp">
+
+                                <ImageView
+                                    android:id="@+id/country_flag3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    tools:ignore="UnusedAttribute" />
+
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/country_name3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/exobold"
+                                android:layout_centerVertical="true"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:layout_marginStart="5dp"
+                                android:textAllCaps="true"
+                                android:layout_toEndOf="@+id/card3"
+                                android:alpha=".89"
+                                android:textSize="18sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/layout3"
+                            android:layout_marginTop="20dp"
+                            android:elevation="2dp"
+                            android:background="@drawable/statistic_form3">
+
+                            <TextView
+                                android:id="@+id/Recovered_cases3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/exo2semibold"
+                                android:text="@string/confirmed"
+                                android:textColor="#32354E"
+                                android:textAllCaps="true"
+                                android:elevation="2dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_below="@+id/total_casesBRAZIL"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="3dp"
+                                android:textSize="19dp" />
+
+                            <TextView
+                                android:id="@+id/total_casesBRAZIL"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/exobold"
+                                android:text="5,651,587"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:textAlignment="center"
+                                android:textColor="#32354E"
+                                android:textSize="19sp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
 
+            </HorizontalScrollView>
+
+            <RelativeLayout
+                android:layout_below="@+id/horizontalScroll"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="14dp"
+                android:elevation="1dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/statistic_world_background2"/>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_marginTop="220dp"
+                android:layout_marginStart="10dp"
+                android:elevation="3dp"
+                android:background="@drawable/statistic_world_background1"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content">
+
                 <RelativeLayout
+                    android:id="@+id/statistic_layout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout1"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/statistic_form1">
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
 
                     <TextView
-                        android:id="@+id/textDeath1"
+                        android:id="@+id/statisticsText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/exobold"
-                        android:text="@string/confirmed"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="#32354E"
-                        android:textAllCaps="true"
-                        android:layout_below="@+id/total_casesUsa"
-                        android:layout_centerHorizontal="true"
-                        android:elevation="2dp"
-                        android:textSize="19dp" />
-
-                    <TextView
-                        android:id="@+id/total_casesUsa"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo2semibold"
-                        android:text="5,651,587"
-                        android:layout_centerHorizontal="true"
-                        android:textAlignment="center"
+                        android:text="@string/statistics"
                         android:textStyle="bold"
-                        android:elevation="2dp"
                         android:textColor="#32354E"
-                        android:layout_marginTop="30dp"
-                        android:textSize="21sp" />
-
-            </RelativeLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/form2"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:elevation="2dp"
-                android:layout_toEndOf="@+id/form1"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/form_india" >
-
-                <RelativeLayout
-                    android:id="@+id/layout2"
-                    android:layout_width="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/country_flag2"
-                        android:layout_width="30dp"
-                        android:layout_height="20dp"
+                        android:fontFamily="sans-serif"
+                        android:alpha=".86"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="7dp" />
+                        android:textSize="18dp"
+                        android:elevation="2dp"/>
 
                     <TextView
-                        android:id="@+id/country_name2"
+                        android:id="@+id/cases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/exobold"
-                        android:text=""
-                        android:textColor="@color/white"
-                        android:layout_marginStart="5dp"
-                        android:layout_centerVertical="true"
-                        android:textAllCaps="true"
-                        android:layout_toEndOf="@+id/country_flag2"
-                        android:alpha=".89"
-                        android:textSize="17sp" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout2"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/statistic_form2">
-
-                    <TextView
-                        android:id="@+id/textDeath2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/exobold"
-                        android:text="@string/confirmed"
+                        android:text="@string/cases"
+                        android:layout_below="@+id/statisticsText"
                         android:textColor="#32354E"
-                        android:layout_marginBottom="3dp"
-                        android:textAllCaps="true"
-                        android:layout_below="@+id/total_casesINDIA"
-                        android:layout_centerHorizontal="true"
-                        android:textSize="19dp" />
-
-                    <TextView
-                        android:id="@+id/total_casesINDIA"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
                         android:fontFamily="@font/exo2semibold"
-                        android:text="5,651,587"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:textAlignment="center"
-                        android:textColor="#32354E"
-                        android:textSize="21sp" />
+                        android:layout_marginEnd="60sp"
+                        android:alpha=".7"
+                        android:textSize="14sp"
+                        android:elevation="2dp"/>
 
                 </RelativeLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/form3"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:elevation="2dp"
-                android:layout_marginEnd="20dp"
-                android:layout_toEndOf="@+id/form2"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/form_brazil" >
-
-                <RelativeLayout
-                    android:id="@+id/layout3"
+                <View
+                    android:id="@+id/view_1"
+                    android:layout_below="@+id/statistic_layout1"
                     android:layout_width="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content">
-
-
-                    <ImageView
-                        android:id="@+id/country_flag3"
-                        android:layout_width="30dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_centerVertical="true"/>
-
-                    <TextView
-                        android:id="@+id/country_name3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/exobold"
-                        android:layout_centerVertical="true"
-                        android:text=""
-                        android:textColor="@color/white"
-                        android:layout_marginStart="5dp"
-                        android:textAllCaps="true"
-                        android:layout_toEndOf="@+id/country_flag3"
-                        android:alpha=".89"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>>
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginStart="10dp"
+                    android:alpha=".67"
+                    android:background="#CDCDCD"/>
 
                 <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_below="@+id/view_1"
+                    android:layout_marginStart="9sp"
+                    android:layout_marginEnd="9sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/layout3"
-                    android:layout_marginTop="15dp"
                     android:elevation="2dp"
-                    android:background="@drawable/statistic_form3">
+                    android:layout_height="40dp">
+
+                    <ImageView
+                        android:id="@+id/world_icon"
+                        android:layout_width="29dp"
+                        android:layout_height="29dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/global_icon1"/>
 
                     <TextView
-                        android:id="@+id/Recovered_cases3"
+                        android:id="@+id/world"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/exobold"
-                        android:text="@string/confirmed"
-                        android:textColor="#32354E"
+                        android:text="@string/worldWide"
                         android:textAllCaps="true"
-                        android:layout_marginTop="20dp"
-                        android:layout_below="@+id/total_casesBRAZIL"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="3dp"
-                        android:textSize="19dp" />
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/world_icon"
+                        android:textColor="#32354E"
+                        android:fontFamily="@font/exo2semibold"
+                        android:alpha=".86"
+                        android:layout_centerVertical="true"
+                        android:textSize="13sp"
+                        android:elevation="2dp"/>
 
                     <TextView
-                        android:id="@+id/total_casesBRAZIL"
+                        android:id="@+id/worldCases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/exo2semibold"
-                        android:text="5,651,587"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:textAlignment="center"
+                        android:text="28,000,000"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="54dp"
                         android:textColor="#32354E"
-                        android:textSize="21sp" />
+                        android:fontFamily="@font/exo2semibold"
+                        android:alpha=".7"
+                        android:layout_centerVertical="true"
+                        android:textSize="11.5sp"
+                        android:elevation="2dp"/>
+
+                    <TextView
+                        android:id="@+id/TodayWorldCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+20000"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="#32354E"
+                        android:fontFamily="@font/exo2semibold"
+                        android:alpha=".7"
+                        android:layout_centerVertical="true"
+                        android:textSize="10.5sp"
+                        android:elevation="2dp"/>
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@+id/relativeLayout2"
+                    android:id="@+id/recycler_view"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="235dp"/>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_below="@+id/recycler_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="10dp"
+                    android:alpha=".67"
+                    android:background="#CDCDCD"/>
+
+                <RelativeLayout
+                    android:id="@+id/statistic_layout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_below="@+id/view"
+                    android:elevation="3sp"
+                    android:layout_marginBottom="13sp">
+
+                    <TextView
+                        android:id="@+id/lastUpdateCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Update on Sep 26, 2020"
+                        android:textColor="#32354E"
+                        android:fontFamily="@font/exo2semibold"
+                        android:alpha=".7"
+                        android:layout_centerVertical="true"
+                        android:textSize="15dp"/>
 
                 </RelativeLayout>
 
@@ -274,6 +496,6 @@
 
         </RelativeLayout>
 
-    </HorizontalScrollView>
+    </ScrollView>
 
 </RelativeLayout>

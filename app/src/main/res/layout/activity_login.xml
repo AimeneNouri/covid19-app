@@ -29,7 +29,7 @@
         android:id="@+id/corona_logo"
         android:layout_width="120dp"
         android:layout_height="100dp"
-        android:background="@drawable/corona_logo2"
+        android:background="@drawable/corona_logo1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         />
@@ -71,7 +71,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/layoutText2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:textSize="12sp"
         android:gravity="center"
         android:text="@string/slogan" />
@@ -81,9 +80,9 @@
         android:id="@+id/UsernameOrEmail"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="150dp"
         android:hint="@string/email"
-        android:background="@drawable/edittext"
+        android:background="@drawable/input_background"
         android:layout_centerHorizontal="true"
         android:drawableStart="@drawable/ic_email_24px"
         android:drawablePadding="8dp"
@@ -98,7 +97,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:hint="@string/password"
-        android:background="@drawable/edittext"
+        android:background="@drawable/input_background"
         android:layout_centerHorizontal="true"
         android:drawableStart="@drawable/ic_https_24px"
         android:padding="10dp"
@@ -111,9 +110,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/PasswordUser"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="50dp">
 
         <Button
             android:id="@+id/login_button"

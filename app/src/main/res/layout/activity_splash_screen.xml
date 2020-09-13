@@ -17,9 +17,9 @@
 
         <ImageView
             android:id="@+id/corona_logo"
-            android:layout_width="125dp"
-            android:layout_height="110dp"
-            android:background="@drawable/corona_logo"
+            android:layout_width="135dp"
+            android:layout_height="120dp"
+            android:background="@drawable/corona_logo1"
             android:layout_centerHorizontal="true"
             />
     </RelativeLayout>

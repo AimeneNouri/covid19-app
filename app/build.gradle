@@ -65,5 +65,8 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.4.0'
 
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.4.Final'
+
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 }

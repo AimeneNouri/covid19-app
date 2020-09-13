@@ -30,17 +30,15 @@ import me.app.covid19.activities.Countries;
 import me.app.covid19.activities.DetailActivity;
 import me.app.covid19.models.Country;
 
-public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.ViewHolder> implements Filterable {
+public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.ViewHolder> {
 
     LayoutInflater layoutInflater;
     List<Country> countryList;
-    List<Country> countryListFiltered;
     Context context;
 
     public AdapterCountries(Context context, List<Country> countryList){
         this.layoutInflater = LayoutInflater.from(context);
         this.countryList = countryList;
-        this.countryListFiltered = countryList;
         this.context = context;
     }
 
@@ -58,10 +56,10 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
         //holder.relativeLayout.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition));
 
         DecimalFormat formatter = new DecimalFormat("###,###,##0");
-        holder.country_name.setText(countryListFiltered.get(position).getCountry());
+        holder.country_name.setText(countryList.get(position).getCountry());
         //holder.country_total_cases.setText(formatter.format(Double.parseDouble(countryListFiltered.get(position).getCases())));
         //holder.country_today_cases.setText("+" +formatter.format(Double.parseDouble(countryListFiltered.get(position).getTodayCases())));
-        Picasso.get().load(countryListFiltered.get(position).getFlag()).into(holder.country_flag);
+        Picasso.get().load(countryList.get(position).getFlag()).into(holder.country_flag);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,45 +73,9 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
 
     @Override
     public int getItemCount() {
-        return countryListFiltered.size();
+        return countryList.size();
     }
 
-
-
-    @Override
-    public Filter getFilter() {
-        Filter filter = new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                FilterResults filterResults = new FilterResults();
-                if (constraint == null || constraint.length() == 0){
-                    filterResults.count = countryList.size();
-                    filterResults.values = countryList;
-                }else {
-                    List<Country> resultsModel = new ArrayList<>();
-                    String searchStr = constraint.toString().toLowerCase();
-
-                    for (Country itemsModel:countryList){
-                        if (itemsModel.getCountry().toLowerCase().contains(searchStr)) {
-                            resultsModel.add(itemsModel);
-                        }
-                        filterResults.count = resultsModel.size();
-                        filterResults.values = resultsModel;
-                    }
-                }
-
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                countryListFiltered = (List<Country>) results.values;
-                Countries.countryList = (List<Country>) results.values;
-                notifyDataSetChanged();
-            }
-        };
-        return filter;
-    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 

@@ -406,7 +406,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/exo2semibold"
-                            android:text="1,649,156"
+                            android:text="156"
                             android:elevation="2dp"
                             android:textAlignment="center"
                             android:textColor="#DA00FF"
@@ -457,6 +457,14 @@
                     </RelativeLayout>
 
                 </RelativeLayout>
+
+                <!--<com.github.mikephil.charting.charts.PieChart
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_below="@+id/layout_2"/>-->
 
             </RelativeLayout>
 

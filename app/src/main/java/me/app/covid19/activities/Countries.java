@@ -81,24 +81,6 @@ public class Countries extends AppCompatActivity{
         fetchData();
         fetchLastUpdate();
 
-        search_field.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                adapterCountries.getFilter().filter(s);
-                adapterCountries.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
     }
 
     private void fetchLastUpdate() {
