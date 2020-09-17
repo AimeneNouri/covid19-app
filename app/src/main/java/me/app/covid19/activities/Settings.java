@@ -4,17 +4,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
+import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,12 +36,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.util.Locale;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
 import me.app.covid19.activities.SettingsItems.Change_password;
 import me.app.covid19.activities.SettingsItems.EditProfile;
+import me.app.covid19.activities.SettingsItems.Give_Feedback;
 
 public class Settings extends AppCompatActivity {
 
@@ -49,11 +59,12 @@ public class Settings extends AppCompatActivity {
 
     private TextView MyGithub;
 
-    private RelativeLayout edit_profile, change_password, change_location, give_feedback, share_app, rate_app, exit_app, layout_1, layout1;
+    private RelativeLayout edit_profile, change_password, change_language, give_feedback, share_app, exit_app, layout_1, layout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loadLocale();
         setContentView(R.layout.activity_settings);
 
         Initialisation();
@@ -132,6 +143,24 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        //change_language
+        change_language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showChangeLanguageDialog();
+            }
+        });
+
+        //give_feedback
+        give_feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Settings.this, Give_Feedback.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+            }
+        });
+
         MyGithub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +168,70 @@ public class Settings extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
             }
         });
+    }
+
+    private void showChangeLanguageDialog() {
+
+        final Dialog dialog = new Dialog(Settings.this);
+        dialog.setContentView(R.layout.language_dialog);
+        dialog.setCancelable(true);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        final RadioButton english, french, arabic, germany;
+        Button save;
+        final TextView errorText;
+
+        english = dialog.findViewById(R.id.radioEnglish);
+        french = dialog.findViewById(R.id.radioFrench);
+        arabic = dialog.findViewById(R.id.radioArabic);
+        germany = dialog.findViewById(R.id.radioGerman);
+        save = dialog.findViewById(R.id.save);
+        errorText = dialog.findViewById(R.id.errorText);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (english.isChecked()){
+                    setLocale("en");
+                    dialog.dismiss();
+                }
+                else if (french.isChecked()){
+                    setLocale("fr");
+                    dialog.dismiss();
+                }
+                else if (arabic.isChecked()){
+                    setLocale("ar");
+                    dialog.dismiss();
+                }
+                else if (germany.isChecked()){
+                    setLocale("de");
+                    dialog.dismiss();
+                }
+                else {
+                    errorText.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("My_Lang", lang);
+        editor.apply();
+    }
+
+    public void loadLocale() {
+        SharedPreferences preferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String language = preferences.getString("My_Lang", "");
+        setLocale(language);
     }
 
     private void RetrieveUserName_Email() {
@@ -186,9 +279,9 @@ public class Settings extends AppCompatActivity {
 
         edit_profile = findViewById(R.id.edit_profile);
         change_password = findViewById(R.id.change_password);
+        change_language = findViewById(R.id.change_language);
         give_feedback = findViewById(R.id.feedback);
         share_app = findViewById(R.id.share_app);
-        rate_app = findViewById(R.id.rate_app);
         exit_app = findViewById(R.id.exit);
         layout_1 = findViewById(R.id.layout_1);
         layout1 = findViewById(R.id.layout1);

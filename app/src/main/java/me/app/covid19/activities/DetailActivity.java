@@ -70,7 +70,7 @@ public class DetailActivity extends AppCompatActivity {
 
         DecimalFormat formatter = new DecimalFormat("###,###,##0");
         countryNam.setText(Countries.countryList.get(positionId).getCountry());
-        total_cases.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getCases())));
+        total_cases.setText(formatter.format(Countries.countryList.get(positionId).getCases()));
         today_cases.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getTodayCases())));
         today_recovered.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getTodayRecovered())));
         today_deaths.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getTodayDeaths())));

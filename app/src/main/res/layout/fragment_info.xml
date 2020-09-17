@@ -23,7 +23,7 @@
                 android:layout_marginStart="20dp"
                 android:padding="5dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/test_covid"
                 android:clickable="true"
                 android:elevation="5dp">
@@ -47,8 +47,8 @@
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/corona"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
                     app:lottie_rawRes="@raw/medical_cross"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
@@ -63,7 +63,7 @@
                     android:id="@+id/coronaVirusTest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Take the Self CHeckup!"
+                    android:text="@string/take_the_self_checkup"
                     android:layout_marginTop="5dp"
                     android:textSize="18dp"
                     android:textStyle="bold"
@@ -76,7 +76,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contains several checklist question to check your physical condition"
+                    android:text="@string/follow_the_instructions_to_do_your_own_test"
                     android:textSize="11dp"
                     android:fontFamily="@font/exo2semibold"
                     android:layout_toEndOf="@+id/corona"
@@ -84,7 +84,7 @@
                     android:textColor="@color/white"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="1dp"
                     android:alpha=".8"
                     />
 
@@ -99,33 +99,108 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/call_layout"
+                android:layout_below="@+id/test_covid"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/HelplineNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/are_you_feeling_sick"
+                    android:textSize="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/exo2semibold"
+                    android:textColor="#000"
+                    android:layout_marginStart="25dp"
+                    />
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/HelplineNumber"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/if_you_feeling_sick_with_any_of_covid_19_symptoms"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="2sp"
+                    android:text="@string/please_call_immediately_for_help"
+                    android:textSize="12dp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_below="@+id/text_1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/alloYakkada"
+                        android:layout_width="163dp"
+                        android:layout_height="47dp"
+                        android:textSize="14sp"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/allo_yakkada"
+                        android:drawableStart="@drawable/call_icon1"
+                        android:textAlignment="center"
+                        android:elevation="2dp"
+                        android:layout_marginBottom="3dp"
+                        android:textColor="#2196F3"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/exo2semibold"
+                        android:layout_marginStart="3sp"
+                        android:background="@drawable/button_allo_yakkada"
+                        android:gravity="center" />
+
+                    <Button
+                        android:id="@+id/alloSamu"
+                        android:layout_width="160dp"
+                        android:layout_height="47dp"
+                        android:drawableLeft="@drawable/call_icon2"
+                        android:elevation="2dp"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="20dp"
+                        android:text="@string/allo_samu"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="3sp"
+                        android:textSize="14sp"
+                        android:textAlignment="center"
+                        android:textColor="#D80909"
+                        android:layout_toEndOf="@+id/alloYakkada"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/exo2semibold"
+                        android:background="@drawable/button_allo_samu"
+                        android:gravity="center" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/symptoms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Symptoms "
+                android:layout_marginTop="20dp"
+                android:text="@string/symptoms"
                 android:textSize="20dp"
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/exo2semibold"
-                android:layout_below="@+id/test_covid"
+                android:layout_below="@+id/call_layout"
                 android:textColor="#000"
                 android:layout_marginStart="25dp"
                 />
-
-            <TextView
-                android:id="@+id/more"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_alignParentEnd="true"
-                android:text="more >"
-                android:textSize="17dp"
-                android:layout_marginEnd="25dp"
-                android:textColor="#000000"
-                android:alpha=".4"
-                android:layout_below="@id/test_covid"/>
 
             <HorizontalScrollView
                 android:id="@+id/scroll"
@@ -162,7 +237,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="67dp"
                                 android:fontFamily="@font/exo2regular"
-                                android:text="High Fever"
+                                android:text="@string/high_fever"
                                 android:layout_centerHorizontal="true"
                                 android:textColor="#fff"
                                 android:textSize="15.5sp" />
@@ -202,7 +277,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="67dp"
                                 android:fontFamily="@font/exo2regular"
-                                android:text="Cough"
+                                android:text="@string/cough"
                                 android:layout_centerHorizontal="true"
                                 android:textColor="#fff"
                                 android:textSize="15.5sp" />
@@ -242,7 +317,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="67dp"
                                 android:fontFamily="@font/exo2regular"
-                                android:text="Sore Troath"
+                                android:text="@string/sore_troath"
                                 android:layout_centerHorizontal="true"
                                 android:textColor="#fff"
                                 android:textSize="15.5sp" />
@@ -282,7 +357,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="67dp"
                                 android:fontFamily="@font/exo2regular"
-                                android:text=" Nausea "
+                                android:text="@string/nausea"
                                 android:layout_centerHorizontal="true"
                                 android:textColor="#fff"
                                 android:textSize="15.5sp" />
@@ -309,7 +384,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="Prevention "
+                android:text="@string/prevention"
                 android:textSize="20dp"
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/exo2semibold"
@@ -323,6 +398,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/prevention"
+                android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp">
 
                 <RelativeLayout
@@ -342,7 +418,7 @@
                         android:textStyle="normal"
                         android:layout_toEndOf="@+id/wearMask"
                         android:fontFamily="@font/exo2semibold"
-                        android:text="Wear face mask"
+                        android:text="@string/wear_face_mask"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/colorPrimary"/>
 
@@ -356,7 +432,7 @@
                         android:fontFamily="@font/exo2regular"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
-                        android:text="Since the start of the coronavirus outbreak some places have fully embraced wearing face masks, and anyone caught without one risks becoming a social pariah." />
+                        android:text="@string/since_the_start_of_the_coronavirus_outbreak_some_places_have_fully_embraced_wearing_face_masks_and_anyone_caught_without_one_risks_becoming_a_social_pariah" />
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/wearMask"
@@ -391,7 +467,7 @@
                         android:textStyle="normal"
                         android:layout_toEndOf="@+id/image2"
                         android:fontFamily="@font/exo2semibold"
-                        android:text="Wash your hands"
+                        android:text="@string/wash_your_hands"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/colorPrimary"/>
 
@@ -405,7 +481,7 @@
                         android:fontFamily="@font/exo2regular"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
-                        android:text="These diseases include gastrointestinal infections, such as Salmonella, and respiratory infections, such as influenza." />
+                        android:text="@string/these_diseases_include_gastrointestinal_infections_such_as_salmonella_and_respiratory_infections_such_as_influenza" />
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/image2"
@@ -440,7 +516,7 @@
                         android:textStyle="normal"
                         android:layout_toEndOf="@+id/image3"
                         android:fontFamily="@font/exo2semibold"
-                        android:text="Don't touch your face"
+                        android:text="@string/don_t_touch_your_face"
                         android:layout_marginTop="10dp"
                         android:textColor="@color/colorPrimary"/>
 
@@ -455,7 +531,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
-                        android:text="keep your hands away from your eyes, nose, and mouth. Why? Touching the mucous membranes on your face with your dirty hands allows germs that cause respiratory infections to enter the body" />
+                        android:text="@string/keep_your_hands_away_from_your_eyes_nose_and_mouth_why_touching_the_mucous_membranes_on_your_face_with_your_dirty_hands_allows_germs_that_cause_respiratory_infections_to_enter_the_body" />
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/image3"
@@ -490,7 +566,7 @@
                         android:textStyle="normal"
                         android:layout_toEndOf="@+id/image4"
                         android:fontFamily="@font/exo2semibold"
-                        android:text="No Smoke"
+                        android:text="@string/no_smoke"
                         android:layout_marginTop="25dp"
                         android:textColor="@color/colorPrimary"/>
 
@@ -504,7 +580,7 @@
                         android:fontFamily="@font/exo2regular"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:text="Smoking makes COVID worse if you get it and smoking -- and vaping -- increase the risk of being infected and developing COVID-19" />
+                        android:text="@string/smoking_makes_covid_worse_if_you_get_it_and_smoking_and_vaping_increase_the_risk_of_being_infected_and_developing_covid_19" />
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/image4"
@@ -618,89 +694,6 @@
                 </RelativeLayout>
 
             </RelativeLayout>
-
-
-            <TextView
-                android:id="@+id/HelplineNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Helpline Number "
-                android:textSize="20dp"
-                android:layout_alignParentLeft="true"
-                android:fontFamily="@font/exo2semibold"
-                android:layout_below="@+id/relativeLayout"
-                android:textColor="#000"
-                android:layout_marginStart="25dp"
-                />
-
-            <TextView
-                android:id="@+id/text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/HelplineNumber"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="5dp"
-                android:text="Allo SAMU "
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/AlloSamu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:padding="5dp"
-                android:text="141"
-                android:layout_toEndOf="@+id/text"
-                android:textSize="16dp"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                android:layout_below="@id/HelplineNumber"/>
-
-            <TextView
-                android:id="@+id/text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="15dp"
-                android:text="Allo Yakada"
-                android:textSize="16dp"
-                android:layout_below="@id/text"/>
-
-            <TextView
-                android:id="@+id/AlloYakkada"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="10dp"
-                android:text="080 100 47 47"
-                android:layout_toEndOf="@+id/text2"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                android:layout_below="@id/text"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="7dp"
-                android:layout_toEndOf="@+id/AlloSamu"
-                android:text="(Morocco)"
-                android:textSize="14dp"
-                android:layout_below="@id/HelplineNumber"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="16dp"
-                android:layout_toEndOf="@+id/AlloYakkada"
-                android:text="(Morocco)"
-                android:textSize="14dp"
-                android:layout_below="@id/text"
-                android:layout_marginBottom="40dp"/>
 
         </RelativeLayout>
 

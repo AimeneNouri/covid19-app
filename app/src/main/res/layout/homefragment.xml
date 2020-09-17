@@ -9,16 +9,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="220dp"
+        android:background="@drawable/half1"
         android:elevation="5dp">
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:background="@drawable/half1" />
-
-        <ImageView
+        <!--<ImageView
             android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +22,7 @@
             android:layout_marginStart="5dp"
             android:elevation="5dp"
             android:layout_marginTop="29dp"
-            android:background="@drawable/dr_corona" />
+            android:background="@drawable/dr_corona" />-->
 
         <ImageView
             android:id="@+id/UserCountryCases"
@@ -47,7 +42,7 @@
             android:layout_alignParentEnd="true"
             android:elevation="7dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="10sp"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/settingsButton"
@@ -58,7 +53,6 @@
             android:layout_marginTop="13dp"
             android:layout_marginStart="20dp"/>
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image_corona"
             android:layout_width="wrap_content"
@@ -68,7 +62,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="30dp"/>
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +69,6 @@
             android:layout_toEndOf="@id/image_corona"
             android:layout_marginTop="40dp"
             android:layout_marginStart="85dp"/>
-
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
@@ -139,7 +131,7 @@
             android:layout_marginTop="45dp"
             android:textAlignment="center"
             android:elevation="5dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="10sp"
             android:textColor="#fff"
             android:textSize="17sp" />
 
@@ -152,7 +144,7 @@
             android:layout_below="@id/worldCases"
             android:layout_alignParentEnd="true"
             android:textAlignment="center"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="10sp"
             android:layout_marginBottom="5dp"
             android:textColor="#fff"
             android:elevation="5dp"
@@ -169,7 +161,7 @@
             android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="10sp"
             android:textColor="#fff"
             android:elevation="5dp"
             android:textSize="36sp" />
@@ -192,8 +184,7 @@
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:elevation="5dp"
-        android:layout_marginTop="220dp"
-        android:background="#F8F8FF">
+        android:layout_marginTop="220dp">
 
         <RelativeLayout
             android:id="@+id/layout"
@@ -204,7 +195,7 @@
                 android:id="@+id/all_total_cases"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Cases"
+                android:text="@string/total_cases"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_marginStart="20dp"
@@ -228,7 +219,7 @@
 
                     <RelativeLayout
                         android:id="@+id/form1"
-                        android:layout_width="150dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
                         android:layout_marginTop="10dp"
@@ -281,7 +272,7 @@
 
                     <RelativeLayout
                         android:id="@+id/form2"
-                        android:layout_width="150dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
@@ -331,7 +322,7 @@
 
                     <RelativeLayout
                         android:id="@+id/form3"
-                        android:layout_width="150dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@+id/form1"
                         android:layout_marginEnd="20dp"
@@ -388,7 +379,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/layout1"
-                android:text="Today Cases"
+                android:text="@string/today_cases"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_marginStart="20dp"
@@ -410,7 +401,7 @@
 
                     <RelativeLayout
                         android:id="@+id/form4"
-                        android:layout_width="150dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
                         android:layout_marginStart="20dp"
@@ -461,7 +452,7 @@
 
                     <RelativeLayout
                         android:id="@+id/form5"
-                        android:layout_width="150dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@+id/form4"
                         android:layout_marginEnd="20dp"
@@ -487,7 +478,7 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/exobold"
-                            android:text="DEATHS"
+                            android:text="@string/death"
                             android:textColor="#32354E"
                             android:alpha=".89"
                             android:textSize="15sp" />
@@ -512,7 +503,7 @@
 
                     <RelativeLayout
                         android:id="@+id/form6"
-                        android:layout_width="150dp"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@+id/form5"
                         android:layout_marginEnd="20dp"
@@ -538,7 +529,8 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginBottom="10dp"
                             android:fontFamily="@font/exobold"
-                            android:text="RECOVERED"
+                            android:textAllCaps="true"
+                            android:text="@string/recovered"
                             android:textColor="#32354E"
                             android:alpha=".89"
                             android:textSize="15sp" />

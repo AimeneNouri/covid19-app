@@ -21,11 +21,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
-        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl">
-        <activity android:name=".activities.DetailActivity"
+        <activity
+            android:name=".activities.SettingsItems.Give_Feedback"
             android:theme="@style/AppTheme.Countries"></activity>
+        <activity
+            android:name=".activities.DetailActivity"
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.User_country"
             android:theme="@style/AppTheme.Countries" />
@@ -42,16 +46,17 @@
             android:name=".activities.Countries"
             android:theme="@style/AppTheme.Countries" />
         <activity
-            android:name=".activities.UserInfo"
-            android:theme="@style/AppTheme.Launcher" />
-        <activity android:name=".activities.onboard.stayHome"
-            android:theme="@style/AppTheme.Splash"/>
-        <activity android:name=".activities.onboard.onboardFaceMask"
-            android:theme="@style/AppTheme.Splash"/>
-        <activity android:name=".activities.onboard.onboardCleanHand"
-            android:theme="@style/AppTheme.Splash"/>
-        <activity android:name=".activities.onboard.onboardCloseContact"
-            android:theme="@style/AppTheme.Splash"/>
+            android:name=".activities.onboard.stayHome"
+            android:theme="@style/AppTheme.Splash" />
+        <activity
+            android:name=".activities.onboard.onboardFaceMask"
+            android:theme="@style/AppTheme.Splash" />
+        <activity
+            android:name=".activities.onboard.onboardCleanHand"
+            android:theme="@style/AppTheme.Splash" />
+        <activity
+            android:name=".activities.onboard.onboardCloseContact"
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.Main" />

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:elevation="5dp"
+        android:background="@drawable/form1">
+
+
+        <TextView
+            android:id="@+id/statisticsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/language"
+            android:textStyle="bold"
+            android:textColor="#32354E"
+            android:fontFamily="sans-serif"
+            android:layout_marginStart="10sp"
+            android:layout_alignParentStart="true"
+            android:alpha=".86"
+            android:layout_marginBottom="15dp"
+            android:textSize="19dp"
+            android:elevation="2dp"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/statisticsText"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioEnglish"
+                android:layout_width="102sp"
+                android:layout_height="wrap_content"
+                android:text="@string/english"
+                android:textColor="#504F4F"
+                android:padding="10dp"
+                android:buttonTint="#7777FF"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                />
+
+
+
+            <RadioButton
+                android:id="@+id/radioFrench"
+                android:layout_width="102sp"
+                android:layout_height="wrap_content"
+                android:text="@string/french"
+                android:padding="10dp"
+                android:textColor="#504F4F"
+                android:buttonTint="#7777FF"
+                android:layout_marginTop="5dp"
+                />
+
+            <RadioButton
+                android:id="@+id/radioArabic"
+                android:layout_width="102sp"
+                android:layout_height="wrap_content"
+                android:text="@string/arabic"
+                android:textColor="#504F4F"
+                android:padding="10dp"
+                android:buttonTint="#7777FF"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                />
+
+
+
+            <RadioButton
+                android:id="@+id/radioGerman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/deutsch"
+                android:padding="10dp"
+                android:textColor="#504F4F"
+                android:buttonTint="#7777FF"
+                android:layout_marginTop="5dp" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="150dp"
+            android:layout_height="41dp"
+            android:background="@drawable/test_covid"
+            android:fontFamily="@font/exo2semibold"
+            android:text="@string/save"
+            android:layout_below="@+id/radioGroup"
+            android:textAllCaps="false"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/errorLanguage"
+            android:textStyle="normal"
+            android:textColor="#FF0000"
+            android:fontFamily="sans-serif"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/save"
+            android:alpha=".86"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:textSize="12dp"
+            android:visibility="gone"
+            android:elevation="2dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

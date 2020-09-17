@@ -50,7 +50,7 @@ public class AdapterStatistics extends RecyclerView.Adapter<AdapterStatistics.Vi
         }
 
         holder.country_name.setText(countryName);
-        holder.country_total_cases.setText(formatter.format(Double.parseDouble(countryList.get(position).getCases())));
+        holder.country_total_cases.setText(formatter.format(countryList.get(position).getCases()));
         holder.country_today_cases.setText("+" + formatter.format(Double.parseDouble(countryList.get(position).getTodayCases())));
 
         Picasso.get().load(countryList.get(position).getFlag()).into(holder.country_flag);

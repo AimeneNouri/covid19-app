@@ -3,7 +3,7 @@ package me.app.covid19.models;
 public class Country{
     private String flag;
     private String country;
-    private String cases;
+    private int cases;
     private String todayCases;
     private String deaths;
     private String todayDeaths;
@@ -16,7 +16,7 @@ public class Country{
     public Country() {
     }
 
-    public Country(String flag, String country, String cases, String todayCases, String deaths, String todayDeaths, String recovered, String todayRecovered, String active, String critical, long lastUpdate) {
+    public Country(String flag, String country, int cases, String todayCases, String deaths, String todayDeaths, String recovered, String todayRecovered, String active, String critical, long lastUpdate) {
         this.flag = flag;
         this.country = country;
         this.cases = cases;
@@ -46,11 +46,11 @@ public class Country{
         this.country = country;
     }
 
-    public String getCases() {
+    public int getCases() {
         return cases;
     }
 
-    public void setCases(String cases) {
+    public void setCases(int cases) {
         this.cases = cases;
     }
 

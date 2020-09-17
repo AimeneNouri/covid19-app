@@ -22,6 +22,9 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import me.app.covid19.R;
@@ -32,7 +35,7 @@ import me.app.covid19.R;
 public class infoFragment extends Fragment {
 
     private View InfoView;
-    TextView alloSamu, alloYakkada;
+    Button alloYakkada, alloSamu;
 
     private int REQUEST_CALL = 1;
 
@@ -49,32 +52,27 @@ public class infoFragment extends Fragment {
         InfoView = inflater.inflate(R.layout.fragment_info, container, false);
 
 
-        alloSamu = InfoView.findViewById(R.id.AlloSamu);
-        alloYakkada = InfoView.findViewById(R.id.AlloYakkada);
-
-        alloSamu.setText(Html.fromHtml("<u>141</u>"));
-        alloYakkada.setText(Html.fromHtml("<u>080 100 47 47</u>"));
-
-        alloSamu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tel1 = "tel:" +  alloSamu.getText().toString();
-
-                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-                    Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse(tel1));
-                    startActivity(intent);
-                }else {
-                    ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.CALL_PHONE}, REQUEST_CALL);
-                }
-
-            }
-        });
+        alloYakkada = InfoView.findViewById(R.id.alloYakkada);
+        alloSamu = InfoView.findViewById(R.id.alloSamu);
 
         alloYakkada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tel2 = "tel:" +  alloYakkada.getText().toString();
+                String tel2 = "tel:0801004747";
+
+                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
+                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(tel2));
+                    startActivity(intent);
+                }else {
+                    ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+                }
+            }
+        });
+
+        alloSamu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String tel2 = "tel:141";
 
                 if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(tel2));
@@ -86,6 +84,28 @@ public class infoFragment extends Fragment {
         });
 
         return InfoView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getActivity().getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getActivity().getResources().getColor(R.color.color_fragment));
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getActivity().getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getActivity().getResources().getColor(R.color.colorPrimary));
+        }
     }
 
     @Override

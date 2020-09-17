@@ -134,7 +134,7 @@ public class Countries extends AppCompatActivity{
 
                             country = new Country();
                             country.setCountry(CountryObject.getString("country").toString());
-                            country.setCases(CountryObject.getString("cases").toString());
+                            country.setCases(CountryObject.getInt("cases"));
                             country.setTodayCases(CountryObject.getString("todayCases").toString());
                             country.setTodayRecovered(CountryObject.getString("todayRecovered").toString());
                             country.setTodayDeaths(CountryObject.getString("todayDeaths").toString());

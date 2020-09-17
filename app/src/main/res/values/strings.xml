@@ -8,20 +8,20 @@
     <string name="cin">CIN</string>
     <string name="birth">Date of Birth</string>
     <string name="gender">Gender :</string>
-    <string name="language">Language :</string>
+    <string name="language">Choose Language :</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="english">English</string>
     <string name="arabic">Arabic</string>
+    <string name="french">French</string>
+    <string name="deutsch">German</string>
 
     <!--home fragment-->
     <string name="worldCases">Worldwide Cases </string>
     <string name="death">DEATHS </string>
     <string name="activeCase">ACTIVE</string>
     <string name="closeCase">RECOVERED</string>
-    <string name="mild">Mild Condition</string>
     <string name="critical">Critical</string>
-    <string name="lastUpdate">July 26, 2020, 12:27 GMT</string>
 
 
     <!--bottomNavigation item-->
@@ -38,26 +38,22 @@
     <string name="dontHave">Don\'t have account? </string>
     <string name="username">UserName</string>
     <string name="confirm">Confirm Password</string>
-    <string name="accept">I accept the</string>
-    <string name="privacy">Privacy</string>
-    <string name="and">and</string>
-    <string name="Terms">Terms</string>
     <string name="CreateAccount">Create Account</string>
     <string name="already">Already have account? </string>
 
 
     <!--onBoard activity-->
-    <string name="avoidCloseContact"> Avoid Close Contact</string>
+    <string name="avoidCloseContact">Avoid Close Contact</string>
     <string name="skip">Skip</string>
     <string name="cleanYourHands">Clean Your Hands Often</string>
     <string name="wash">Wash your hands with soap and water, scrub your hands for at least 20 seconds.</string>
-    <string name="Wearfacemask">Wear a facemask if you are sick</string>
+    <string name="Wearfacemask">Wear a face mask</string>
     <string name="consider"> Consider wearing a face mask when you are sick with a cough or sneezing</string>
     <string name="StayAtHome">Stay at Home</string>
-    <string name="sloganAvoidCloseContact">"Keep your distance from others to protect them from getting sick too "</string>
+    <string name="sloganAvoidCloseContact">"Keep your distance from others to protect yourself and them from getting sick too "</string>
     <string name="next">Next</string>
     <string name="staying">Staying at home will help control the spread of the virus to friends, the wider community.</string>
-    <string name="coronaVirus">Corona Virus</string>
+    <string name="coronaVirus">Coronavirus</string>
 
 
     <string name="confirmLogout">Confirm Logout </string>
@@ -75,7 +71,6 @@
     <string name="enable_gps">Enable GPS...</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="city">City</string>
-    <string name="change_location">Change Location</string>
     <string name="country">Country</string>
     <string name="confirmed">Confirmed</string>
     <string name="statistic">Statistics</string>
@@ -84,17 +79,59 @@
     <string name="Location">Location</string>
     <string name="readMore">Read More</string>
     <string name="cured">Cured</string>
-    <string name="last_news">Last News</string>
-    <string name="Read_more"><![CDATA[Read More >]]></string>
-    <string name="LearnMore"><![CDATA[Learn More >]]></string>
+    <string name="last_news">Latest News</string>
     <string name="recent_news">Recent News</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="corona_last_news">Covid-19 Last News</string>
     <string name="acceptPrivacyAndTerms">I accept the Privacy and Terms</string>
     <string name="statistics">Statistics</string>
     <string name="cases">Cases</string>
     <string name="worldWide">World Wide</string>
+    <string name="wear_face_mask">Wear face mask</string>
+    <string name="since_the_start_of_the_coronavirus_outbreak_some_places_have_fully_embraced_wearing_face_masks_and_anyone_caught_without_one_risks_becoming_a_social_pariah">Since the start of the coronavirus outbreak some places have fully embraced wearing face masks, and anyone caught without one risks becoming a social pariah.</string>
+    <string name="wash_your_hands">Wash your hands</string>
+    <string name="these_diseases_include_gastrointestinal_infections_such_as_salmonella_and_respiratory_infections_such_as_influenza">These diseases include gastrointestinal infections, such as Salmonella, and respiratory infections, such as influenza.</string>
+    <string name="don_t_touch_your_face">Don\'t touch your face</string>
+    <string name="keep_your_hands_away_from_your_eyes_nose_and_mouth_why_touching_the_mucous_membranes_on_your_face_with_your_dirty_hands_allows_germs_that_cause_respiratory_infections_to_enter_the_body">keep your hands away from your eyes, nose, and mouth. Why? Touching the mucous membranes on your face with your dirty hands allows germs that cause respiratory infections to enter the body</string>
+    <string name="smoking_makes_covid_worse_if_you_get_it_and_smoking_and_vaping_increase_the_risk_of_being_infected_and_developing_covid_19">Smoking makes COVID worse if you get it and smoking -- and vaping -- increase the risk of being infected and developing COVID-19</string>
+    <string name="no_smoke">No Smoking</string>
+    <string name="are_you_feeling_sick">Are you feeling sick?</string>
+    <string name="if_you_feeling_sick_with_any_of_covid_19_symptoms">If you feeling sick with any of covid-19 symptoms.</string>
+    <string name="please_call_immediately_for_help">Please call immediately for help</string>
+    <string name="allo_yakkada">Allô epidemiological watch</string>
+    <string name="allo_samu">Allô SAMU</string>
+    <string name="take_the_self_checkup">Take the Self Checkup!</string>
+    <string name="follow_the_instructions_to_do_your_own_test">Follow the instructions to do your own test.</string>
+    <string name="high_fever">Fever</string>
+    <string name="cough">Cough</string>
+    <string name="sore_troath">Sore Throat</string>
+    <string name="nausea">Nausea</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="prevention">Prevention</string>
+    <string name="update_password">Update Password</string>
+    <string name="search">Search</string>
+    <string name="last_updated_on">Last Updated on</string>
+    <string name="change_password">Change Password</string>
+    <string name="give_feedback">Give Feedback</string>
+    <string name="share_this_app">Share This App</string>
+    <string name="rate_this_app">Rate This App</string>
+    <string name="exit">Exit</string>
+    <string name="by">By</string>
+    <string name="made_with">Made with</string>
+    <string name="aimene_nouri">Aimene Nouri</string>
+    <string name="please_wait_while_we_are_updating_you_profile">Please wait, while we are updating your profile...</string>
+    <string name="top_countries">Top Countries</string>
+    <string name="total_cases">Total Cases</string>
+    <string name="today_cases">Today Cases</string>
+    <string name="changing_password">Changing Password...</string>
+    <string name="save">Save</string>
+    <string name="errorLanguage">please choose a language</string>
+    <string name="world">World</string>
+    <string name="Mycountry">My country</string>
+    <string name="feedback_write">Your feedback...</string>
+    <string name="leave_feedback">Leave Feedback</string>
+    <string name="thanks">Thanks for your feedback</string>
+    <string name="feedback_advice">You help us improve the quality of us services</string>
+    <string name="change_language">Change Language</string>
 
 </resources>
