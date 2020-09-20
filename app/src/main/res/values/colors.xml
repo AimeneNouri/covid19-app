@@ -10,4 +10,6 @@
     <color name="black">#000</color>
     <color name="color_fragment">#F8F8FF</color>
     <color name="transparent">@android:color/transparent</color>
+    <color name="colorTextSubtitle">#4e4e4e</color>
+    <color name="colorTextTitle">#262626</color>
 </resources>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COVID-19</string>
+    <string name="app_name">Stay Safe</string>
     <string name="Register"><u>Register</u>.</string>
     <string name="home">Home</string>
     <string name="name">Name</string>
@@ -133,5 +133,7 @@
     <string name="thanks">Thanks for your feedback</string>
     <string name="feedback_advice">You help us improve the quality of us services</string>
     <string name="change_language">Change Language</string>
+    <string name="logout">Logout</string>
+    <string name="Logout">"Logout "</string>
 
 </resources>

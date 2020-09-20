@@ -26,4 +26,30 @@
         android:indeterminateTint="@color/colorPrimary"
         android:visibility="gone"/>
 
+    <ImageView
+        android:id="@+id/No_request"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:background="@drawable/sad_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:alpha=".8"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sorry, \nOur app does not support your country news "
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="13dp"
+        android:alpha=".4"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/No_request"
+        android:visibility="gone"/>
+
 </RelativeLayout>

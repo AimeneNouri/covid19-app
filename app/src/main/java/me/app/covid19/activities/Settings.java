@@ -12,12 +12,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -25,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -59,7 +62,7 @@ public class Settings extends AppCompatActivity {
 
     private TextView MyGithub;
 
-    private RelativeLayout edit_profile, change_password, change_language, give_feedback, share_app, exit_app, layout_1, layout1;
+    private RelativeLayout edit_profile, change_password, change_language, give_feedback, share_app, logout, layout_1, layout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,21 +80,23 @@ public class Settings extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        exit_app.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this, R.style.AlertDialogTheme);
                 builder.setTitle("Confirm exit");
                 builder.setIcon(R.drawable.ic_exit_to_app_black_24dp);
-                builder.setMessage("Are you sure you want to exit the app");
+                builder.setMessage("Are you sure you want to Sign out");
                 builder.setCancelable(false);
 
                 builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        moveTaskToBack(true);
+                        /*moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
-                        System.exit(1);
+                        System.exit(1);*/
+                        mAuth.signOut();
+                        sendUserToLoginActivity();
                     }
                 });
 
@@ -110,12 +115,18 @@ public class Settings extends AppCompatActivity {
         share_app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ApplicationInfo api = getApplicationContext().getApplicationInfo();
-                String apkpath = api.sourceDir;
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("application/vnd.android.package-archive");
-                shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkpath)));
-                startActivity(Intent.createChooser(shareIntent, "Share App via"));
+                try{
+
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Stay Safe app (Covid-19 tracker )" + "\n\nDeveloped by Aimene Nouri");
+                    String body = "Download this app now :" + "\n\n" + "";
+                    i.putExtra(Intent.EXTRA_TEXT, body);
+                    startActivity(Intent.createChooser(i, "Share App via :"));
+
+                }catch (Exception e){
+                    Toast.makeText(Settings.this, "Sorry, \nThis Cannot be share", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -147,7 +158,7 @@ public class Settings extends AppCompatActivity {
         change_language.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showChangeLanguageDialog();
+                //showChangeLanguageDialog();
             }
         });
 
@@ -168,6 +179,14 @@ public class Settings extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
             }
         });
+    }
+
+    private void sendUserToLoginActivity() {
+        Intent loginIntent = new Intent(Settings.this, Login.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
+        finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void showChangeLanguageDialog() {
@@ -192,19 +211,19 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (english.isChecked()){
-                    setLocale("en");
+                    setAppLocale("en");
                     dialog.dismiss();
                 }
                 else if (french.isChecked()){
-                    setLocale("fr");
+                    setAppLocale("fr");
                     dialog.dismiss();
                 }
                 else if (arabic.isChecked()){
-                    setLocale("ar");
+                    setAppLocale("ar");
                     dialog.dismiss();
                 }
                 else if (germany.isChecked()){
-                    setLocale("de");
+                    setAppLocale("de");
                     dialog.dismiss();
                 }
                 else {
@@ -216,14 +235,20 @@ public class Settings extends AppCompatActivity {
         dialog.show();
     }
 
-    private void setLocale(String lang) {
+    private void setAppLocale(String lang) {
+        /*Resources res = getResources();
+        DisplayMetrics displayMetrics = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.setLocale(new Locale(lang.toLowerCase()));
+        res.updateConfiguration(conf, displayMetrics);*/
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
         Configuration configuration = new Configuration();
         configuration.locale = locale;
         getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
 
-        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        SharedPreferences sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("My_Lang", lang);
         editor.apply();
     }
@@ -231,7 +256,7 @@ public class Settings extends AppCompatActivity {
     public void loadLocale() {
         SharedPreferences preferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
         String language = preferences.getString("My_Lang", "");
-        setLocale(language);
+        setAppLocale(language);
     }
 
     private void RetrieveUserName_Email() {
@@ -279,16 +304,13 @@ public class Settings extends AppCompatActivity {
 
         edit_profile = findViewById(R.id.edit_profile);
         change_password = findViewById(R.id.change_password);
-        change_language = findViewById(R.id.change_language);
+        //change_language = findViewById(R.id.change_language);
         give_feedback = findViewById(R.id.feedback);
         share_app = findViewById(R.id.share_app);
-        exit_app = findViewById(R.id.exit);
+        logout = findViewById(R.id.exit);
         layout_1 = findViewById(R.id.layout_1);
         layout1 = findViewById(R.id.layout1);
         MyGithub = findViewById(R.id.AimeneNouri);
-
-        MyGithub.setText(Html.fromHtml("<u>"+ MyGithub.getText() +"</u>"));
-
     }
 
     @Override

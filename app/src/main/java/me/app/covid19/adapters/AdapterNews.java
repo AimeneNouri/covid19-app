@@ -1,17 +1,21 @@
 package me.app.covid19.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -20,11 +24,11 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import me.app.covid19.R;
+import me.app.covid19.activities.News_Details_activity;
 import me.app.covid19.models.News;
 import me.app.covid19.models.Utils;
 
@@ -48,7 +52,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final NewsViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final NewsViewHolder holder, final int position) {
 
         final News newsItem = newsList.get(position);
 
@@ -74,6 +78,29 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.NewsViewHolder
                 })
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(holder.news_picture);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), News_Details_activity.class);
+
+                News newsItem = newsList.get(position);
+                intent.putExtra("url", newsItem.getUrl());
+                intent.putExtra("title", newsItem.getTitle());
+                intent.putExtra("img", newsItem.getImage());
+                intent.putExtra("date", newsItem.getPublishDate());
+                intent.putExtra("source", newsItem.getSourceName());
+                intent.putExtra("author", newsItem.getAuthor());
+
+                Pair<View, String> pair = Pair.create((View) holder.news_picture, ViewCompat.getTransitionName(holder.news_picture));
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        (Activity) context,
+                        pair
+                );
+
+                holder.itemView.getContext().startActivity(intent, optionsCompat.toBundle());
+            }
+        });
     }
 
     @Override

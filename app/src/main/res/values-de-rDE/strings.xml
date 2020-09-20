@@ -114,4 +114,11 @@
     <string name="errorLanguage">"Bitte wählen Sie eine Sprache "</string>
     <string name="Mycountry">"Mein Land "</string>
     <string name="world">Welt</string>
+    <string name="change_language">"Sprache ändern "</string>
+    <string name="leave_feedback">"Hinterlasse Kommentar "</string>
+    <string name="thanks">"Vielen Dank für Ihr Feedback "</string>
+    <string name="feedback_write">"Ihre Rückmeldung... "</string>
+    <string name="feedback_advice">"Du helfen uns, die Qualität unserer Dienstleistungen zu verbessern "</string>
+    <string name="logout">Ausloggen</string>
+    <string name="Logout">Ausloggen</string>
 </resources>

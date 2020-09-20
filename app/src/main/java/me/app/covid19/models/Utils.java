@@ -1,5 +1,7 @@
 package me.app.covid19.models;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.text.format.DateUtils;
 
 import org.ocpsoft.prettytime.PrettyTime;
@@ -9,8 +11,27 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 public class Utils {
+
+    public static ColorDrawable[] vibrantLightColorList =
+            {
+                    new ColorDrawable(Color.parseColor("#ffeead")),
+                    new ColorDrawable(Color.parseColor("#93cfb3")),
+                    new ColorDrawable(Color.parseColor("#fd7a7a")),
+                    new ColorDrawable(Color.parseColor("#faca5f")),
+                    new ColorDrawable(Color.parseColor("#1ba798")),
+                    new ColorDrawable(Color.parseColor("#6aa9ae")),
+                    new ColorDrawable(Color.parseColor("#3F51B5")),
+                    new ColorDrawable(Color.parseColor("#d93947")),
+                    new ColorDrawable(Color.parseColor("#7777FF"))
+            };
+
+    public static ColorDrawable getRandomDrawableColor() {
+        int idx = new Random().nextInt(vibrantLightColorList.length);
+        return vibrantLightColorList[idx];
+    }
 
     public static String getDate(long milliSecond){
         SimpleDateFormat formatter = new SimpleDateFormat("dd MMM, yyyy");
