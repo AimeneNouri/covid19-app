@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:weightSum="4"
+    android:orientation="vertical"
+    tools:context=".activities.test_covid">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8sp"
+            android:background="@drawable/ic_chevron_left_black_24dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/backButton">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/exo2semibold"
+                android:text="@string/self_checkup1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginStart="30dp"
+                android:layout_below="@+id/text1"
+                android:textColor="@color/white"
+                android:fontFamily="@font/exo2semibold"
+                android:text="@string/self_checkup2" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:elevation="36dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@drawable/card_background">
+
+        <FrameLayout
+            android:id="@+id/main_frame"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/buttons"/>
+
+        <RelativeLayout
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/no"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10sp"
+                android:layout_marginBottom="15sp"
+                android:text="@string/no"
+                android:layout_alignParentStart="true"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:background="@drawable/button_form1" />
+
+            <Button
+                android:id="@+id/yes"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/button_form1"
+                android:text="@string/yes"
+                android:layout_marginTop="10sp"
+                android:layout_marginBottom="10sp"
+                android:layout_alignParentEnd="true"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

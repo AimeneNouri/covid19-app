@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -27,6 +30,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -45,20 +50,25 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
+import me.app.covid19.activities.profile_setting;
 
-public class EditProfile extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class EditProfile extends AppCompatActivity{
 
-    private ImageView cancel, validate;
+    private ImageView cancel;
+    private Button validate;
     private CircleImageView userImage, updatePicture;
     private EditText userName, userEmail, userCIN, userPhone, userBirth, userCountry;
     private RadioButton male, female;
 
-    private String currentUserId;
+    private String currentUserId, password;
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef;
     private FirebaseUser user;
@@ -67,6 +77,8 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
 
     ProgressDialog progressDialog;
     private StorageTask uploadTask;
+
+    Calendar myCalendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +127,32 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                         .start(EditProfile.this);
             }
         });
+
+        final DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, month);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+        };
+
+        userBirth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(EditProfile.this, dateSetListener, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+    }
+
+    private void updateLabel() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        userBirth.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void showDialog(){
@@ -130,11 +168,10 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
 
     private void validate_Change() {
         String setUserName = userName.getText().toString();
-        String setUserEmail = userEmail.getText().toString();
+        final String setUserEmail = userEmail.getText().toString();
         String setUserCIN = userCIN.getText().toString();
         String setUserPhone = userPhone.getText().toString();
         String setUserBirth = userBirth.getText().toString();
-        String setUserCountry = userCountry.getText().toString();
         String genderMale = male.getText().toString();;
         String genderFemale = female.getText().toString();
 
@@ -173,7 +210,6 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
             profileMap.put("cin", setUserCIN);
             profileMap.put("phone", setUserPhone);
             profileMap.put("birth", setUserBirth);
-            //profileMap.put("User_Country", setUserCountry);
 
             if (male.isChecked()){
                 profileMap.put("gender", genderMale);
@@ -181,6 +217,21 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
             else if (female.isChecked()){
                 profileMap.put("gender", genderFemale);
             }
+
+            RootRef.child("Users")
+                    .child(currentUserId).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()){
+                        password = snapshot.child("password").getValue(String.class);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
 
             RootRef.child("Users")
                     .child(currentUserId)
@@ -191,6 +242,34 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                             if (task.isSuccessful()){
                                 progressDialog.dismiss();
                                 Toast.makeText(EditProfile.this, "Profile updated Successfully", Toast.LENGTH_SHORT).show();
+                                AuthCredential authCredential = EmailAuthProvider.getCredential(user.getEmail(), password);
+                                user.reauthenticate(authCredential)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                user.updateEmail(setUserEmail)
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                progressDialog.dismiss();
+                                                            }
+                                                        })
+                                                        .addOnFailureListener(new OnFailureListener() {
+                                                            @Override
+                                                            public void onFailure(@NonNull Exception e) {
+                                                                progressDialog.dismiss();
+                                                                Toast.makeText(EditProfile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                progressDialog.dismiss();
+                                                Toast.makeText(EditProfile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                             }
                             else
                             {
@@ -209,7 +288,7 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if((dataSnapshot.exists()) && (dataSnapshot.hasChild("cin")))
+                        if((dataSnapshot.exists()) && (dataSnapshot.hasChild("UserPicture")))
                         {
                             String retrieveUserName = dataSnapshot.child("userName").getValue().toString();
                             String retrieveEmail = dataSnapshot.child("email").getValue().toString();
@@ -218,14 +297,12 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                             String retrieveBirth= dataSnapshot.child("birth").getValue().toString();
                             String retrieveGender= dataSnapshot.child("gender").getValue().toString();
                             String retrieveUserPicture= dataSnapshot.child("UserPicture").getValue().toString();
-                            //String retrieveUserCountry= dataSnapshot.child("User_Country").getValue().toString();
 
                             userName.setText(retrieveUserName);
                             userEmail.setText(retrieveEmail);
                             userCIN.setText(retrieveCIN);
                             userPhone.setText(retrievePhone);
                             userBirth.setText(retrieveBirth);
-                            //userCountry.setText(retrieveUserCountry);
                             Picasso.get().load(retrieveUserPicture).placeholder(R.drawable.person).into(userImage);
                             if (retrieveGender.equals("Male")){
                                 male.setChecked(true);
@@ -234,38 +311,24 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                                 female.setChecked(true);
                             }
                         }
-                        else if((dataSnapshot.exists()) && (dataSnapshot.hasChild("phone")) && (dataSnapshot.hasChild("birth")) && (dataSnapshot.hasChild("userName")) && (dataSnapshot.hasChild("gender")) && (dataSnapshot.hasChild("UserPicture")))
-                        {
-                            String retrieveUserName = dataSnapshot.child("userName").getValue().toString();
-                            String retrieveEmail = dataSnapshot.child("email").getValue().toString();
-                            String retrievePhone= dataSnapshot.child("phone").getValue().toString();
-                            String retrieveBirth= dataSnapshot.child("birth").getValue().toString();
-                            String retrieveGender= dataSnapshot.child("gender").getValue().toString();
-                            String retrieveUserPicture= dataSnapshot.child("UserPicture").getValue().toString();
 
-                            userName.setText(retrieveUserName);
-                            userEmail.setText(retrieveEmail);
-                            userPhone.setText(retrievePhone);
-                            userBirth.setText(retrieveBirth);
-                            Picasso.get().load(retrieveUserPicture).placeholder(R.drawable.person).into(userImage);
-                            if (retrieveGender.equals("Male")){
-                                male.setChecked(true);
-                            }
-                            else{
-                                female.setChecked(true);
-                            }
-                        }
-                        else if ((dataSnapshot.exists()) && (dataSnapshot.hasChild("userName")))
-                        {
-                            String retrieveUserName = Objects.requireNonNull(dataSnapshot.child("userName").getValue()).toString();
-                            String retrieveEmail = Objects.requireNonNull(dataSnapshot.child("email").getValue()).toString();
+                        String retrieveUserName = dataSnapshot.child("userName").getValue().toString();
+                        String retrieveEmail = dataSnapshot.child("email").getValue().toString();
+                        String retrieveCIN= dataSnapshot.child("cin").getValue().toString();
+                        String retrievePhone= dataSnapshot.child("phone").getValue().toString();
+                        String retrieveBirth= dataSnapshot.child("birth").getValue().toString();
+                        String retrieveGender= dataSnapshot.child("gender").getValue().toString();
 
-                            userName.setText(retrieveUserName);
-                            userEmail.setText(retrieveEmail);
+                        userName.setText(retrieveUserName);
+                        userEmail.setText(retrieveEmail);
+                        userCIN.setText(retrieveCIN);
+                        userPhone.setText(retrievePhone);
+                        userBirth.setText(retrieveBirth);
+                        if (retrieveGender.startsWith("m")){
+                            male.setChecked(true);
                         }
-                        else
-                        {
-                            Toast.makeText(EditProfile.this, "Please set & update your profile information", Toast.LENGTH_SHORT).show();
+                        else{
+                            female.setChecked(true);
                         }
                     }
 
@@ -289,7 +352,6 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
         userPhone = findViewById(R.id.UserPhoneNumber);
         userEmail = findViewById(R.id.UserEmail);
         userBirth = findViewById(R.id.UserBirth);
-        //userCountry = findViewById(R.id.UserCountry);
         male = findViewById(R.id.radioMale);
         female = findViewById(R.id.radioFemale);
 
@@ -360,15 +422,5 @@ public class EditProfile extends AppCompatActivity implements AdapterView.OnItem
                 });
             }
         }
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
     }
 }

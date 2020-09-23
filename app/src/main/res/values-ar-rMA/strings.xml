@@ -121,4 +121,12 @@
     <string name="feedback_advice">"أنت تساعدنا في تحسين جودة خدماتنا "</string>
     <string name="Logout">"تسجيل خروج "</string>
     <string name="logout">"تسجيل خروج "</string>
+    <string name="self_checkup1">"الفحص الذاتي "</string>
+    <string name="self_checkup2">لمرض كوفيد 19</string>
+    <string name="update">تحديث</string>
+    <string name="sureLogout">"هل أنت متأكد أنك تريد تسجيل الخروج؟ "</string>
+    <string name="Logout1">"تسجيل خروج "</string>
+    <string name="Logout2">"تسجيل خروج "</string>
+    <string name="privacyPolicy">سياسة خاصة</string>
+    <string name="support">ادعمنا</string>
 </resources>

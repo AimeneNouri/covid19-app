@@ -1,5 +1,7 @@
 package me.app.covid19.fragments.newsTablayout;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +46,7 @@ public class World extends Fragment implements SwipeRefreshLayout.OnRefreshListe
     News news;
 
     private SwipeRefreshLayout swipeRefreshLayout;
+    private static String language = "";
 
     public World (){};
 
@@ -60,13 +63,16 @@ public class World extends Fragment implements SwipeRefreshLayout.OnRefreshListe
         swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.white);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
 
+
+        language = Locale.getDefault().getLanguage();
+
         fetchData();
 
         return worldView;
     }
 
     private void fetchData() {
-        String url = "http://newsapi.org/v2/everything?domains=who.int,news-medical.net,medicalnewstoday.com,medscape.com,health.com,medicalxpress.com,medscape.com,medicalnewstoday.com&language=en&apiKey=" + Constants.API_KEY;
+        String url = "http://newsapi.org/v2/everything?domains=who.int,news-medical.net,medicalnewstoday.com,medscape.com,health.com,medicalxpress.com,medscape.com,medicalnewstoday.com&language="+ language +"&apiKey=" + Constants.API_KEY;
         progressBar.setVisibility(View.VISIBLE);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

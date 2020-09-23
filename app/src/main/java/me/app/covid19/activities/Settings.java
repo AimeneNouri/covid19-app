@@ -45,6 +45,7 @@ import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.app.covid19.R;
 import me.app.covid19.activities.SettingsItems.Change_password;
+import me.app.covid19.activities.SettingsItems.Donate_me;
 import me.app.covid19.activities.SettingsItems.EditProfile;
 import me.app.covid19.activities.SettingsItems.Give_Feedback;
 
@@ -62,7 +63,7 @@ public class Settings extends AppCompatActivity {
 
     private TextView MyGithub;
 
-    private RelativeLayout edit_profile, change_password, change_language, give_feedback, share_app, logout, layout_1, layout1;
+    private RelativeLayout edit_profile, change_password, change_language, give_feedback, share_app, donate, logout, layout_1, layout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,32 +84,7 @@ public class Settings extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this, R.style.AlertDialogTheme);
-                builder.setTitle("Confirm exit");
-                builder.setIcon(R.drawable.ic_exit_to_app_black_24dp);
-                builder.setMessage("Are you sure you want to Sign out");
-                builder.setCancelable(false);
-
-                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        /*moveTaskToBack(true);
-                        android.os.Process.killProcess(android.os.Process.myPid());
-                        System.exit(1);*/
-                        mAuth.signOut();
-                        sendUserToLoginActivity();
-                    }
-                });
-
-                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                showDialog();
             }
         });
 
@@ -119,8 +95,8 @@ public class Settings extends AppCompatActivity {
 
                     Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("text/plain");
-                    i.putExtra(Intent.EXTRA_SUBJECT, "Stay Safe app (Covid-19 tracker )" + "\n\nDeveloped by Aimene Nouri");
-                    String body = "Download this app now :" + "\n\n" + "";
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Stay Safe app (Covid-19 tracker)" + "\n\nDeveloped by Aimene Nouri");
+                    String body = "Hey, download this app now :" + "\n\n" + "https://appsenjoy.com/files/f79e7fc23202a9bc45508c50f82b23b7.apk";
                     i.putExtra(Intent.EXTRA_TEXT, body);
                     startActivity(Intent.createChooser(i, "Share App via :"));
 
@@ -154,11 +130,13 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        //change_language
-        change_language.setOnClickListener(new View.OnClickListener() {
+        //donate
+        donate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //showChangeLanguageDialog();
+                Intent intent = new Intent(Settings.this, Donate_me.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
             }
         });
 
@@ -179,6 +157,32 @@ public class Settings extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
             }
         });
+    }
+
+    private void showDialog(){
+        final Dialog dialog = new Dialog(Settings.this);
+        dialog.setContentView(R.layout.logout_dialog);
+        dialog.setCancelable(true);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Button cancel = dialog.findViewById(R.id.cancel);
+        Button logout = dialog.findViewById(R.id.logout_button);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                sendUserToLoginActivity();
+            }
+        });
+
+        dialog.show();
     }
 
     private void sendUserToLoginActivity() {
@@ -307,6 +311,7 @@ public class Settings extends AppCompatActivity {
         //change_language = findViewById(R.id.change_language);
         give_feedback = findViewById(R.id.feedback);
         share_app = findViewById(R.id.share_app);
+        donate = findViewById(R.id.donate);
         logout = findViewById(R.id.exit);
         layout_1 = findViewById(R.id.layout_1);
         layout1 = findViewById(R.id.layout1);

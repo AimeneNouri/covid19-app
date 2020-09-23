@@ -158,8 +158,7 @@ public class Register extends AppCompatActivity {
         AlreadyHaveAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent homeIntent = new Intent(Register.this, Login.class);
-                startActivity(homeIntent);
+                onBackPressed();
             }
         });
     }
@@ -249,7 +248,7 @@ public class Register extends AppCompatActivity {
     }
 
     private void sendUserToHome() {
-        Intent homeIntent = new Intent(Register.this, MainActivity.class);
+        Intent homeIntent = new Intent(Register.this, profile_setting.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(homeIntent);
         finish();

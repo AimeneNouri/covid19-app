@@ -121,4 +121,12 @@
     <string name="feedback_advice">"Du helfen uns, die Qualität unserer Dienstleistungen zu verbessern "</string>
     <string name="logout">Ausloggen</string>
     <string name="Logout">Ausloggen</string>
+    <string name="self_checkup1">"Selbstkontrolle "</string>
+    <string name="self_checkup2">auf covid 19</string>
+    <string name="update">"Aktualisieren "</string>
+    <string name="sureLogout">"Möchten Sie sich abmelden? "</string>
+    <string name="Logout1">Ausloggen</string>
+    <string name="Logout2">Ausloggen</string>
+    <string name="privacyPolicy">"Datenschutz-Bestimmungen "</string>
+    <string name="support">"Unterstütze uns "</string>
 </resources>

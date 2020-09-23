@@ -185,7 +185,7 @@ public class home extends Fragment {
     }*/
 
     private String getDate(long milliSecond){
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, dd MMM yyyy hh:mm:ss aaa");
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss");
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSecond);

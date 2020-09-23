@@ -49,7 +49,7 @@
     <string name="no">Non</string>
     <string name="current_password">"Mot de passe actuel "</string>
     <string name="new_Password">"Nouveau mot de passe "</string>
-    <string name="reset_password">"réinitialiser le mot de passe "</string>
+    <string name="reset_password">"Réinitialiser Mot de passe "</string>
     <string name="reset_successfully">"Votre mot de passe a été réinitialisé avec succès "</string>
     <string name="password_reset">"Réinitialisation du mot de passe "</string>
     <string name="ok">Ok</string>
@@ -121,4 +121,12 @@
     <string name="feedback_advice">"Vous nous aidez à améliorer la qualité de nos services "</string>
     <string name="Logout">"Se déconnecter "</string>
     <string name="logout">"Se déconnecter "</string>
+    <string name="self_checkup1">"Auto-contrôle "</string>
+    <string name="self_checkup2">pour covid 19</string>
+    <string name="update">Mettre à jour</string>
+    <string name="sureLogout">"Êtes-vous sûr de vouloir vous déconnecter? "</string>
+    <string name="Logout1">"Se déconnecter "</string>
+    <string name="Logout2">"Se déconnecter "</string>
+    <string name="privacyPolicy">"Politique de confidentialité "</string>
+    <string name="support">"Soutenez-nous "</string>
 </resources>

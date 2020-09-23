@@ -25,80 +25,87 @@
         android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity"
         tools:replace="android:supportsRtl">
-        <activity android:name=".activities.News_Details_activity"
-            android:theme="@style/AppTheme.detail_news"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activities.SettingsItems.Donate_me"
+            android:theme="@style/AppTheme.Countries"></activity>
+        <activity
+            android:name=".activities.test_covid"
+            android:theme="@style/AppTheme.Main" />
+        <activity
+            android:name=".activities.profile_setting"
+            android:theme="@style/AppTheme.Countries" />
+        <activity
+            android:name=".activities.News_Details_activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.detail_news" />
         <activity
             android:name=".activities.SettingsItems.Give_Feedback"
-            android:theme="@style/AppTheme.Countries"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.DetailActivity"
-            android:theme="@style/AppTheme.Countries"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.User_country"
-            android:theme="@style/AppTheme.Countries"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.SettingsItems.EditProfile"
-            android:theme="@style/AppTheme.Countries"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.SettingsItems.Change_password"
-            android:theme="@style/AppTheme.Countries"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.Settings"
-            android:theme="@style/AppTheme.Countries"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.Countries"
-            android:theme="@style/AppTheme.Countries"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Countries" />
         <activity
             android:name=".activities.onboard.stayHome"
-            android:theme="@style/AppTheme.Splash"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.onboard.onboardFaceMask"
-            android:theme="@style/AppTheme.Splash"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.onboard.onboardCleanHand"
-            android:theme="@style/AppTheme.Splash"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.onboard.onboardCloseContact"
-            android:theme="@style/AppTheme.Splash"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.Main"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Main" />
         <activity
             android:name=".activities.Login"
-            android:theme="@style/AppTheme.Splash"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.Register"
-            android:theme="@style/AppTheme.Splash"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash" />
         <activity
             android:name=".activities.SplashScreen"
-            android:theme="@style/AppTheme.Splash"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-
     </application>
 
 </manifest>

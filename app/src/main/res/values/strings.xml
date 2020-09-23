@@ -135,5 +135,18 @@
     <string name="change_language">Change Language</string>
     <string name="logout">Logout</string>
     <string name="Logout">"Logout "</string>
+    <string name="self_checkup1">Self Check up</string>
+    <string name="self_checkup2">for Covid19</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="update">Update</string>
+    <string name="sureLogout">Are you sure you want to Log out?</string>
+    <string name="Logout1">Log out</string>
+    <string name="Logout2">Log Out?</string>
+    <string name="privacyPolicy">Privacy Policy</string>
+    <string name="donate" translatable="false">Donate</string>
+    <string name="buyMeCoffee" translatable="false">Buy me Coffee</string>
+    <string name="support">Support us</string>
 
 </resources>

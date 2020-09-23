@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -46,6 +48,9 @@ public class Country extends Fragment implements SwipeRefreshLayout.OnRefreshLis
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
+    private ImageView Sad_ico;
+    private TextView textView;
+
     public Country (){};
 
     @Nullable
@@ -56,6 +61,8 @@ public class Country extends Fragment implements SwipeRefreshLayout.OnRefreshLis
         recyclerView = countryView.findViewById(R.id.recycler_news_country);
         progressBar = countryView.findViewById(R.id.progressBar);
         swipeRefreshLayout = countryView.findViewById(R.id.swipe_refresh_layout);
+        Sad_ico = countryView.findViewById(R.id.No_request);
+        textView = countryView.findViewById(R.id.textView);
 
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.white);
@@ -83,23 +90,33 @@ public class Country extends Fragment implements SwipeRefreshLayout.OnRefreshLis
 
                     JSONArray jsonArray = jsonObject.getJSONArray("articles");
 
-                    for (int i=0; i<jsonArray.length(); i++){
+                    if (!jsonArray.isNull(0)) {
 
-                        JSONObject object = jsonArray.getJSONObject(i);
+                        for (int i=0; i<jsonArray.length(); i++){
 
-                        News news = new News();
-                        news.setAuthor(object.getString("author"));
-                        news.setTitle(object.getString("title"));
-                        news.setDescription(object.getString("description"));
-                        news.setUrl(object.getString("url"));
-                        news.setImage(object.getString("urlToImage"));
-                        news.setPublishDate(object.getString("publishedAt"));
-                        news.setContent(object.getString("content"));
+                            if (jsonArray.length() > 0) {
 
-                        JSONObject object1 = object.getJSONObject("source");
-                        news.setSourceName(object1.getString("name"));
+                                JSONObject object = jsonArray.getJSONObject(i);
 
-                        newsList.add(news);
+                                News news = new News();
+                                news.setAuthor(object.getString("author"));
+                                news.setTitle(object.getString("title"));
+                                news.setDescription(object.getString("description"));
+                                news.setUrl(object.getString("url"));
+                                news.setImage(object.getString("urlToImage"));
+                                news.setPublishDate(object.getString("publishedAt"));
+                                news.setContent(object.getString("content"));
+
+                                JSONObject object1 = object.getJSONObject("source");
+                                news.setSourceName(object1.getString("name"));
+
+                                newsList.add(news);
+                            }
+                        }
+                    }else {
+                        recyclerView.setVisibility(View.INVISIBLE);
+                        textView.setVisibility(View.VISIBLE);
+                        Sad_ico.setVisibility(View.VISIBLE);
                     }
 
                 } catch (Exception e) {

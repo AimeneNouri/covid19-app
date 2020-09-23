@@ -1,6 +1,7 @@
 package me.app.covid19.fragments;
 
 import android.Manifest;
+import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,9 +26,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import me.app.covid19.R;
+import me.app.covid19.activities.test_covid;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +39,8 @@ public class infoFragment extends Fragment {
 
     private View InfoView;
     Button alloYakkada, alloSamu;
+
+    private RelativeLayout relativeLayout;
 
     private int REQUEST_CALL = 1;
 
@@ -54,6 +59,15 @@ public class infoFragment extends Fragment {
 
         alloYakkada = InfoView.findViewById(R.id.alloYakkada);
         alloSamu = InfoView.findViewById(R.id.alloSamu);
+        relativeLayout = InfoView.findViewById(R.id.test_covid);
+
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(getContext(), test_covid.class);
+                //startActivity(intent);
+            }
+        });
 
         alloYakkada.setOnClickListener(new View.OnClickListener() {
             @Override

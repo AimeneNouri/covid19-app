@@ -28,23 +28,6 @@
                 android:clickable="true"
                 android:elevation="5dp">
 
-                <!--<RelativeLayout
-                    android:id="@+id/corona"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/circle">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/corona"/>
-
-                </RelativeLayout>-->
-
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/corona"
                     android:layout_width="60dp"
@@ -103,7 +86,7 @@
                 android:id="@+id/call_layout"
                 android:layout_below="@+id/test_covid"
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -192,7 +175,7 @@
                 android:id="@+id/symptoms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/symptoms"
                 android:textSize="20dp"
                 android:layout_alignParentLeft="true"
@@ -220,6 +203,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10sp"
                         android:layout_marginTop="14dp">
 
                         <RelativeLayout
@@ -228,7 +212,7 @@
                             android:layout_height="95dp"
                             android:layout_marginTop="35dp"
                             android:background="@drawable/background4"
-                            android:elevation="5dp"
+                            android:elevation="2dp"
                             android:layout_marginBottom="5dp">
 
                             <TextView
@@ -268,7 +252,7 @@
                             android:layout_height="95dp"
                             android:layout_marginTop="35dp"
                             android:background="@drawable/background4"
-                            android:elevation="5dp"
+                            android:elevation="2dp"
                             android:layout_marginBottom="5dp">
 
                             <TextView
@@ -309,7 +293,7 @@
                             android:layout_marginTop="35dp"
                             android:background="@drawable/background4"
                             android:layout_marginBottom="5dp"
-                            android:elevation="5dp">
+                            android:elevation="2dp">
 
                             <TextView
                                 android:id="@+id/soreText"
@@ -340,6 +324,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
                         android:layout_marginTop="13dp">
 
                         <RelativeLayout
@@ -347,7 +332,7 @@
                             android:layout_width="100dp"
                             android:layout_height="95dp"
                             android:layout_marginTop="35dp"
-                            android:elevation="5dp"
+                            android:elevation="2dp"
                             android:layout_marginBottom="5dp"
                             android:background="@drawable/background4">
 
@@ -383,7 +368,7 @@
                 android:id="@+id/prevention"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/prevention"
                 android:textSize="20dp"
                 android:layout_alignParentLeft="true"
@@ -441,8 +426,8 @@
                         app:lottie_rawRes="@raw/wear_mask"
                         android:layout_centerVertical="true"
                         android:background="@drawable/intersection"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="false"
                         />
 
                 </RelativeLayout>
@@ -490,8 +475,8 @@
                         app:lottie_rawRes="@raw/washhands"
                         android:layout_centerVertical="true"
                         android:background="@drawable/intersection"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="false"
                         />
 
                 </RelativeLayout>
@@ -529,7 +514,8 @@
                         android:layout_toEndOf="@+id/image3"
                         android:fontFamily="@font/exo2regular"
                         android:layout_marginTop="5dp"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginStart="2dp"
                         android:layout_marginBottom="5dp"
                         android:text="@string/keep_your_hands_away_from_your_eyes_nose_and_mouth_why_touching_the_mucous_membranes_on_your_face_with_your_dirty_hands_allows_germs_that_cause_respiratory_infections_to_enter_the_body" />
 
@@ -537,11 +523,11 @@
                         android:id="@+id/image3"
                         android:layout_width="130dp"
                         android:layout_height="150dp"
-                        app:lottie_rawRes="@raw/dont_touch_face"
+                        app:lottie_rawRes="@raw/no_smoke"
                         android:layout_centerVertical="true"
                         android:background="@drawable/intersection"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="false"
                         />
 
                 </RelativeLayout>
@@ -589,8 +575,8 @@
                         app:lottie_rawRes="@raw/no_smoke"
                         android:layout_centerVertical="true"
                         android:background="@drawable/intersection"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="false"
                         />
 
                 </RelativeLayout>
@@ -638,8 +624,8 @@
                         app:lottie_rawRes="@raw/social_distance"
                         android:layout_centerVertical="true"
                         android:background="@drawable/intersection"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="false"
                         />
 
                 </RelativeLayout>
@@ -687,8 +673,8 @@
                         app:lottie_rawRes="@raw/stay_home"
                         android:layout_centerVertical="true"
                         android:background="@drawable/intersection"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="false"
                         />
 
                 </RelativeLayout>
