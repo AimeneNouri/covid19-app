@@ -19,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/backButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="34.5dp"
+                android:layout_height="34.5dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="5dp"
@@ -123,77 +123,86 @@
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/case_form">
 
-                        <ImageView
-                            android:id="@+id/icon_stocks1"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_marginTop="4sp"
-                            android:layout_marginStart="35dp"
-                            android:layout_toEndOf="@+id/layout3"
-                            android:src="@drawable/cases_stocks"/>
-
-                        <TextView
-                            android:id="@+id/total_cases_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/total_cases"
-                            android:fontFamily="@font/exobold"
-                            android:gravity="center"
-                            android:text="@string/confirmed"
-                            android:elevation="2dp"
-                            android:layout_alignStart="@+id/total_cases"
-                            android:textAllCaps="true"
-                            android:alpha=".89"
-                            android:layout_marginBottom="5dp"
-                            android:textColor="#32354E"
-                            android:textSize="11sp" />
-
-                        <TextView
-                            android:id="@+id/total_cases"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:fontFamily="@font/exo2semibold"
-                            android:text="1,649,156"
-                            android:elevation="2dp"
-                            android:textAlignment="center"
-                            android:textColor="#FF8748"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10sp"
-                            android:layout_below="@+id/layout3"
-                            android:textSize="28dp" />
-
                         <RelativeLayout
-                            android:id="@+id/layout3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:padding="5dp"
-                            android:layout_alignStart="@+id/total_cases"
-                            android:elevation="1dp"
-                            android:background="@drawable/cases_background">
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true">
 
                             <ImageView
-                                android:id="@+id/icon_cases"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1.5dp"
-                                android:layout_marginEnd="1dp"
-                                android:src="@drawable/upward_cases"/>
+                                android:id="@+id/icon_stocks1"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="4sp"
+                                android:layout_marginStart="35dp"
+                                android:layout_toEndOf="@+id/layout3"
+                                android:src="@drawable/cases_stocks"/>
 
                             <TextView
-                                android:id="@+id/today_cases"
+                                android:id="@+id/total_cases_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/exo2semibold"
-                                android:text="200"
-                                android:textSize="11sp"
-                                android:layout_toEndOf="@+id/icon_cases"
-                                android:layout_centerVertical="true"
+                                android:layout_below="@+id/total_cases"
+                                android:fontFamily="@font/exobold"
                                 android:gravity="center"
-                                android:textColor="#FF8748"
+                                android:text="@string/confirmed"
+                                android:elevation="2dp"
+                                android:layout_alignStart="@+id/total_cases"
+                                android:textAllCaps="true"
+                                android:alpha=".89"
+                                android:layout_marginBottom="5dp"
+                                android:textColor="#32354E"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/total_cases"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/exo2semibold"
+                                android:text="1,649,156"
+                                android:elevation="2dp"
+                                android:alpha=".9"
                                 android:textAlignment="center"
-                                />
+                                android:textColor="#FF8748"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10sp"
+                                android:layout_below="@+id/layout3"
+                                android:textSize="28dp" />
+
+                            <RelativeLayout
+                                android:id="@+id/layout3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:padding="5dp"
+                                android:layout_alignStart="@+id/total_cases"
+                                android:elevation="1dp"
+                                android:background="@drawable/cases_background">
+
+                                <ImageView
+                                    android:id="@+id/icon_cases"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="1.5dp"
+                                    android:layout_marginEnd="1dp"
+                                    android:src="@drawable/upward_cases"/>
+
+                                <TextView
+                                    android:id="@+id/today_cases"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/exo2semibold"
+                                    android:text="200"
+                                    android:textSize="11sp"
+                                    android:layout_toEndOf="@+id/icon_cases"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="center"
+                                    android:textColor="#FF8748"
+                                    android:textAlignment="center"
+                                    />
+                            </RelativeLayout>
+
                         </RelativeLayout>
 
                     </RelativeLayout>
@@ -211,7 +220,7 @@
                         android:layout_width="150dp"
                         android:padding="10sp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="20dp"
                         android:layout_marginBottom="10dp"
@@ -255,6 +264,7 @@
                             android:textColor="#0E9508"
                             android:layout_marginTop="10sp"
                             android:layout_below="@+id/layout2"
+                            android:alpha=".9"
                             android:textSize="28dp" />
 
                         <RelativeLayout
@@ -297,7 +307,7 @@
                         android:layout_width="150dp"
                         android:padding="10sp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="10dp"
@@ -339,6 +349,7 @@
                             android:elevation="2dp"
                             android:textAlignment="center"
                             android:textColor="#FF0000"
+                            android:alpha=".9"
                             android:layout_marginTop="10sp"
                             android:layout_below="@+id/layout4"
                             android:textSize="28dp" />
@@ -393,7 +404,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:elevation="2dp"
                         android:layout_marginBottom="10sp"
                         android:background="@drawable/critical_form">
@@ -423,6 +434,7 @@
                             android:textAlignment="center"
                             android:textColor="#DA00FF"
                             android:layout_marginTop="63dp"
+                            android:alpha=".9"
                             android:textSize="28dp" />
 
                     </RelativeLayout>
@@ -434,7 +446,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginEnd="20dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:elevation="2dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/active_form">
@@ -464,6 +476,7 @@
                             android:textAlignment="center"
                             android:textColor="#2196F3"
                             android:layout_marginTop="63dp"
+                            android:alpha=".9"
                             android:textSize="28dp" />
 
                     </RelativeLayout>
@@ -471,10 +484,70 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/layout_3"
                     android:layout_below="@+id/layout_2"
                     android:layout_width="match_parent"
-                    android:layout_marginBottom="25dp"
-                    android:layout_marginTop="5sp"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/daily_confirmed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="5dp"
+                        android:elevation="2dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/daily_confirmed_form">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5sp"
+                            android:padding="8sp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="17sp"
+                                android:text="@string/daily_confirmed_cases"
+                                android:fontFamily="@font/exo2semibold"
+                                android:textColor="#32354E"
+                                android:alpha=".89"/>
+
+                            <TextView
+                                android:id="@+id/daily_confirmed_cases"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15sp"
+                                android:text="2180"
+                                android:textSize="24sp"
+                                android:fontFamily="@font/exobold"
+                                android:textColor="@color/colorPrimary"
+                                android:alpha=".9"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:layout_marginTop="15sp"
+                                android:text="@string/per_million_population"
+                                android:fontFamily="@font/exo2semibold"
+                                android:textColor="#32354E"
+                                android:alpha=".6"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_below="@+id/layout_3"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="15dp"
                     android:layout_height="wrap_content">
 
                     <LinearLayout
@@ -493,7 +566,7 @@
                         <org.eazegraph.lib.charts.PieChart
                             android:id="@+id/piechart"
                             android:layout_width="0dp"
-                            android:layout_height="150dp"
+                            android:layout_height="140dp"
                             android:padding="6dp"
                             android:layout_weight="1"
                             android:layout_marginTop="10dp"
@@ -510,13 +583,13 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="15dp"
+                                android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
                                 <androidx.cardview.widget.CardView
                                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                     android:layout_width="15dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="15dp"
                                     card_view:cardBackgroundColor="@color/white"
                                     card_view:cardCornerRadius="3dp"
                                     card_view:cardElevation="0dp">
@@ -532,21 +605,24 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/total_cases"
-                                    android:paddingStart="10sp"
+                                    android:layout_marginStart="10sp"
+                                    android:fontFamily="@font/exo2semibold"
+                                    android:textColor="#32354E"
+                                    android:alpha=".8"
                                     />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="15dp"
+                                android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
                                 android:layout_marginTop="10sp">
 
                                 <androidx.cardview.widget.CardView
                                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                     android:layout_width="15dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="15dp"
                                     card_view:cardBackgroundColor="@color/white"
                                     card_view:cardCornerRadius="3dp"
                                     card_view:cardElevation="0dp">
@@ -562,21 +638,24 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/recovered"
-                                    android:paddingStart="10sp"
+                                    android:layout_marginStart="10sp"
+                                    android:fontFamily="@font/exo2semibold"
+                                    android:textColor="#32354E"
+                                    android:alpha=".8"
                                     />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="15dp"
+                                android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
                                 android:layout_marginTop="10sp">
 
                                 <androidx.cardview.widget.CardView
                                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                     android:layout_width="15dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="15dp"
                                     card_view:cardBackgroundColor="@color/white"
                                     card_view:cardCornerRadius="3dp"
                                     card_view:cardElevation="0dp">
@@ -592,22 +671,25 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/death"
-                                    android:paddingStart="10sp"
+                                    android:layout_marginStart="10sp"
+                                    android:fontFamily="@font/exo2semibold"
                                     android:textAllCaps="false"
+                                    android:textColor="#32354E"
+                                    android:alpha=".8"
                                     />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="15dp"
+                                android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
                                 android:layout_marginTop="10sp">
 
                                 <androidx.cardview.widget.CardView
                                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                     android:layout_width="15dp"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="15dp"
                                     card_view:cardBackgroundColor="@color/white"
                                     card_view:cardCornerRadius="3dp"
                                     card_view:cardElevation="0dp">
@@ -623,8 +705,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/activeCase"
-                                    android:paddingStart="10sp"
+                                    android:layout_marginStart="10sp"
+                                    android:fontFamily="@font/exo2semibold"
                                     android:textAllCaps="false"
+                                    android:textColor="#32354E"
+                                    android:alpha=".8"
                                     />
 
                             </LinearLayout>

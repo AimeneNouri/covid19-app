@@ -2,8 +2,12 @@ package me.app.covid19.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -52,17 +56,19 @@ import me.app.covid19.adapters.AdapterCountries;
 import me.app.covid19.models.Country;
 import retrofit2.http.Url;
 
-public class User_country extends AppCompatActivity {
+public class User_country extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
 
     private String currentUserId;
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef;
     PieChart pieChart;
 
-    private static String countryCode = "";
-    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, total_Critical, text5;
+    private static String countryCode = "", countryName = "";
+    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, total_Critical, text5, daily_confirmed_cases;
     private ImageView countryFlag, backButton;
     RelativeLayout relativeLayout1, relativeLayout2;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +77,14 @@ public class User_country extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("CODE", Context.MODE_PRIVATE);
         countryCode = sharedPreferences.getString("countryCode", "");
+        countryName = sharedPreferences.getString("countryName", "");
 
         Initialisation();
         fetchData();
+
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.white);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
 
         relativeLayout1.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         backButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
@@ -110,11 +121,13 @@ public class User_country extends AppCompatActivity {
         relativeLayout2 = findViewById(R.id.layout1);
         backButton = findViewById(R.id.backButton);
         text5 = findViewById(R.id.text5);
+        daily_confirmed_cases = findViewById(R.id.daily_confirmed_cases);
         pieChart = findViewById(R.id.piechart);
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
     }
 
     private void fetchData() {
-        String api_url = "https://disease.sh/v3/covid-19/countries/" + countryCode;
+        String api_url = "https://disease.sh/v3/covid-19/countries/" + countryCode.toLowerCase();
 
         StringRequest request = new StringRequest(Request.Method.GET, api_url, new Response.Listener<String>() {
             @Override
@@ -131,6 +144,7 @@ public class User_country extends AppCompatActivity {
                     String todayDeath = jsonObject.getString("todayDeaths");
                     String todayRecovered = jsonObject.getString("todayRecovered");
                     String critical = jsonObject.getString("critical");
+                    String daily_cases_confirmed = jsonObject.getString("casesPerOneMillion");
                     long updated = jsonObject.getLong("updated");
 
                     JSONObject object = jsonObject.getJSONObject("countryInfo");
@@ -146,6 +160,7 @@ public class User_country extends AppCompatActivity {
                     today_recovered.setText(formatter.format(Double.parseDouble(todayRecovered)));
                     today_deaths.setText(formatter.format(Double.parseDouble(todayDeath)));
                     total_active.setText(formatter.format(Double.parseDouble(active)));
+                    daily_confirmed_cases.setText(formatter.format(Double.parseDouble(daily_cases_confirmed)));
                     lastUpdate.setText(getDate(updated));
                     total_Critical.setText(formatter.format(Double.parseDouble(critical)));
 
@@ -154,7 +169,6 @@ public class User_country extends AppCompatActivity {
                     pieChart.addPieSlice(new PieModel("Deaths", Integer.parseInt(deaths), Color.parseColor("#EF5350")));
                     pieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#29B6F6")));
                     pieChart.startAnimation();
-
 
 
                 } catch (JSONException e) {
@@ -179,5 +193,75 @@ public class User_country extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSecond);
         return formatter.format(calendar.getTime());
+    }
+
+    @Override
+    public void onRefresh() {
+        onLoadingSwipeRefresh();
+    }
+
+    private void onLoadingSwipeRefresh(){
+        swipeRefreshLayout.post(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        String api_url = "https://disease.sh/v3/covid-19/countries/" + countryCode;
+                        swipeRefreshLayout.setRefreshing(true);
+
+                        StringRequest request = new StringRequest(Request.Method.GET, api_url, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response.toString());
+
+                                    String country = jsonObject.getString("country");
+                                    String cases = jsonObject.getString("cases");
+                                    String deaths = jsonObject.getString("deaths");
+                                    String recovered = jsonObject.getString("recovered");
+                                    String active = jsonObject.getString("active");
+                                    String todayCase = jsonObject.getString("todayCases");
+                                    String todayDeath = jsonObject.getString("todayDeaths");
+                                    String todayRecovered = jsonObject.getString("todayRecovered");
+                                    String critical = jsonObject.getString("critical");
+                                    String daily_cases_confirmed = jsonObject.getString("casesPerOneMillion");
+                                    long updated = jsonObject.getLong("updated");
+
+                                    JSONObject object = jsonObject.getJSONObject("countryInfo");
+                                    String country_flag = object.getString("flag");
+
+                                    DecimalFormat formatter = new DecimalFormat("###,###,##0");
+                                    countryNam.setText(country);
+                                    Picasso.get().load(country_flag).into(countryFlag);
+                                    total_cases.setText(formatter.format(Double.parseDouble(cases)));
+                                    total_deaths.setText(formatter.format(Double.parseDouble(deaths)));
+                                    total_recovered.setText(formatter.format(Double.parseDouble(recovered)));
+                                    today_cases.setText(formatter.format(Double.parseDouble(todayCase)));
+                                    today_recovered.setText(formatter.format(Double.parseDouble(todayRecovered)));
+                                    today_deaths.setText(formatter.format(Double.parseDouble(todayDeath)));
+                                    total_active.setText(formatter.format(Double.parseDouble(active)));
+                                    daily_confirmed_cases.setText(formatter.format(Double.parseDouble(daily_cases_confirmed)));
+                                    lastUpdate.setText(getDate(updated));
+                                    total_Critical.setText(formatter.format(Double.parseDouble(critical)));
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                swipeRefreshLayout.setRefreshing(false);
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                swipeRefreshLayout.setRefreshing(false);
+                                Toast.makeText(User_country.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                        requestQueue.add(request);
+                    }
+                }
+        );
     }
 }

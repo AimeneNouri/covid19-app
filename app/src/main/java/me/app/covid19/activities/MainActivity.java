@@ -214,6 +214,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             SharedPreferences sharedPreferences = getSharedPreferences("CODE", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("countryCode", CountryCode);
+            editor.putString("countryName", CountryName);
             editor.apply();
 
         } catch (IOException e) {

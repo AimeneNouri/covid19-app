@@ -26,13 +26,16 @@
         tools:ignore="LockedOrientationActivity"
         tools:replace="android:supportsRtl">
         <activity android:name=".activities.SettingsItems.Donate_me"
-            android:theme="@style/AppTheme.Countries"></activity>
+            android:theme="@style/AppTheme.Countries"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".activities.test_covid"
-            android:theme="@style/AppTheme.Main" />
+            android:theme="@style/AppTheme.Main"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.profile_setting"
-            android:theme="@style/AppTheme.Countries" />
+            android:theme="@style/AppTheme.Countries"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.News_Details_activity"
             android:screenOrientation="portrait"

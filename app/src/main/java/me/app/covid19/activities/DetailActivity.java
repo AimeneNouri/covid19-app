@@ -30,7 +30,7 @@ import me.app.covid19.models.Utils;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, text5, total_Critical;
+    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, text5, total_Critical, daily_confirmed_cases;
     private ImageView country_flag, backButton;
     PieChart pieChart;
 
@@ -64,6 +64,7 @@ public class DetailActivity extends AppCompatActivity {
         relativeLayout2 = findViewById(R.id.layout1);
         backButton = findViewById(R.id.backButton);
         text5 = findViewById(R.id.text5);
+        daily_confirmed_cases = findViewById(R.id.daily_confirmed_cases);
         pieChart = findViewById(R.id.piechart);
 
         relativeLayout1.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
@@ -89,6 +90,7 @@ public class DetailActivity extends AppCompatActivity {
         total_recovered.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getRecovered())));
         total_active.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getActive())));
         total_Critical.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getCritical())));
+        daily_confirmed_cases.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getCasesPerOneMillion())));
         lastUpdate.setText(getDate(Countries.countryList.get(positionId).getLastUpdate()));
         Picasso.get().load(Countries.countryList.get(positionId).getFlag()).into(country_flag);
 

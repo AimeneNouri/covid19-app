@@ -11,12 +11,13 @@ public class Country{
     private String todayRecovered;
     private String active;
     private String critical;
+    private String casesPerOneMillion;
     private long lastUpdate;
 
     public Country() {
     }
 
-    public Country(String flag, String country, int cases, String todayCases, String deaths, String todayDeaths, String recovered, String todayRecovered, String active, String critical, long lastUpdate) {
+    public Country(String flag, String country, int cases, String todayCases, String deaths, String todayDeaths, String recovered, String todayRecovered, String active, String critical, String casesPerOneMillion, long lastUpdate) {
         this.flag = flag;
         this.country = country;
         this.cases = cases;
@@ -27,6 +28,7 @@ public class Country{
         this.todayRecovered = todayRecovered;
         this.active = active;
         this.critical = critical;
+        this.casesPerOneMillion = casesPerOneMillion;
         this.lastUpdate = lastUpdate;
     }
 
@@ -108,6 +110,14 @@ public class Country{
 
     public void setCritical(String critical) {
         this.critical = critical;
+    }
+
+    public String getCasesPerOneMillion() {
+        return casesPerOneMillion;
+    }
+
+    public void setCasesPerOneMillion(String casesPerOneMillion) {
+        this.casesPerOneMillion = casesPerOneMillion;
     }
 
     public long getLastUpdate() {

@@ -65,9 +65,7 @@ public class Countries extends AppCompatActivity{
         layout = findViewById(R.id.country_totalCases);
         layout1 = findViewById(R.id.layout1);
         today_date = findViewById(R.id.today_date);
-        //search_button = findViewById(R.id.search_button);
 
-        //search_button.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         relativeLayout.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         layout1.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         CountryView.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_droit));
@@ -82,6 +80,23 @@ public class Countries extends AppCompatActivity{
 
         fetchData();
         fetchLastUpdate();
+
+        search_field.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
     }
 
@@ -145,6 +160,7 @@ public class Countries extends AppCompatActivity{
                             country.setActive(CountryObject.getString("active").toString());
                             country.setCritical(CountryObject.getString("critical").toString());
                             country.setLastUpdate(CountryObject.getLong("updated"));
+                            country.setCasesPerOneMillion(CountryObject.getString("casesPerOneMillion").toString());
 
                             JSONObject object = CountryObject.getJSONObject("countryInfo");
                             country.setFlag(object.getString("flag"));

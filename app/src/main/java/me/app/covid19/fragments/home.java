@@ -1,5 +1,6 @@
 package me.app.covid19.fragments;
 
+import android.animation.ValueAnimator;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
@@ -219,6 +220,7 @@ public class home extends Fragment {
                     TodayRecovered.setText(formatter.format(Double.parseDouble(todayRecovered)));
                     lastUpdate.setText(getDate(jsonObject.getLong("updated")));
 
+                    animateTextView(0, Integer.parseInt(cases), AllCases);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -234,5 +236,19 @@ public class home extends Fragment {
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(request);
+    }
+
+    public void animateTextView(int initialValue, int finalValue, final TextView  textview) {
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(initialValue, finalValue);
+        valueAnimator.setDuration(2000);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                DecimalFormat formatter = new DecimalFormat("###,###,##0");
+                textview.setText(formatter.format(Double.parseDouble(valueAnimator.getAnimatedValue().toString())));
+            }
+        });
+        valueAnimator.start();
+
     }
 }
