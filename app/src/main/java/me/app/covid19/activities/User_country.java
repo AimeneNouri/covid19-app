@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +34,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,9 +57,10 @@ public class User_country extends AppCompatActivity {
     private String currentUserId;
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef;
+    PieChart pieChart;
 
     private static String countryCode = "";
-    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, total_Critical;
+    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, total_Critical, text5;
     private ImageView countryFlag, backButton;
     RelativeLayout relativeLayout1, relativeLayout2;
 
@@ -75,6 +79,7 @@ public class User_country extends AppCompatActivity {
         backButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         relativeLayout2.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
         lastUpdate.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
+        text5.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +109,8 @@ public class User_country extends AppCompatActivity {
         relativeLayout1 = findViewById(R.id.layout);
         relativeLayout2 = findViewById(R.id.layout1);
         backButton = findViewById(R.id.backButton);
+        text5 = findViewById(R.id.text5);
+        pieChart = findViewById(R.id.piechart);
     }
 
     private void fetchData() {
@@ -139,8 +146,16 @@ public class User_country extends AppCompatActivity {
                     today_recovered.setText(formatter.format(Double.parseDouble(todayRecovered)));
                     today_deaths.setText(formatter.format(Double.parseDouble(todayDeath)));
                     total_active.setText(formatter.format(Double.parseDouble(active)));
-                    lastUpdate.setText("Last Update at " + getDate(updated));
+                    lastUpdate.setText(getDate(updated));
                     total_Critical.setText(formatter.format(Double.parseDouble(critical)));
+
+                    pieChart.addPieSlice(new PieModel("Cases", Integer.parseInt(cases), Color.parseColor("#FFA726")));
+                    pieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(recovered), Color.parseColor("#66BB6A")));
+                    pieChart.addPieSlice(new PieModel("Deaths", Integer.parseInt(deaths), Color.parseColor("#EF5350")));
+                    pieChart.addPieSlice(new PieModel("Active", Integer.parseInt(active), Color.parseColor("#29B6F6")));
+                    pieChart.startAnimation();
+
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -159,7 +174,7 @@ public class User_country extends AppCompatActivity {
     }
 
     private String getDate(long milliSecond){
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm aaa");
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm aaa");
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSecond);

@@ -129,4 +129,5 @@
     <string name="Logout2">Ausloggen</string>
     <string name="privacyPolicy">"Datenschutz-Bestimmungen "</string>
     <string name="support">"Unterstütze uns "</string>
+    <string name="last_update_at">"Aktualisiert am "</string>
 </resources>

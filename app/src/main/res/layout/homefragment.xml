@@ -249,6 +249,7 @@
                             android:gravity="center"
                             android:text="@string/death"
                             android:elevation="2dp"
+                            android:textAllCaps="true"
                             android:alpha=".89"
                             android:layout_below="@+id/DeathCases"
                             android:textColor="#32354E"
@@ -299,6 +300,7 @@
                             android:fontFamily="@font/exobold"
                             android:text="@string/activeCase"
                             android:textColor="#32354E"
+                            android:textAllCaps="true"
                             android:layout_below="@+id/ActiveCase"
                             android:alpha=".89"
                             android:layout_marginBottom="10sp"
@@ -480,6 +482,7 @@
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/exobold"
                             android:text="@string/death"
+                            android:textAllCaps="true"
                             android:textColor="#32354E"
                             android:alpha=".89"
                             android:textSize="15sp" />

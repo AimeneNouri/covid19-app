@@ -12,4 +12,9 @@
     <color name="transparent">@android:color/transparent</color>
     <color name="colorTextSubtitle">#4e4e4e</color>
     <color name="colorTextTitle">#262626</color>
+
+    <color name="cases">#FFA726</color>
+    <color name="recovered">#0E9508</color>
+    <color name="deaths">#EF5350</color>
+    <color name="active">#29B6F6</color>
 </resources>

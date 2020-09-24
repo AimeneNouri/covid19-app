@@ -3,6 +3,7 @@ package me.app.covid19.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
 import org.ocpsoft.prettytime.PrettyTime;
 
 import java.text.DecimalFormat;
@@ -27,10 +30,15 @@ import me.app.covid19.models.Utils;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, total_Critical;
+    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, text5, total_Critical;
     private ImageView country_flag, backButton;
+    PieChart pieChart;
 
     private int positionId;
+    private int TotalCases;
+    private String TotalRecovered;
+    private String TotalDeaths;
+    private String TotalActive;
     RelativeLayout relativeLayout1, relativeLayout2;
 
     @Override
@@ -55,11 +63,14 @@ public class DetailActivity extends AppCompatActivity {
         relativeLayout1 = findViewById(R.id.layout);
         relativeLayout2 = findViewById(R.id.layout1);
         backButton = findViewById(R.id.backButton);
+        text5 = findViewById(R.id.text5);
+        pieChart = findViewById(R.id.piechart);
 
         relativeLayout1.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         backButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
         relativeLayout2.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_droit));
         lastUpdate.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
+        text5.setAnimation(AnimationUtils.loadAnimation(this, R.anim.top_anim));
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,12 +89,24 @@ public class DetailActivity extends AppCompatActivity {
         total_recovered.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getRecovered())));
         total_active.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getActive())));
         total_Critical.setText(formatter.format(Double.parseDouble(Countries.countryList.get(positionId).getCritical())));
-        lastUpdate.setText("Last Update at " + getDate(Countries.countryList.get(positionId).getLastUpdate()));
+        lastUpdate.setText(getDate(Countries.countryList.get(positionId).getLastUpdate()));
         Picasso.get().load(Countries.countryList.get(positionId).getFlag()).into(country_flag);
+
+        TotalCases = Countries.countryList.get(positionId).getCases();
+        TotalActive = Countries.countryList.get(positionId).getActive();
+        TotalDeaths = Countries.countryList.get(positionId).getDeaths();
+        TotalRecovered = Countries.countryList.get(positionId).getRecovered();
+
+        pieChart.addPieSlice(new PieModel("Cases", TotalCases, Color.parseColor("#FFA726")));
+        pieChart.addPieSlice(new PieModel("Recovered", Integer.parseInt(TotalRecovered), Color.parseColor("#66BB6A")));
+        pieChart.addPieSlice(new PieModel("Deaths", Integer.parseInt(TotalDeaths), Color.parseColor("#EF5350")));
+        pieChart.addPieSlice(new PieModel("Active", Integer.parseInt(TotalActive), Color.parseColor("#29B6F6")));
+        pieChart.startAnimation();
+
     }
 
     private String getDate(long milliSecond){
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm aaa");
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm aaa");
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSecond);

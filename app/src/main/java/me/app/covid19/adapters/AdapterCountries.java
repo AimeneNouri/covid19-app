@@ -70,6 +70,7 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
                 intent.putExtra("position", position);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 holder.itemView.getContext().startActivity(intent);
             }
         });

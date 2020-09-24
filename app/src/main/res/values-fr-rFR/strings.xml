@@ -129,4 +129,5 @@
     <string name="Logout2">"Se déconnecter "</string>
     <string name="privacyPolicy">"Politique de confidentialité "</string>
     <string name="support">"Soutenez-nous "</string>
+    <string name="last_update_at">"Mis à jour à "</string>
 </resources>

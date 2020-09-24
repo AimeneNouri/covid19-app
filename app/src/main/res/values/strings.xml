@@ -18,8 +18,8 @@
 
     <!--home fragment-->
     <string name="worldCases">Worldwide Cases </string>
-    <string name="death">DEATHS </string>
-    <string name="activeCase">ACTIVE</string>
+    <string name="death">Deaths</string>
+    <string name="activeCase">Active</string>
     <string name="closeCase">RECOVERED</string>
     <string name="critical">Critical</string>
 
@@ -148,5 +148,6 @@
     <string name="donate" translatable="false">Donate</string>
     <string name="buyMeCoffee" translatable="false">Buy me Coffee</string>
     <string name="support">Support us</string>
+    <string name="last_update_at">Updated at</string>
 
 </resources>
