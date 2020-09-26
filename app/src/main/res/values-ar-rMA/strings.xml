@@ -130,4 +130,9 @@
     <string name="privacyPolicy">سياسة خاصة</string>
     <string name="support">ادعمنا</string>
     <string name="last_update_at">"تم التحديث في "</string>
+    <string name="daily_confirmed_cases">"الحالات المؤكدة اليومية "</string>
+    <string name="per_million_population">"لكل مليون نسمة "</string>
+    <string name="newUpdate">"تحديث جديد حول Covid-19  "</string>
+    <string name="view_interactive_map">"عرض الخريطة التفاعلية "</string>
+    <string name="mycountry">بلدي</string>
 </resources>

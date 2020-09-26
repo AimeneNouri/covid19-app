@@ -152,5 +152,8 @@
     <string name="daily_confirmed_cases">Daily Confirmed Cases</string>
     <string name="per_million_population">"Per Million Population  "</string>
     <string name="newUpdate">"New Update about Covid-19 in "</string>
+    <string name="view_interactive_map">View interactive map</string>
+    <string name="mycountry">My country</string>
+    <string name="map">Map</string>
 
 </resources>

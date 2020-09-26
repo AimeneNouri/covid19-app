@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stay safe app</title>
+    <style>
+    body {
+      margin: 0;
+    }
+    .map {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<div id="map" class="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgP2g1fXvH2P9KxVbBb6sfpZcdnungYzg"></script>
+<script type="module">
+
+    const $map = document.querySelector('#map')
+    const map = new window.google.maps.Map($map, {
+      center: {
+        lat: 0,
+        lng: 0
+      },
+      zoom: 1.5,
+      styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+    })
+    renderData()
+    async function getData() {
+      const response = await fetch('https://wuhan-coronavirus-api.laeyoung.endpoint.ainize.ai/jhu-edu/latest')
+      const data = await response.json()
+      return data
+    }
+    function renderExtraData({ confirmed, deaths, recovered, provincestate, countryregion }) {
+      return (`
+        <div>
+          <p> <strong>${provincestate} - ${countryregion}</strong> </p>
+          <p> Confirmed: ${confirmed} </p>
+          <p> Deaths: ${deaths} </p>
+          <p> Recovered: ${recovered} </p>
+        </div>
+      `)
+    }
+    const icon = './icon.png'
+    const popup = new window.google.maps.InfoWindow()
+    async function renderData() {
+      const data = await getData()
+      data.forEach(item => {
+        const marker = new window.google.maps.Marker({
+          position: {
+            lat: item.location.lat,
+            lng: item.location.lng,
+          },
+          map,
+          icon,
+          title: String(item.confirmed),
+        })
+        marker.addListener('click', () => {
+          popup.setContent(renderExtraData(item))
+          popup.open(map, marker)
+        })
+      })
+    }
+  </script>
+
+</body>
+</html>

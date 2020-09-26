@@ -10,6 +10,10 @@
         android:icon="@drawable/statistic_icon"
         android:title="@string/statistic" />
 
+    <item android:id="@+id/map"
+        android:icon="@drawable/map_icon"
+        android:title="@string/map" />
+
     <item android:id="@+id/news"
         android:icon="@drawable/news_icon"
         android:title="@string/news" />

@@ -35,6 +35,11 @@
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
     </style>
 
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
     <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog"/>
 
     <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">

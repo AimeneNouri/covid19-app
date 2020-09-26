@@ -511,7 +511,7 @@
                 android:layout_below="@+id/sort"
                 android:layout_marginTop="7dp"
                 android:layout_marginStart="10dp"
-                android:elevation="3dp"
+                android:elevation="2dp"
                 android:background="@drawable/statistic_world_background1"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="15dp"
@@ -669,6 +669,26 @@
                 </RelativeLayout>
 
             </RelativeLayout>
+
+            <!--<Button
+                android:id="@+id/map_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:elevation="5dp"
+                android:text="@string/view_interactive_map"
+                app:cornerRadius="20dp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/colorPrimary"
+                android:background="@drawable/button_next"
+                app:icon="@drawable/icon_location" />-->
 
         </RelativeLayout>
 

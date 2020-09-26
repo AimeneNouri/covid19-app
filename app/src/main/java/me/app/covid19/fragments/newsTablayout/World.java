@@ -137,7 +137,7 @@ public class World extends Fragment implements SwipeRefreshLayout.OnRefreshListe
                 new Runnable() {
                     @Override
                     public void run() {
-                        String url = "http://newsapi.org/v2/everything?domains=who.int,news-medical.net,medicalnewstoday.com,medscape.com,health.com,medicalxpress.com,medscape.com,medicalnewstoday.com&language=en&apiKey=" + Constants.API_KEY;
+                        String url = "http://newsapi.org/v2/everything?domains=who.int,news-medical.net,medicalnewstoday.com,medscape.com,health.com,medicalxpress.com,medscape.com,medicalnewstoday.com&language="+ language +"&apiKey=" + Constants.API_KEY;
                         swipeRefreshLayout.setRefreshing(true);
 
                         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

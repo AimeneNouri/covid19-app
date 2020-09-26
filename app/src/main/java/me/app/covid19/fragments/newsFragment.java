@@ -69,8 +69,11 @@ public class newsFragment extends Fragment {
     public void SetUpViewPager (ViewPager viewPage){
         MyViewPagerAdapter adapter = new MyViewPagerAdapter(getChildFragmentManager());
 
-        adapter.AddFragmentPage(new World(), "World");
-        adapter.AddFragmentPage(new Country(), "Country");
+        String worldTitle = getString(R.string.world);
+        String countryTitle = getString(R.string.mycountry);
+
+        adapter.AddFragmentPage(new World(), worldTitle);
+        adapter.AddFragmentPage(new Country(), countryTitle);
 
         viewPage.setAdapter(adapter);
     }

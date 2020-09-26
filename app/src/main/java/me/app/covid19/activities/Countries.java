@@ -35,6 +35,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import me.app.covid19.R;
 import me.app.covid19.adapters.AdapterCountries;
@@ -45,7 +46,7 @@ public class Countries extends AppCompatActivity{
 
     RecyclerView  CountryView;
     Country country;
-    AdapterCountries adapterCountries;
+    private AdapterCountries adapterCountries;
     public static List<Country> countryList = new ArrayList<>();
     private TextView today_date;
 
@@ -94,7 +95,8 @@ public class Countries extends AppCompatActivity{
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                String text = search_field.getText().toString().toLowerCase(Locale.getDefault());
+                adapterCountries.filter(text);
             }
         });
 

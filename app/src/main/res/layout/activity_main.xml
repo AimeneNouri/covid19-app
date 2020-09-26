@@ -8,7 +8,6 @@
     android:background="#F8F8FF"
     tools:context=".activities.MainActivity">
 
-
     <View
         android:id="@id/view"
         android:layout_width="wrap_content"

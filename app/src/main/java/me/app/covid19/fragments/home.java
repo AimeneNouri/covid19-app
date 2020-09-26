@@ -186,7 +186,7 @@ public class home extends Fragment {
     }*/
 
     private String getDate(long milliSecond){
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE, dd MMM yyyy HH:mm:ss");
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSecond);
@@ -240,7 +240,7 @@ public class home extends Fragment {
 
     public void animateTextView(int initialValue, int finalValue, final TextView  textview) {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(initialValue, finalValue);
-        valueAnimator.setDuration(2000);
+        valueAnimator.setDuration(1500);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {

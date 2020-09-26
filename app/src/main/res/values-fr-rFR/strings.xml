@@ -130,4 +130,9 @@
     <string name="privacyPolicy">"Politique de confidentialité "</string>
     <string name="support">"Soutenez-nous "</string>
     <string name="last_update_at">"Mis à jour à "</string>
+    <string name="daily_confirmed_cases">"Cas confirmés quotidiennement "</string>
+    <string name="per_million_population">"Par million d'habitants "</string>
+    <string name="newUpdate">"Nouvelle mise à jour sur Covid-19 dans "</string>
+    <string name="view_interactive_map">"Afficher la carte interactive "</string>
+    <string name="mycountry">"Mon pays "</string>
 </resources>

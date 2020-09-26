@@ -43,6 +43,7 @@ import java.util.Locale;
 import me.app.covid19.R;
 import me.app.covid19.fragments.home;
 import me.app.covid19.fragments.infoFragment;
+import me.app.covid19.fragments.map_fragment;
 import me.app.covid19.fragments.newsFragment;
 import me.app.covid19.fragments.statisticFragment;
 
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private infoFragment infoFragment;
     private newsFragment newsFragment;
     private statisticFragment statisticFragment;
+    private map_fragment map_fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         newsFragment = new newsFragment();
         infoFragment = new infoFragment();
         statisticFragment = new statisticFragment();
+        map_fragment = new map_fragment();
 
         setFragment(home);
 
@@ -96,6 +99,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
                     case R.id.news:
                         setFragment(newsFragment);
+                        return true;
+
+                    case R.id.map:
+                        setFragment(map_fragment);
                         return true;
 
                     case R.id.info:
