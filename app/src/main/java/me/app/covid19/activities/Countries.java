@@ -85,7 +85,8 @@ public class Countries extends AppCompatActivity{
         search_field.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                String text = search_field.getText().toString().toLowerCase(Locale.getDefault());
+                adapterCountries.Filter(text);
             }
 
             @Override
@@ -95,8 +96,7 @@ public class Countries extends AppCompatActivity{
 
             @Override
             public void afterTextChanged(Editable s) {
-                String text = search_field.getText().toString().toLowerCase(Locale.getDefault());
-                adapterCountries.filter(text);
+
             }
         });
 

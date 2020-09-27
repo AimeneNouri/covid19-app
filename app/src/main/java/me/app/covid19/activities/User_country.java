@@ -50,6 +50,7 @@ import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import me.app.covid19.R;
 import me.app.covid19.adapters.AdapterCountries;
@@ -63,8 +64,8 @@ public class User_country extends AppCompatActivity implements SwipeRefreshLayou
     private DatabaseReference RootRef;
     PieChart pieChart;
 
-    private static String countryCode = "", countryName = "";
-    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, total_Critical, text5, daily_confirmed_cases;
+    private static String countryCode = "", countryName = "", countryIso = "";
+    private TextView countryNam, total_cases, total_recovered, total_deaths, today_cases, today_recovered, today_deaths, total_active, lastUpdate, total_Critical, text5, daily_confirmed_cases, fatality_rate;
     private ImageView countryFlag, backButton;
     RelativeLayout relativeLayout1, relativeLayout2;
 
@@ -78,8 +79,10 @@ public class User_country extends AppCompatActivity implements SwipeRefreshLayou
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("CODE", Context.MODE_PRIVATE);
         countryCode = sharedPreferences.getString("countryCode", "");
         countryName = sharedPreferences.getString("countryName", "");
+        countryIso = Locale.getDefault().getISO3Country();
 
         Initialisation();
+        fetchData2();
         fetchData();
 
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -124,10 +127,11 @@ public class User_country extends AppCompatActivity implements SwipeRefreshLayou
         daily_confirmed_cases = findViewById(R.id.daily_confirmed_cases);
         pieChart = findViewById(R.id.piechart);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
+        fatality_rate = findViewById(R.id.fatality_rate);
     }
 
     private void fetchData() {
-        String api_url = "https://disease.sh/v3/covid-19/countries/" + countryCode.toLowerCase();
+        String api_url = "https://disease.sh/v3/covid-19/countries/" + countryIso;
 
         StringRequest request = new StringRequest(Request.Method.GET, api_url, new Response.Listener<String>() {
             @Override
@@ -187,6 +191,53 @@ public class User_country extends AppCompatActivity implements SwipeRefreshLayou
         requestQueue.add(request);
     }
 
+    private void fetchData2() {
+        String url = "https://covid-api.com/api/reports?iso=" + countryIso;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+
+                    if (!jsonArray.isNull(0)) {
+
+                        for (int i=0; i<jsonArray.length(); i++){
+
+                            if (jsonArray.length() > 0) {
+
+                                JSONObject object = jsonArray.getJSONObject(i);
+
+                                double fatalityRate = object.getDouble("fatality_rate");
+                                int hundred = 100;
+
+                                double fatality = fatalityRate * hundred;
+
+                                fatality_rate.setText(Double.toString(fatality));
+                            }
+                        }
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(User_country.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(User_country.this);
+        requestQueue.add(stringRequest);
+    }
+
+
     private String getDate(long milliSecond){
         SimpleDateFormat formatter = new SimpleDateFormat("hh:mm aaa");
 
@@ -205,7 +256,7 @@ public class User_country extends AppCompatActivity implements SwipeRefreshLayou
                 new Runnable() {
                     @Override
                     public void run() {
-                        String api_url = "https://disease.sh/v3/covid-19/countries/" + countryCode;
+                        String api_url = "https://disease.sh/v3/covid-19/countries/" + countryIso;
                         swipeRefreshLayout.setRefreshing(true);
 
                         StringRequest request = new StringRequest(Request.Method.GET, api_url, new Response.Listener<String>() {

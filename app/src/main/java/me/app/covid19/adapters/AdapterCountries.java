@@ -28,6 +28,7 @@ import com.squareup.picasso.Picasso;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import me.app.covid19.R;
 import me.app.covid19.activities.Countries;
@@ -39,11 +40,14 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
     LayoutInflater layoutInflater;
     List<Country> countryList;
     Context context;
+    ArrayList<Country> countryArrayList;
 
     public AdapterCountries(Context context, List<Country> countryList){
         this.layoutInflater = LayoutInflater.from(context);
         this.countryList = countryList;
         this.context = context;
+        this.countryArrayList = new ArrayList<Country>();
+        this.countryArrayList.addAll(countryList);
     }
 
     @NonNull
@@ -81,7 +85,6 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
         return countryList.size();
     }
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView country_flag;
@@ -97,5 +100,20 @@ public class AdapterCountries extends RecyclerView.Adapter<AdapterCountries.View
             country_total_cases = itemView.findViewById(R.id.country_total_cases);
             country_today_cases = itemView.findViewById(R.id.country_today_cases);
         }
+    }
+
+    public void Filter(String countryName){
+        countryName = countryName.toLowerCase(Locale.getDefault());
+        countryList.clear();
+        if (countryName.length() == 0) {
+            countryList.addAll(countryArrayList);
+        }else {
+            for (Country cl : countryArrayList){
+                if (cl.getCountry().toLowerCase(Locale.getDefault()).contains(countryName)){
+                    countryList.add(cl);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 }

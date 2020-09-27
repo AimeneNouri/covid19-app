@@ -63,7 +63,6 @@ public class World extends Fragment implements SwipeRefreshLayout.OnRefreshListe
         swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.white);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
 
-
         language = Locale.getDefault().getLanguage();
 
         fetchData();

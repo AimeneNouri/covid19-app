@@ -97,8 +97,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="3dp"
                     android:layout_below="@+id/layout"
-                    android:alpha=".7"
-                    android:layout_marginStart="2dp" />
+                    android:alpha=".7" />
 
                 <RelativeLayout
                     android:id="@+id/layout1"
@@ -128,7 +127,7 @@
                             <org.eazegraph.lib.charts.PieChart
                                 android:id="@+id/piechart"
                                 android:layout_width="0dp"
-                                android:layout_height="140dp"
+                                android:layout_height="110dp"
                                 android:padding="6dp"
                                 android:layout_weight="1"
                                 android:layout_marginTop="10dp"
@@ -483,16 +482,18 @@
                             android:background="@drawable/chart_form">
 
                             <ImageView
-                                android:layout_width="100sp"
-                                android:layout_height="130sp"
+                                android:layout_width="80sp"
+                                android:layout_height="70dp"
                                 android:layout_alignParentEnd="true"
                                 android:background="@drawable/path8"
+                                android:layout_alignParentBottom="true"
                                 android:elevation="1dp"/>
 
                             <ImageView
-                                android:layout_width="100sp"
-                                android:layout_height="130dp"
+                                android:layout_width="80sp"
+                                android:layout_height="70dp"
                                 android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
                                 android:elevation="1dp"
                                 android:background="@drawable/path9"/>
 
@@ -641,7 +642,6 @@
                         android:id="@+id/layout_2"
                         android:layout_below="@+id/layout_1"
                         android:layout_width="match_parent"
-                        android:layout_marginBottom="10sp"
                         android:layout_height="wrap_content">
 
                         <RelativeLayout
@@ -725,6 +725,69 @@
                                 android:layout_marginTop="63dp"
                                 android:alpha=".9"
                                 android:textSize="28dp" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/chart2"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/layout_2"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginBottom="25dp">
+
+                        <RelativeLayout
+                            android:id="@+id/Chart2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/chart_form"
+                            android:padding="30dp"
+                            android:layout_marginBottom="10sp"
+                            android:elevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/fatality_rate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/total_cases"
+                                    android:textSize="20sp"
+                                    android:layout_gravity="center_vertical"
+                                    android:fontFamily="@font/exo2semibold"
+                                    android:textColor="@color/colorPrimary"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/percentage"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginEnd="50dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="@drawable/percentage_icon"
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fatality_rate"
+                                    android:textSize="21sp"
+                                    android:fontFamily="@font/exo2semibold"
+                                    android:layout_gravity="center_vertical"
+                                    android:textColor="#32354E"
+                                    android:alpha=".8"
+                                    />
+
+                            </LinearLayout>
 
                         </RelativeLayout>
 

@@ -155,5 +155,6 @@
     <string name="view_interactive_map">View interactive map</string>
     <string name="mycountry">My country</string>
     <string name="map">Map</string>
+    <string name="fatality_rate">"Fatality Rate "</string>
 
 </resources>
