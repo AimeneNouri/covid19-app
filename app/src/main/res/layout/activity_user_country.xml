@@ -25,17 +25,18 @@
                     android:id="@+id/backButton"
                     android:layout_width="34.5dp"
                     android:layout_height="34.5dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="8dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/close"
+                    android:background="@drawable/chevron_icon2"
                     />
 
                 <RelativeLayout
                     android:id="@+id/layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/backButton"
                     android:layout_marginStart="20dp">
 
                     <TextView
@@ -479,29 +480,13 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginBottom="10dp"
                             android:elevation="2dp"
-                            android:background="@drawable/chart_form">
-
-                            <ImageView
-                                android:layout_width="80sp"
-                                android:layout_height="70dp"
-                                android:layout_alignParentEnd="true"
-                                android:background="@drawable/path8"
-                                android:layout_alignParentBottom="true"
-                                android:elevation="1dp"/>
-
-                            <ImageView
-                                android:layout_width="80sp"
-                                android:layout_height="70dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentBottom="true"
-                                android:elevation="1dp"
-                                android:background="@drawable/path9"/>
+                            android:padding="5sp"
+                            android:background="@drawable/daily_cases_form">
 
                             <RelativeLayout
                                 android:id="@+id/daily_confirmed"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/chart_form">
+                                android:layout_height="wrap_content">
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -516,7 +501,6 @@
                                         android:text="@string/daily_confirmed_cases"
                                         android:fontFamily="@font/exo2semibold"
                                         android:textColor="#32354E"
-                                        android:elevation="2dp"
                                         android:alpha=".89"/>
 
                                     <TextView
@@ -539,7 +523,6 @@
                                         android:text="@string/per_million_population"
                                         android:fontFamily="@font/exo2semibold"
                                         android:textColor="#32354E"
-                                        android:elevation="2dp"
                                         android:alpha=".6"/>
 
                                 </LinearLayout>
@@ -760,7 +743,7 @@
                                     android:id="@+id/fatality_rate"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/total_cases"
+                                    android:text=""
                                     android:textSize="20sp"
                                     android:layout_gravity="center_vertical"
                                     android:fontFamily="@font/exo2semibold"
@@ -771,7 +754,7 @@
                                     android:id="@+id/percentage"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
-                                    android:layout_marginEnd="50dp"
+                                    android:layout_marginEnd="20dp"
                                     android:layout_gravity="center_vertical"
                                     android:background="@drawable/percentage_icon"
                                     />
@@ -780,7 +763,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/fatality_rate"
-                                    android:textSize="21sp"
+                                    android:textSize="19sp"
                                     android:fontFamily="@font/exo2semibold"
                                     android:layout_gravity="center_vertical"
                                     android:textColor="#32354E"

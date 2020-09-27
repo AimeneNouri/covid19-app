@@ -135,4 +135,6 @@
     <string name="newUpdate">"Nouvelle mise à jour sur Covid-19 dans "</string>
     <string name="view_interactive_map">"Afficher la carte interactive "</string>
     <string name="mycountry">"Mon pays "</string>
+    <string name="fatality_rate">"Taux de mortalité "</string>
+    <string name="map">Map</string>
 </resources>
