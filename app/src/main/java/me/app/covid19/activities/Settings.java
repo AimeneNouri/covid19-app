@@ -96,7 +96,7 @@ public class Settings extends AppCompatActivity {
                     Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("text/plain");
                     i.putExtra(Intent.EXTRA_SUBJECT, "Stay Safe app (Covid-19 tracker)" + "\n\nDeveloped by Aimene Nouri");
-                    String body = "Hey, download this app now :" + "\n\n" + "https://appsenjoy.com/files/f79e7fc23202a9bc45508c50f82b23b7.apk";
+                    String body = "Hey, download this app now :" + "\n\n" + "https://staysafeapp.netlify.app/";
                     i.putExtra(Intent.EXTRA_TEXT, body);
                     startActivity(Intent.createChooser(i, "Share App via :"));
 
